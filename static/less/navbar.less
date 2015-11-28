@@ -1,0 +1,29 @@
+.navbar-x(@navbar-color, @navbar-background-color) {
+  background-color: @navbar-background-color;
+  height: @navbar-height;
+  box-shadow: @base-box-shadow;
+
+  & > .navbar-list > li {
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+
+    & > a {
+      color: @navbar-color;
+    }
+    &:hover, &:focus, &:active {
+      & when(@navbar-color = @navbar-color) {
+        background-color: darken(@navbar-background-color, @base-change)
+      }
+      & when(@navbar-color = @navbar-inverse-color) {
+        background-color: darken(@navbar-background-color, @base-change)
+      }
+    }
+  }
+}
+.navbar {
+  .navbar-x(@navbar-color, @navbar-background-color);
+}
+.navbar-inverse {
+  .navbar-x(@navbar-inverse-color, @navbar-inverse-background-color);
+}

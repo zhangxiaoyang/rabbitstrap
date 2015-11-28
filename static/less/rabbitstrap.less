@@ -4,65 +4,31 @@
  * Licensed under MIT
  */
 
-// Basic configuration
-@import "variables.less";
+/*
+ * Normalization
+ */
 @import "normalize.less";
+@import "reset.less";
 
 
-html, body {
-  color: @base-color;
-  font-size: @base-font-size;
-}
+/*
+ * Global Configuration
+ */
+@import "variables.less";
 
 
-.container {
-  width: @container-width;
-  margin: auto;
-}
-
-.block {
-  padding: @base-padding;
-  background-color: @base-background-color;
-  border-radius: @block-border-radius;
-  box-shadow: @base-box-shadow;
-}
-
-.logo(@logo-size) {
-  width: @logo-size;
-  height: @logo-size;
-  background-color: @base-background-color-disabled;
-  border-radius: @logo-border-radius;
-  display: inline-block;
-}
-.logo {
-  .logo(@logo-size)
-}
-.logo-sm {
-  .logo(@logo-size-sm)
-}
-.logo-lg {
-  .logo(@logo-size-lg)
-}
+/*
+ * Basic CSS
+ */
+@import "h.less";
+@import "container.less";
+@import "block.less";
+@import "button.less";
 
 
-.btn(@btn-padding; @btn-font-size) {
-  padding: @btn-padding;
-  border: @base-border;
-  background-color: @base-background-color;
-  font-size: @btn-font-size;
-  box-shadow: @btn-box-shadow;
-  border-radius: @block-border-radius;
-
-  &:hover, &:focus, &:active {
-    background-color: darken(@base-background-color, @base-change)
-  }
-}
-.btn {
-  .btn(@btn-padding, @base-font-size)
-}
-.btn-sm {
-  .btn(@btn-padding-sm, @base-font-size-sm)
-}
-.btn-lg {
-  .btn(@btn-padding-lg, @base-font-size-lg)
-}
+/*
+ * Components
+ */
+@import "navbar.less";
+@import "logo.less";
+@import "card.less";

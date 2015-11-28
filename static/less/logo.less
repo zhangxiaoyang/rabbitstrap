@@ -1,0 +1,16 @@
+.logo(@logo-size) {
+  width: @logo-size;
+  height: @logo-size;
+  background-color: @base-background-color-disabled;
+  border-radius: @logo-border-radius;
+  display: inline-block;
+}
+.logo {
+  .logo(@logo-size)
+}
+.logo-sm {
+  .logo(@logo-size-sm)
+}
+.logo-lg {
+  .logo(@logo-size-lg)
+}
