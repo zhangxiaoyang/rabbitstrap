@@ -1,0 +1,27 @@
+.rs-lines-x(@x) {
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  height: @base-font-size * @base-line-height * @x;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @x;
+  -webkit-box-orient: vertical;
+}
+.rs-lines-1 {
+  .rs-lines-x(1);
+}
+.rs-lines-2 {
+  .rs-lines-x(2);
+}
+.rs-lines-3 {
+  .rs-lines-x(3);
+}
+.rs-lines-4 {
+  .rs-lines-x(4);
+}
+.rs-lines-5 {
+  .rs-lines-x(5);
+}
+.rs-lines-6 {
+  .rs-lines-x(6);
+}

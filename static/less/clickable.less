@@ -1,0 +1,8 @@
+.rs-clickable {
+  cursor: pointer;
+  color: @clickable-color;
+
+  &:hover, &:focus, &:active {
+    color: darken(@clickable-color, @base-change);
+  }
+}

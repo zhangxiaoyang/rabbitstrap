@@ -1,29 +1,40 @@
 /*
  * Basic CSS
  */
-
 // Base
+@base-border-color: #eee;
 @base-background-color: white;
-@base-background-color-disabled: #eee;
 @base-box-shadow: rgba(0, 0, 0, .2) 0px 0px 2px 0px;
-@base-border: 1px solid #ccc;
+@base-border: 1px solid @base-border-color;
 @base-font-size: 14px;
 @base-font-size-sm: 12px;
 @base-font-size-lg: 16px;
 @base-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 @base-font-weight: 500;
-@base-color: #333;
+@base-line-height: 1.4;
 @base-padding: 10px;
-@base-change: 1%;
+@base-change: 8%;
+@base-color: #333;
+@base-theme-color: #4579d8;
+@base-border-radius: 3px;
 
-// H
-//
+/*
+ * A
+ */
+// Align
+// ...
 
-// Container
-@container-width: 920px;
-
+/*
+ * B
+ */
 // Block
-@block-border-radius: 3px;
+@block-border-radius: @base-border-radius;
+
+// Brand
+@brand-color: white;
+@brand-background-color: @base-theme-color;
+@brand-border-radius: @base-border-radius;
+@brand-padding: 1px 2px;
 
 // Button
 @btn-padding: 6px 12px;
@@ -31,17 +42,40 @@
 @btn-padding-lg: 10px 16px;
 @btn-box-shadow: rgba(0, 0, 0, .1) 0px 1px 2px 0px;
 
+/*
+ * C
+ */
+// Card
+@card-padding: 10px;
+
+// Clickable
+@clickable-color: @base-theme-color;
+
+// Container
+@container-width: 920px;
 
 /*
- * Components
+ * F
  */
+// Font
+@font-size: @base-font-size;
+@font-size-sm: @base-font-size-sm;
+@font-size-lg: @base-font-size-lg;
 
-// Navbar
-@navbar-color: @base-color;
-@navbar-inverse-color: white;
-@navbar-background-color: rgba(255, 255, 255, .8);
-@navbar-inverse-background-color: rgba(0, 0, 0, .8);
-@navbar-height: 48px;
+// H
+@import "h-n.less";
+
+// Hr
+@hr-border: 1px solid @base-border-color;
+
+/*
+ * L
+ */
+// Lighten
+@lighten-color: grey;
+
+// Lines-n
+// ...
 
 // Logo
 @logo-size: 50px;
@@ -49,5 +83,21 @@
 @logo-size-lg: 92px;
 @logo-border-radius: 50%;
 
-// Card
-//
+/*
+ * N
+ */
+// Navbar
+@navbar-color: @base-color;
+@navbar-inverse-color: white;
+@navbar-background-color: rgba(255, 255, 255, .8);
+@navbar-inverse-background-color: rgba(0, 0, 0, .8);
+@navbar-height: 48px;
+@navbar-margin: 0 0 10px 0;
+
+
+/*
+ * Quote
+ */
+@quote-background-color: @base-border-color;
+@quote-padding: 5px;
+@quote-border-radius: @base-border-radius;

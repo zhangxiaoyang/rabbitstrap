@@ -1,9 +1,10 @@
-.navbar-x(@navbar-color, @navbar-background-color) {
+.rs-navbar-x(@navbar-color, @navbar-background-color) {
   background-color: @navbar-background-color;
   height: @navbar-height;
   box-shadow: @base-box-shadow;
+  margin: @navbar-margin;
 
-  & > .navbar-list > li {
+  & > .rs-navbar-list > li {
     display: inline-block;
     padding: 15px;
     cursor: pointer;
@@ -21,9 +22,9 @@
     }
   }
 }
-.navbar {
-  .navbar-x(@navbar-color, @navbar-background-color);
+.rs-navbar {
+  .rs-navbar-x(@navbar-color, @navbar-background-color);
 }
-.navbar-inverse {
-  .navbar-x(@navbar-inverse-color, @navbar-inverse-background-color);
+.rs-navbar-inverse {
+  .rs-navbar-x(@navbar-inverse-color, @navbar-inverse-background-color);
 }
