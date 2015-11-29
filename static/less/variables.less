@@ -13,7 +13,9 @@
 @base-font-weight: 500;
 @base-line-height: 1.4;
 @base-padding: 10px;
-@base-change: 8%;
+@base-change: 12%;
+@base-change-sm: 3%;
+@base-change-lg: 43%;
 @base-color: #333;
 @base-theme-color: #4579d8;
 @base-border-radius: 3px;
@@ -98,6 +100,6 @@
 /*
  * Quote
  */
-@quote-background-color: @base-border-color;
+@quote-background-color: lighten(@base-theme-color, @base-change-lg);
 @quote-padding: 5px;
 @quote-border-radius: @base-border-radius;

@@ -14,10 +14,10 @@
     }
     &:hover, &:focus, &:active {
       & when(@navbar-color = @navbar-color) {
-        background-color: darken(@navbar-background-color, @base-change)
+        background-color: darken(@navbar-background-color, @base-change-sm)
       }
       & when(@navbar-color = @navbar-inverse-color) {
-        background-color: darken(@navbar-background-color, @base-change)
+        background-color: darken(@navbar-background-color, @base-change-sm)
       }
     }
   }
