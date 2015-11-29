@@ -10,13 +10,9 @@
     var app = angular.module('demoApp', []);
   </script>
   <style>
-    h1, h2 {
-      border-bottom: 1px solid #ccc;
-      padding: 10px 0;
-      margin: 20px 0 10px 0;
-    }
     html, body {
-      background-color: #eee;
+      z-index: -2;
+      background-color: lightblue;
     }
     .main-card {
       margin: 0 10px 10px 0;
@@ -36,10 +32,14 @@
     .rs-brand {
       font-size: 12px;
     }
+    .rs-skin {
+      background-color: lightblue;
+    }
 
   </style>
 </head>
 <body>
+  <div class="rs-skin"></div>
   <div class="rs-navbar">
     <ul class="rs-navbar-list">
       <li><a>Home</a></li>
@@ -47,7 +47,7 @@
       <li><a>About</a></li>
     </ul>
   </div>
-  <div class="rs-container">
+  <div class="rs-container rs-frosted">
     <div class="rs-block10">
       <div class="rs-block10-7">
         <div class="rs-card main-card" ng-repeat="
