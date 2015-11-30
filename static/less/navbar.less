@@ -12,6 +12,7 @@
 
     & > a {
       color: @navbar-color;
+      text-decoration: none;
     }
     &:hover, &:focus, &:active {
       & when(@navbar-color = @navbar-color) {
@@ -27,5 +28,19 @@
   .rs-navbar-x(@navbar-color, @navbar-background-color);
 }
 .rs-navbar-inverse {
+  .rs-navbar-x(@navbar-inverse-color, @navbar-inverse-background-color);
+}
+.rs-fixed() {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+.rs-navbar-fixed {
+  .rs-fixed();
+  .rs-navbar-x(@navbar-color, @navbar-background-color);
+}
+.rs-navbar-inverse-fixed {
+  .rs-fixed();
   .rs-navbar-x(@navbar-inverse-color, @navbar-inverse-background-color);
 }

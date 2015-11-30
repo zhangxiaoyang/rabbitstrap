@@ -13,9 +13,9 @@
 @base-font-weight: 500;
 @base-line-height: 1.4;
 @base-padding: 10px;
-@base-change: 12%;
-@base-change-sm: 3%;
-@base-change-lg: 43%;
+@base-change: 14%;
+@base-change-sm: 4%;
+@base-change-lg: 40%;
 @base-color: #333;
 @base-theme-color: #4579d8;
 @base-border-radius: 3px;
@@ -33,10 +33,10 @@
 @block-border-radius: @base-border-radius;
 
 // Brand
-@brand-color: white;
-@brand-background-color: @base-theme-color;
-@brand-border-radius: @base-border-radius;
-@brand-padding: 1px 2px;
+@badge-color: white;
+@badge-background-color: @base-theme-color;
+@badge-border-radius: @base-border-radius;
+@badge-padding: 1px 3px;
 
 // Button
 @btn-padding: 6px 12px;
@@ -63,6 +63,11 @@
 @font-size: @base-font-size;
 @font-size-sm: @base-font-size-sm;
 @font-size-lg: @base-font-size-lg;
+
+// Footer
+@footer-padding: 10px;
+@footer-background-color: @base-border-color;
+@footer-color: @base-color;
 
 // Frosted
 @frosted-background-color: rgba(0, 0, 0, @base-change);
@@ -105,12 +110,21 @@
  * Q
  */
 // Quote
-@quote-background-color: lighten(@base-theme-color, @base-change-lg);
+@quote-background-color: lighten(@base-border-color, @base-change-sm);
 @quote-padding: 5px;
-@quote-border-radius: @base-border-radius;
+@quote-border: 2px solid @base-theme-color;
 
 /*
  * S
  */
 // Skin
 // ...
+
+/*
+ * T
+ */
+// Thumb
+@thumb-border: 1px solid @base-border-color;
+@thumb-border-radius: @base-border-radius;
+@thumb-hover-color: @base-theme-color;
+@thumb-padding: 2px 0 2px 0;

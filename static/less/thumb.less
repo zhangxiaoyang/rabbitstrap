@@ -1,0 +1,21 @@
+.rs-thumb {
+  text-align: center;
+  padding: @thumb-padding;
+  border-radius: @thumb-border-radius;
+  cursor: pointer;
+  border: @thumb-border;
+
+  &:hover, &:focus, &:active {
+    & * {
+      color: @thumb-hover-color;
+    }
+  }
+  & > .rs-thumb-btn {
+  }
+  & >.rs-thumb-content {
+    font-weight: bold;
+  }
+  & * {
+    font-size: @base-font-size-sm;
+  }
+}
