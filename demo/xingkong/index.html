@@ -26,6 +26,16 @@
     .rs-container {
       margin-top: 48px;
     }
+    .rs-container .rs-tabs {
+      float: right;
+    }
+    .rs-container .action > * {
+      display: inline-block;
+      padding: 10px 10px 10px 0;
+    }
+    .rs-container .action > *:last-child {
+      float: right;
+    }
     .rs-container .thumb-column {
       float: left;
       margin-right: 10px;
@@ -62,6 +72,20 @@
   <div class="rs-container rs-frosted">
     <div class="rs-block10">
       <div class="rs-block10-7">
+        <div class="rs-card main-card">
+          <select>
+            <option>全国高校</option>
+            <option>只看本校</option>
+          </select>
+          <ul class="rs-tabs">
+            <li>校园</li>
+            <li class="rs-active">考研</li>
+            <li>留学</li>
+            <li>考证</li>
+            <li>就业</li>
+            <li>实习</li>
+          </ul>
+        </div>
         <div class="rs-card main-card" ng-repeat="
           i in [
           {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
@@ -74,12 +98,12 @@
         ">
           <div class="thumb-column">
             <img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
-            <div class="rs-thumb">
-              <div class="rs-thumb-btn">赞</div>
+            <div class="rs-thumb" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
+            <div class="rs-thumb-btn">{{ like }}</div>
               <div class="rs-thumb-content">2.1k</div>
             </div>
-            <div class="rs-thumb">
-              <div class="rs-thumb-btn">赏</div>
+            <div class="rs-thumb" ng-click="award = award == '赏' ? '已赏' : '赏'" ng-init="award='赏'">
+              <div class="rs-thumb-btn">{{ award }}</div>
               <div class="rs-thumb-content">300F</div>
             </div>
           </div>
@@ -94,16 +118,26 @@
               <div class="rs-quote">
                 <div class="rs-lines-5">{{ i.desc }}</div>
               </div>
+              <div class="action">
+                <div class="rs-lighten rs-font-size-sm">发布于 5-10 14:35</div>
+                <div class="rs-lighten rs-font-size-sm">·</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable">转发</div>
+                <div class="rs-lighten rs-font-size-sm">·</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable">关注</div>
+                <div class="rs-lighten rs-font-size-sm">·</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable">转发</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable">我来回答</div>
+              </div>
             </div>
           </div>
         </div>
         <div class="rs-card main-card">
-          <div class="rs-align-center">加载更多</div>
+          <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable">加载更多</div>
         </div>
       </div>
       <div class="rs-block10-3">
         <div class="rs-card sub-card">
-          <div class="title"><strong>最新</strong></div>
+          <div class="title"><strong>最新问答</strong></div>
           <div class="main-card" ng-repeat="
             i in [
             {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
@@ -123,7 +157,7 @@
           </div>
         </div>
         <div class="rs-card sub-card">
-          <div class="title"><strong>最新</strong></div>
+          <div class="title"><strong>最热问答</strong></div>
           <div class="main-card" ng-repeat="
             i in [
             {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
@@ -146,8 +180,7 @@
     </div>
   </div>
   <div class="rs-footer">
-    <div><a href="#">AAA</div>
-    <div><a href="#">BBB</div>
+    <div><a href="#">Footer here</div>
   </div>
 </body>
 </html>
