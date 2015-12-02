@@ -1,0 +1,28 @@
+.rs-dropdown {
+  position: absolute;
+  z-index: 1000;
+  border: @dropdown-border;
+  box-shadow: @dropdown-box-shadow;
+  background-color: @dropdown-background-color;
+  border-radius: @dropdown-border-radius;
+
+  & > li,
+  & > li > a {
+    cursor: pointer;
+    text-align: center;
+    padding: @dropdown-padding;
+    min-width: @dropdown-min-width;
+    font-size: @dropdown-font-size;
+
+    &:hover, &:focus, &:active {
+      color: @dropdown-color-hover;
+      background-color: @dropdown-background-color-hover;
+    }
+  }
+}
+.rs-dropdown-target > .rs-dropdown {
+  display: none;
+}
+.rs-dropdown-target:hover > .rs-dropdown {
+  display: block;
+}
