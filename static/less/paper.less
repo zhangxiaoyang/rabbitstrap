@@ -1,0 +1,11 @@
+.rs-paper {
+  border: @paper-border;
+  border-radius: @paper-border-radius;
+  padding: @paper-padding;
+  background-color: @padding-background-color;
+  color: @padding-color;
+
+  &:hover, &:focus, &:active {
+    background-color: darken(@base-background-color, @base-change-sm)
+  }
+}

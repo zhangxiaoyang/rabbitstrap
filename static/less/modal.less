@@ -1,0 +1,32 @@
+.rs-modal-x(@modal-dialog-width) {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: @base-z-index-modal;
+  background-color: @modal-background-color;
+
+  & > .rs-modal-dialog {
+    transform: @modal-dialog-transform;
+    margin: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: @modal-dialog-background-color;
+    box-shadow: @modal-dialog-box-shadow;
+    padding: @modal-dialog-padding;
+    width: @modal-dialog-width;
+    min-height: @modal-dialog-min-height;
+    border: @modal-dialog-border;
+    border-radius: @modal-dialog-border-radius;
+  }
+}
+.rs-modal {
+  .rs-modal-x(@modal-dialog-width)
+}
+.rs-modal-sm {
+  .rs-modal-x(@modal-dialog-width-sm)
+}
+.rs-modal-lg {
+  .rs-modal-x(@modal-dialog-width-lg)
+}

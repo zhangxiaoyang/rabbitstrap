@@ -4,6 +4,9 @@
   box-shadow: @base-box-shadow;
   margin: @navbar-margin;
 
+  & > .rs-navbar-list {
+    display: inline-block;
+  }
   & > .rs-navbar-list > li {
     display: inline-block;
     padding: 15px;
@@ -34,7 +37,7 @@
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: @base-z-index-navbar;
 }
 .rs-navbar-fixed {
   .rs-fixed();

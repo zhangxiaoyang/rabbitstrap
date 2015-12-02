@@ -19,6 +19,11 @@
 @base-color: #333;
 @base-theme-color: #4579d8;
 @base-border-radius: 3px;
+@base-z-index-skin: -1;
+@base-z-index-navbar: 1;
+@base-z-index-dropdown: 1000;
+@base-z-index-modal: 500;
+@base-z-index-window: 200;
 
 /*
  * A
@@ -47,6 +52,8 @@
 @btn-padding-sm: 5px 10px;
 @btn-padding-lg: 10px 16px;
 @btn-box-shadow: rgba(0, 0, 0, .1) 0px 1px 2px 0px;
+@btn-border: 1px solid @base-border-color;
+@btn-border-radius: @block-border-radius;
 
 
 /*
@@ -99,11 +106,21 @@
 @frosted-background-color: rgba(0, 0, 0, @base-change);
 @frosted-padding: @base-padding;
 
-// H
-@import "h-n.less";
 
+/*
+ * H
+ */
 // Hr
 @hr-border: 1px solid @base-border-color;
+
+
+/*
+ * I
+ */
+// Input
+@input-border: 1px solid @base-border-color;
+@input-padding: 6px 12px;
+@input-border-radius: @base-border-radius;
 
 
 /*
@@ -123,6 +140,22 @@
 
 
 /*
+ * M
+ */
+// Modal
+@modal-background-color: rgba(0, 0, 0, @base-change-lg);
+@modal-dialog-background-color: @base-background-color;
+@modal-dialog-min-height: 100px;
+@modal-dialog-width: 600px;
+@modal-dialog-width-sm: 300px;
+@modal-dialog-width-lg: 900px;
+@modal-dialog-padding: 6px 12px;
+@modal-dialog-border: 1px solid @base-border-color;
+@modal-dialog-box-shadow: rgba(0, 0, 0, .1) 0px 1px 2px 0px;
+@modal-dialog-border-radius: @block-border-radius;
+@modal-dialog-transform: translateY(80%);
+
+/*
  * N
  */
 // Navbar
@@ -130,7 +163,7 @@
 @navbar-inverse-color: white;
 @navbar-background-color: rgba(255, 255, 255, .95);
 @navbar-inverse-background-color: rgba(0, 0, 0, .95);
-@navbar-height: 48px;
+@navbar-height: 50px;
 @navbar-margin: 0;
 
 // Notice
@@ -148,6 +181,19 @@
 @notice-padding: 6px 12px;
 @notice-border-radius: @base-border-radius;
 
+
+/*
+ * P
+ */
+// Pack
+// ...
+
+// Paper
+@paper-border: 1px solid @base-border-color;
+@paper-border-radius: 15px;
+@paper-padding: 6px 12px;
+@padding-background-color: @base-background-color;
+@padding-color: @base-color;
 
 /*
  * Q
@@ -185,3 +231,10 @@
 @thumb-border-radius: @base-border-radius;
 @thumb-hover-color: @base-theme-color;
 @thumb-padding: 2px 0 2px 0;
+
+
+/*
+ * W
+ */
+// Window
+// ...
