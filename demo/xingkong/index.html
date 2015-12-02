@@ -8,6 +8,16 @@
   <script src="/static/js/angular-1.5.0.min.js"></script>
   <script>
     var app = angular.module('demoApp', []);
+    app.controller('RootCtrl', function($scope, $interval) {
+      var flag = true;
+      $scope.notice = "有10条新的问答哦，点我查看。";
+      $interval(function() {
+        $scope.notice = flag
+          ? "有10条新的问答哦，点我查看。"
+          : "您还没有订阅标签哦！赶紧点我订阅，尊享个性化推荐。";
+        flag = !flag;
+      }, 5000);
+    });
   </script>
   <style>
     html, body {
@@ -17,10 +27,10 @@
     .rs-skin {
       background-color: lightblue;
     }
-    .main-card {
+    .rs-container .main-card {
       margin: 0 10px 10px 0;
     }
-    .sub-card {
+    .rs-container .sub-card {
       margin-bottom: 10px;
     }
     .rs-container {
@@ -28,10 +38,6 @@
     }
     .rs-container .notice {
       margin-top: 10px;
-    }
-    .rs-container .rss {
-      position: absolute;
-      height: 100%;
     }
     .rs-container .rs-tabs {
       float: right;
@@ -49,6 +55,11 @@
     .rs-container .thumb-column {
       float: left;
       margin-right: 10px;
+    }
+    .rs-container .profile ul {
+      width: 190px;
+      margin: 10px auto 0 auto;
+      overflow: hidden;
     }
     .rs-container .rs-logo-sm
     {
@@ -70,7 +81,7 @@
 
   </style>
 </head>
-<body>
+<body ng-controller="RootCtrl">
   <div class="rs-skin"></div>
   <div class="rs-navbar-fixed">
     <ul class="rs-navbar-list">
@@ -83,30 +94,19 @@
     <div class="rs-block10">
       <div class="rs-block10-7">
         <div class="rs-card main-card">
-          <div class="rs-block10">
-            <div class="rs-block10-2">
-              <select>
-                <option>全国高校</option>
-                <option>只看本校</option>
-              </select>
-            </div>
-            <div class="rs-block10-2">
-              <div class="rs-align-vertical rss">
-                <a href="#" class="rs-font-size-sm rs-clickable">订阅标签</a>
-              </div>
-            </div>
-            <div class="rs-block10-6">
-              <ul class="rs-tabs">
-                <li>校园</li>
-                <li class="rs-active">考研</li>
-                <li>留学</li>
-                <li>考证</li>
-                <li>就业</li>
-                <li>实习</li>
-              </ul>
-            </div>
-          </div>
-          <div class="notice rs-notice-primary" ng-hide="closed">有10条新的问答消息哦，点我查看<span class="rs-close" ng-click="closed=true">×</span></div>
+          <select>
+            <option>全国高校</option>
+            <option>只看本校</option>
+          </select>
+          <ul class="rs-tabs">
+            <li>校园</li>
+            <li class="rs-active">考研</li>
+            <li>留学</li>
+            <li>考证</li>
+            <li>就业</li>
+            <li>实习</li>
+          </ul>
+          <div class="notice rs-notice-primary" ng-hide="closed">{{ notice }}<span class="rs-close" ng-click="closed=true">×</span></div>
         </div>
         <div class="rs-card main-card" ng-repeat="
           i in [
@@ -163,7 +163,43 @@
         </div>
       </div>
       <div class="rs-block10-3">
-        <div class="publish rs-card sub-card rs-align-center rs-clickable">我来提问</div>
+        <div class="profile rs-card sub-card rs-align-center">
+          <div>
+            <img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+            <div class="rs-align-vertical">
+              <div>
+                <strong>Yang</strong> <div class="rs-badge">校</div>
+                <div class="rs-lines-2 rs-lighten">周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。</div>
+              </div>
+            </div>
+          </div>
+          <ul class="rs-tabs-static">
+            <li>
+              <div class="rs-thumb rs-clean-border">
+                <div class="rs-thumb-btn">F币</div>
+                <div class="rs-thumb-content">12k</div>
+              </div>
+            </li>
+            <li>
+              <div class="rs-thumb rs-clean-border">
+                <div class="rs-thumb-btn">回答</div>
+                <div class="rs-thumb-content">198</div>
+              </div>
+            </li>
+            <li>
+              <div class="rs-thumb rs-clean-border">
+                <div class="rs-thumb-btn">关注</div>
+                <div class="rs-thumb-content">40</div>
+              </div>
+            </li>
+            <li>
+              <div class="rs-thumb rs-clean-border">
+                <div class="rs-thumb-btn">粉丝</div>
+                <div class="rs-thumb-content">199</div>
+              </div>
+            </li>
+          </ul>
+        </div>
         <div class="rs-card sub-card">
           <div class="title"><strong>最新问答</strong></div>
           <div class="main-card" ng-repeat="

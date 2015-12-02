@@ -1,15 +1,9 @@
-.rs-tabs {
-  display: inline;
-
+.rs-tabs-x() {
   & > li {
     padding: @tabs-padding;
     float: left;
     border-left: @tabs-border;
-    cursor: pointer;
     
-    &:hover, &:focus, &:active {
-      background-color: darken(@base-background-color, @base-change-sm)
-    }
   }
   & > li:first-child {
     border: none;
@@ -17,4 +11,18 @@
   & > li.rs-active {
     color: @tabs-color;
   }
+}
+.rs-tabs {
+  .rs-tabs-x();
+
+  & > li {
+    cursor: pointer;
+
+    &:hover, &:focus, &:active {
+      background-color: darken(@base-background-color, @base-change-sm)
+    }
+  }
+}
+.rs-tabs-static {
+  .rs-tabs-x();
 }
