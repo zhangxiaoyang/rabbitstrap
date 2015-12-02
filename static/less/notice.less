@@ -1,0 +1,25 @@
+.rs-notice-x(@notice-background-color, @notice-color, @notice-border) {
+  background-color: @notice-background-color;
+  color: @notice-color;
+  border: @notice-border;
+  font-size: @notice-font-size;
+  box-shadow: @notice-box-shadow;
+  cursor: pointer;
+  text-align: center;
+  padding: @notice-padding;
+
+  & > .rs-close {
+    cursor: pointer;
+    float: right;
+    color: @notice-color;
+  }
+}
+.rs-notice {
+  .rs-notice-x(@notice-background-color, @notice-color, @notice-border);
+}
+.rs-notice-primary {
+  .rs-notice-x(@notice-background-color-primary, @notice-color-primary, @notice-border-primary);
+}
+.rs-notice-warning {
+  .rs-notice-x(@notice-background-color-warning, @notice-color-warning, @notice-border-warning);
+}

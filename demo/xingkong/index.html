@@ -26,12 +26,22 @@
     .rs-container {
       margin-top: 48px;
     }
+    .rs-container .notice {
+      margin-top: 10px;
+    }
+    .rs-container .rss {
+      position: absolute;
+      height: 100%;
+    }
     .rs-container .rs-tabs {
       float: right;
     }
+    .rs-container .tags > * {
+      margin-top: 10px;
+    }
     .rs-container .action > * {
       display: inline-block;
-      padding: 10px 10px 10px 0;
+      padding: 10px 10px 0 0;
     }
     .rs-container .action > *:last-child {
       float: right;
@@ -73,18 +83,30 @@
     <div class="rs-block10">
       <div class="rs-block10-7">
         <div class="rs-card main-card">
-          <select>
-            <option>全国高校</option>
-            <option>只看本校</option>
-          </select>
-          <ul class="rs-tabs">
-            <li>校园</li>
-            <li class="rs-active">考研</li>
-            <li>留学</li>
-            <li>考证</li>
-            <li>就业</li>
-            <li>实习</li>
-          </ul>
+          <div class="rs-block10">
+            <div class="rs-block10-2">
+              <select>
+                <option>全国高校</option>
+                <option>只看本校</option>
+              </select>
+            </div>
+            <div class="rs-block10-2">
+              <div class="rs-align-vertical rss">
+                <a href="#" class="rs-font-size-sm rs-clickable">订阅标签</a>
+              </div>
+            </div>
+            <div class="rs-block10-6">
+              <ul class="rs-tabs">
+                <li>校园</li>
+                <li class="rs-active">考研</li>
+                <li>留学</li>
+                <li>考证</li>
+                <li>就业</li>
+                <li>实习</li>
+              </ul>
+            </div>
+          </div>
+          <div class="notice rs-notice-primary" ng-hide="closed">有10条新的问答消息哦，点我查看<span class="rs-close" ng-click="closed=true">×</span></div>
         </div>
         <div class="rs-card main-card" ng-repeat="
           i in [
@@ -118,12 +140,17 @@
               <div class="rs-quote">
                 <div class="rs-lines-5">{{ i.desc }}</div>
               </div>
+              <div class="tags">
+                <div class="rs-badge-lighten rs-font-size-sm">IT</div>
+                <div class="rs-badge-lighten rs-font-size-sm">计算机科学</div>
+                <div class="rs-badge-lighten rs-font-size-sm">中国科学院</div>
+              </div>
               <div class="action">
                 <div class="rs-lighten rs-font-size-sm">发布于 5-10 14:35</div>
                 <div class="rs-lighten rs-font-size-sm">·</div>
-                <div class="rs-lighten rs-font-size-sm rs-clickable">转发</div>
-                <div class="rs-lighten rs-font-size-sm">·</div>
                 <div class="rs-lighten rs-font-size-sm rs-clickable">关注</div>
+                <div class="rs-lighten rs-font-size-sm">·</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable">收藏</div>
                 <div class="rs-lighten rs-font-size-sm">·</div>
                 <div class="rs-lighten rs-font-size-sm rs-clickable">转发</div>
                 <div class="rs-lighten rs-font-size-sm rs-clickable">我来回答</div>
@@ -136,6 +163,7 @@
         </div>
       </div>
       <div class="rs-block10-3">
+        <div class="publish rs-card sub-card rs-align-center rs-clickable">我来提问</div>
         <div class="rs-card sub-card">
           <div class="title"><strong>最新问答</strong></div>
           <div class="main-card" ng-repeat="

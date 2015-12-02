@@ -1,7 +1,13 @@
-.rs-badge {
+.rs-badge-x(@badge-background-color) {
   padding: @badge-padding;
   background-color: @badge-background-color;
   color: @badge-color;
   display: inline-block;
   border-radius: @badge-border-radius;
+}
+.rs-badge {
+  .rs-badge-x(@badge-background-color)
+}
+.rs-badge-lighten {
+  .rs-badge-x(lighten(@badge-background-color, @base-change))
 }
