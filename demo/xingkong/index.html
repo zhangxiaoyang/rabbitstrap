@@ -137,7 +137,7 @@
               <div class="rs-lines-1 rs-clickable">
                 <div class="rs-badge">问</div> <strong>{{ i.title }}</strong>
               </div>
-              <div class="rs-quote">
+              <div class="rs-quote rs-add-pointer">
                 <div class="rs-lines-5">{{ i.desc }}</div>
               </div>
               <div class="tags">
@@ -148,9 +148,9 @@
               <div class="action">
                 <div class="rs-lighten rs-font-size-sm">发布于 5-10 14:35</div>
                 <div class="rs-lighten rs-font-size-sm">·</div>
-                <div class="rs-lighten rs-font-size-sm rs-clickable">关注</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="attention = attention == '关注' ? '已关注' : '关注'" ng-init="attention='关注'">{{ attention }}</div>
                 <div class="rs-lighten rs-font-size-sm">·</div>
-                <div class="rs-lighten rs-font-size-sm rs-clickable">收藏</div>
+                <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="mark = mark == '收藏' ? '已收藏' : '收藏'" ng-init="mark='收藏'">{{ mark }}</div>
                 <div class="rs-lighten rs-font-size-sm">·</div>
                 <div class="rs-lighten rs-font-size-sm rs-clickable rs-dropdown-target">转发
                   <ul class="rs-dropdown">
@@ -182,25 +182,25 @@
           </div>
           <ul class="rs-tabs-static">
             <li>
-              <div class="rs-thumb rs-clean-border">
+              <div class="rs-thumb rs-remove-border">
                 <div class="rs-thumb-btn">F币</div>
                 <div class="rs-thumb-content">12k</div>
               </div>
             </li>
             <li>
-              <div class="rs-thumb rs-clean-border">
+              <div class="rs-thumb rs-remove-border">
                 <div class="rs-thumb-btn">回答</div>
                 <div class="rs-thumb-content">198</div>
               </div>
             </li>
             <li>
-              <div class="rs-thumb rs-clean-border">
+              <div class="rs-thumb rs-remove-border">
                 <div class="rs-thumb-btn">关注</div>
                 <div class="rs-thumb-content">40</div>
               </div>
             </li>
             <li>
-              <div class="rs-thumb rs-clean-border">
+              <div class="rs-thumb rs-remove-border">
                 <div class="rs-thumb-btn">粉丝</div>
                 <div class="rs-thumb-content">199</div>
               </div>
