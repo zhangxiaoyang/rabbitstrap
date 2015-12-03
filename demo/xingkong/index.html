@@ -6,6 +6,8 @@
   <link rel="stylesheet/less" href="/static/less/rabbitstrap.less">
   <script src="/static/js/less-2.5.3.min.js"></script>
   <script src="/static/js/angular-1.5.0.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script>
     var app = angular.module('demoApp', []);
     app.controller('RootCtrl', function($scope, $interval) {
@@ -25,9 +27,16 @@
       $scope.goPublishMode = function() {
         $scope.publishMode = true;
       }
-      $scope.showTagSelector = function() {
-        $scope.tagSelector = true;
-      }
+    });
+
+
+    $(function() {
+      $('.rs-modal .rs-close').click(function () {
+        $(this).closest('.rs-modal').hide();
+      });
+      $('.notice').click(function() {
+        $('.rs-modal').show();
+      });
     });
   </script>
   <style>
@@ -59,12 +68,6 @@
     .rs-container .action > * {
       display: inline-block;
       padding: 10px 10px 0 0;
-    }
-    .rs-container .action > *:last-child {
-      padding-right: 0;
-     }
-    .rs-container .action > *:last-child {
-      float: right;
     }
     .rs-container .thumb-column {
       float: left;
@@ -106,7 +109,7 @@
   Reading
   -->
   <div class="rs-window" ng-show="readingMode">
-    <div class="rs-container-min">
+    <div class="rs-container-sm">
       <div class="rs-block10">
         <div class="rs-block10-5 rs-align-left">
           <button class="rs-paper" ng-click="readingMode=false">返回</button>
@@ -122,7 +125,7 @@
   Publish
   -->
   <div class="rs-window" ng-show="publishMode">
-    <div class="rs-container-min">
+    <div class="rs-container-sm">
       <div class="rs-block10">
         <div class="rs-block10-5 rs-align-left">
           <button class="rs-paper" ng-click="publishMode=false">返回</button>
@@ -134,9 +137,12 @@
       <h2 class="rs-align-center">在这里清爽的发布问答，编辑框参考zhihu发布</h2>
     </div>
   </div>
-  <div class="rs-modal" ng-show="tagSelector">
+  <div class="rs-modal">
     <div class="rs-modal-dialog">
-      AAA
+      <div class="rs-modal-dialog-title">
+        AAA
+        <div class="rs-close">×</div>
+      </div>
     </div>
   </div>
   <!--
@@ -171,7 +177,7 @@
             <li>就业</li>
             <li>实习</li>
           </ul>
-          <div class="notice rs-notice-primary" ng-click="showTagSelector()" ng-hide="closed">{{ notice }}<span class="rs-close" ng-click="closed=true">×</span></div>
+          <div class="notice rs-notice-primary" ng-hide="closed">{{ notice }}<span class="rs-close" ng-click="closed=true">×</span></div>
         </div>
         <div class="rs-card main-card" ng-repeat="
           i in [
@@ -226,7 +232,6 @@
                     <li>人人</li>
                   </ul>
                 </div>
-                <div class="rs-lighten rs-font-size-sm rs-clickable">查看问答</div>
               </div>
             </div>
           </div>

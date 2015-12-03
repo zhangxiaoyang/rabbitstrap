@@ -6,19 +6,30 @@
   bottom: 0;
   z-index: @base-z-index-modal;
   background-color: @modal-background-color;
+  display: none;
 
   & > .rs-modal-dialog {
+    .rs-animate();
+
     transform: @modal-dialog-transform;
     margin: auto;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: @modal-dialog-background-color;
     box-shadow: @modal-dialog-box-shadow;
-    padding: @modal-dialog-padding;
     width: @modal-dialog-width;
     min-height: @modal-dialog-min-height;
     border: @modal-dialog-border;
     border-radius: @modal-dialog-border-radius;
+  }
+
+  & > .rs-modal-dialog > .rs-modal-dialog-title {
+    border-bottom: @modal-dialog-title-border;
+    padding: @modal-dialog-title-padding;
+
+    & > .rs-close {
+      font-size: @base-font-size-lg;
+    }
   }
 }
 .rs-modal {

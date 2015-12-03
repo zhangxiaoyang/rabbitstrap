@@ -1,4 +1,6 @@
 .rs-dropdown {
+  .rs-animate();
+
   position: absolute;
   z-index: @base-z-index-dropdown;
   border: @dropdown-border;
@@ -15,7 +17,7 @@
     font-size: @dropdown-font-size;
 
     &:hover, &:focus, &:active {
-      color: @dropdown-color-hover;
+      background-color: @dropdown-background-color-hover;
     }
   }
 }
