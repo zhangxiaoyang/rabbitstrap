@@ -1,0 +1,58 @@
+html, body {
+  z-index: -2;
+  background-color: lightblue;
+}
+.rs-skin {
+  background-color: lightblue;
+}
+.rs-container .main-card {
+  margin: 0 10px 10px 0;
+}
+.rs-container .sub-card {
+  margin-bottom: 10px;
+}
+.rs-container .reading {
+  text-align: right;
+}
+.rs-container .notice {
+  margin-top: 10px;
+}
+.rs-container .rs-tabs {
+  float: right;
+}
+.rs-container .tags > * {
+  margin-top: 10px;
+}
+.rs-container .action > * {
+  display: inline-block;
+  padding: 10px 10px 0 0;
+}
+.rs-container .thumb-column {
+  float: left;
+  margin-right: 10px;
+}
+.rs-container .profile ul {
+  width: 190px;
+  margin: 10px auto 0 auto;
+  overflow: hidden;
+}
+.rs-container .rs-logo-sm
+{
+  float: left;
+  margin-right: 10px;
+}
+.rs-container .rs-quote {
+  margin-top: 10px;
+}
+.rs-container .rs-card > .title {
+  margin-bottom: 10px;
+}
+.rs-container .rs-badge {
+  font-size: 12px;
+}
+.rs-container .rs-thumb {
+  margin-bottom: 5px;
+}
+.rs-window > *:first-child {
+  margin-top: 10px;
+}

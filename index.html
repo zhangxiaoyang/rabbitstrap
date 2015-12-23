@@ -1,35 +1,82 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="demoApp">
+<html lang="en" ng-app="rsApp">
 <head>
   <meta charset="utf-8">
   <title>Rabbitstrap</title>
-  <link rel="stylesheet/less" href="static/less/rabbitstrap.less">
-  <script src="static/js/less-2.5.3.min.js"></script>
-  <script src="static/js/angular-1.5.0.min.js"></script>
-  <script>
-    var app = angular.module('demoApp', []);
-  </script>
-  <style>
-    .rs-card {
-      margin: 10px 0 10px 0;
-    }
-  </style>
+  <link rel="stylesheet/less" href="/static/less/rabbitstrap.less">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="//cdn.bootcss.com/less.js/2.5.3/less.min.js"></script>
+  <script src="//cdn.bootcss.com/angular.js/1.5.0-rc.0/angular.min.js"></script>
+  <script src="//cdn.bootcss.com/angular.js/1.5.0-rc.0/angular-route.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="/static/js/app.js"></script>
 </head>
-<body>
-  <div class="rs-container rs-frosted">
-    <div class="rs-block10">
-      <div class="rs-block10-10">
-        <div class="rs-card">
-          <a href="/learning/index.html" class="rs-align-center">Learning Rabbitstrap</a>
+<body ng-controller="RootCtrl">
+  <!--TODO
+  <div class="rs-window" ng-show="readingMode">
+    <div class="rs-container-sm">
+      <div class="rs-block10">
+        <div class="rs-block10-5 rs-align-left">
+          <button class="rs-paper" ng-click="readingMode=false">返回</button>
         </div>
-        <div class="rs-card">
-          <a href="/demo/xingkong/index.html" class="rs-align-center">Built 校园星空.com with Rabbitstrap</a>
-        </div>
-        <div class="rs-card">
-          <a href="/demo/fbt/index.html" class="rs-align-center">Built FBT Client with Rabbitstrap</a>
+        <div class="rs-block10-5 rs-align-right">
+          <button class="rs-paper" ng-click="readingMode=false">查看问答</button>
         </div>
       </div>
+      <h2 class="rs-align-center">这里显示问答内容，格式参考readability或者evernote悦读</h2>
     </div>
+  </div>
+  <div class="rs-window" ng-show="publishMode">
+    <div class="rs-container-sm">
+      <div class="rs-block10">
+        <div class="rs-block10-5 rs-align-left">
+          <button class="rs-paper" ng-click="publishMode=false">返回</button>
+        </div>
+        <div class="rs-block10-5 rs-align-right">
+          <button class="rs-paper" ng-click="publishMode=false">提交</button>
+        </div>
+      </div>
+      <h2 class="rs-align-center">在这里清爽的发布问答，编辑框参考zhihu发布</h2>
+    </div>
+  </div>
+  <div class="rs-modal">
+    <div class="rs-modal-dialog">
+      <div class="rs-modal-dialog-title">
+        AAA
+        <div class="rs-close">×</div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!--
+  Skin
+  ===============================================-->
+  <div class="rs-skin"></div>
+  <!--
+  Navbar
+  ===============================================-->
+  <div class="rs-navbar-fixed">
+    <ul class="rs-navbar-list">
+      <li><a href="#/home">问答</a></li>
+      <li><a href="#/classmate">同学</a></li>
+      <li><a href="#/course">课程</a></li>
+      <li><a href="#/reward">悬赏</a></li>
+    </ul>
+    <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程、悬赏">
+    <button class="rs-btn rs-add-inline-block" ng-click="goPublishMode()">我来提问</button>
+  </div>
+  <div class="rs-pack-height-50"></div>
+  <!--
+  View
+  ===============================================-->
+  <div class="rs-container rs-frosted" ng-hide="readingMode" ng-view></div>
+  <!--
+  Footer
+  ===============================================-->
+  <div class="rs-footer">
+    <div><a href="#">Footer here</div>
   </div>
 </body>
 </html>
