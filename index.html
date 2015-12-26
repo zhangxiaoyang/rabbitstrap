@@ -5,14 +5,17 @@
   <title>Rabbitstrap</title>
   <link rel="stylesheet/less" href="/static/less/rabbitstrap.less">
   <link rel="stylesheet" href="/static/css/style.css">
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="//cdn.bootcss.com/less.js/2.5.3/less.min.js"></script>
   <script src="//cdn.bootcss.com/angular.js/1.5.0-rc.0/angular.min.js"></script>
   <script src="//cdn.bootcss.com/angular.js/1.5.0-rc.0/angular-route.min.js"></script>
+  <!--
   <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  -->
   <script src="/static/js/app.js"></script>
 </head>
-<body ng-controller="RootCtrl">
+<body>
   <!--TODO
   <div class="rs-window" ng-show="readingMode">
     <div class="rs-container-sm">
@@ -58,14 +61,19 @@
   Navbar
   ===============================================-->
   <div class="rs-navbar-fixed">
+    <a class="rs-font-size-lg rs-clickable" href="/">校园星空</a>
+    <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程、悬赏">
     <ul class="rs-navbar-list">
       <li><a href="#/home">问答</a></li>
       <li><a href="#/classmate">同学</a></li>
       <li><a href="#/course">课程</a></li>
       <li><a href="#/reward">悬赏</a></li>
     </ul>
-    <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程、悬赏">
+    <div class="rs-divider"></div>
+    <i class="fa fa-envelope rs-clickable"> 消息</i>
+    <i class="fa fa-cog rs-clickable"> 设置</i>
     <button class="rs-btn rs-add-inline-block" ng-click="goPublishMode()">我来提问</button>
+    <button class="rs-btn rs-add-inline-block" ng-click="goPublishMode()">上传资源</button>
   </div>
   <div class="rs-pack-height-50"></div>
   <!--
@@ -76,7 +84,19 @@
   Footer
   ===============================================-->
   <div class="rs-footer">
-    <div><a href="#">Footer here</div>
+    <div>备案号：----</div>
+    <div>
+      <a class="rs-clickable" href="#">免责声明</a>
+      <div class="rs-divider"></div>
+      <a class="rs-clickable" href="#">意见反馈（反馈意见送F币哦）</a>
+    </div>
+    <div>© 2014-2015 <a class="rs-clickable" href="#">www.校园星空.com</a> all rights reserved</div>
+    <div>友情链接：
+      <a class="rs-clickable" href="#">AAAAA12</a>
+      <a class="rs-clickable" href="#">BAAAA33</a>
+      <a class="rs-clickable" href="#">CAAAA45</a>
+      <a class="rs-clickable" href="#">DAAAA89</a>
+    </div>
   </div>
 </body>
 </html>

@@ -1,3 +1,6 @@
+/**
+ * Global
+ */
 html, body {
   z-index: -2;
   background-color: lightblue;
@@ -5,52 +8,61 @@ html, body {
 .rs-skin {
   background-color: lightblue;
 }
-.rs-container .main-card {
+.rs-navbar-fixed {
+  padding: 0 10px;
+}
+.rs-navbar-fixed * {
+  margin: 0 10px;
+  text-align: center;
+}
+
+/**
+ * Home View
+ */
+.home-view .main-card {
   margin: 0 10px 10px 0;
 }
-.rs-container .sub-card {
+.home-view .sub-card {
   margin-bottom: 10px;
 }
-.rs-container .reading {
+.home-view .reading {
   text-align: right;
 }
-.rs-container .notice {
+.home-view .notice {
   margin-top: 10px;
 }
-.rs-container .rs-tabs {
+.home-view .rs-tabs {
   float: right;
 }
-.rs-container .tags > * {
+.home-view .tags > * {
   margin-top: 10px;
+  margin-right: 10px;
 }
-.rs-container .action > * {
+.home-view .action > * {
   display: inline-block;
   padding: 10px 10px 0 0;
 }
-.rs-container .thumb-column {
+.home-view .thumb-column {
   float: left;
   margin-right: 10px;
 }
-.rs-container .profile ul {
-  width: 190px;
+.home-view .profile ul {
+  width: 250px;
   margin: 10px auto 0 auto;
   overflow: hidden;
 }
-.rs-container .rs-logo-sm
+.home-view .rs-logo-sm
 {
   float: left;
   margin-right: 10px;
 }
-.rs-container .rs-quote {
+.home-view .rs-quote {
   margin-top: 10px;
 }
-.rs-container .rs-card > .title {
+.home-view .rs-card > .title {
   margin-bottom: 10px;
 }
-.rs-container .rs-badge {
-  font-size: 12px;
-}
-.rs-container .rs-thumb {
+.home-view .rs-thumb {
   margin-bottom: 5px;
 }
 .rs-window > *:first-child {

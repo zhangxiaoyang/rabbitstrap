@@ -1,3 +1,4 @@
+<div class="home-view">
 <div class="rs-block10">
   <div class="rs-block10-7">
     <div class="rs-card main-card">
@@ -6,55 +7,39 @@
         <option>只看本校</option>
       </select>
       <ul class="rs-tabs">
-        <li>校园</li>
-        <li class="rs-active">考研</li>
-        <li>留学</li>
-        <li>考证</li>
-        <li>就业</li>
-        <li>实习</li>
+        <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['校园', '考研', '留学', '考证', '就业', '实习']">{{ tab }}</li>
       </ul>
-      <div class="notice rs-notice-primary" ng-hide="closed">{{ notice }}<span class="rs-close" ng-click="closed=true">×</span></div>
+      <div class="notice rs-notice-primary" ng-hide="closed">有 10 条新的问答哦，点我查看<span class="rs-close" ng-click="closed=true">×</span></div>
     </div>
-    <div class="rs-card main-card" ng-repeat="
-      i in [
-      {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
-      {'name': '蔡依林', 'desc': '蔡依林本名蔡宜凌，祖籍福建省泉州市[34]  ，1980年9月15日出生于中国台湾台北县新庄市（现新北市新庄区），在家中排行老二，有一个姐姐，父亲蔡柱陈从事过会计工作；母亲黄春美为人低调，鲜少在媒体面前出现，在台北医院担任志工有十年时间[35]  。蔡依林毕业于景美女中、并以保送方式进入辅仁大学英文系就读，与F.I.R乐队女主唱Faye为同班同学。[36]', 'title': '琴键上透着光 彩绘的玻璃窗 装饰着歌特式教堂 谁谁谁弹一段 一段流浪忧伤 顺着琴声方向看见 蔷薇依附十八世纪的油画上 在旁 静静欣赏 在想 你的浪漫 在看 是否多久都一样 a a fu shou a a fu shou yap so so sorry so so so moderato andantino portmento fortissimo 盗贼他偷走 修道士说no 梦醒来后我 一切都都没有 '},
-      {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
-      {'name': '蔡依林', 'desc': '蔡依林本名蔡宜凌，祖籍福建省泉州市[34]  ，1980年9月15日出生于中国台湾台北县新庄市（现新北市新庄区），在家中排行老二，有一个姐姐，父亲蔡柱陈从事过会计工作；母亲黄春美为人低调，鲜少在媒体面前出现，在台北医院担任志工有十年时间[35]  。蔡依林毕业于景美女中、并以保送方式进入辅仁大学英文系就读，与F.I.R乐队女主唱Faye为同班同学。[36]', 'title': '琴键上透着光 彩绘的玻璃窗 装饰着歌特式教堂 谁谁谁弹一段 一段流浪忧伤 顺着琴声方向看见 蔷薇依附十八世纪的油画上 在旁 静静欣赏 在想 你的浪漫 在看 是否多久都一样 a a fu shou a a fu shou yap so so sorry so so so moderato andantino portmento fortissimo 盗贼他偷走 修道士说no 梦醒来后我 一切都都没有 '},
-      {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
-      {'name': '蔡依林', 'desc': '蔡依林本名蔡宜凌，祖籍福建省泉州市[34]  ，1980年9月15日出生于中国台湾台北县新庄市（现新北市新庄区），在家中排行老二，有一个姐姐，父亲蔡柱陈从事过会计工作；母亲黄春美为人低调，鲜少在媒体面前出现，在台北医院担任志工有十年时间[35]  。蔡依林毕业于景美女中、并以保送方式进入辅仁大学英文系就读，与F.I.R乐队女主唱Faye为同班同学。[36]', 'title': '琴键上透着光 彩绘的玻璃窗 装饰着歌特式教堂 谁谁谁弹一段 一段流浪忧伤 顺着琴声方向看见 蔷薇依附十八世纪的油画上 在旁 静静欣赏 在想 你的浪漫 在看 是否多久都一样 a a fu shou a a fu shou yap so so sorry so so so moderato andantino portmento fortissimo 盗贼他偷走 修道士说no 梦醒来后我 一切都都没有 '}
-      ]
-    ">
+    <div class="rs-card main-card" ng-repeat="item in qa">
       <div class="thumb-column">
         <img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
         <div class="rs-thumb" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
         <div class="rs-thumb-btn">{{ like }}</div>
-          <div class="rs-thumb-content">2.1k</div>
+          <div class="rs-thumb-content">{{ item.like }}</div>
         </div>
         <div class="rs-thumb" ng-click="award = award == '赏' ? '已赏' : '赏'" ng-init="award='赏'">
           <div class="rs-thumb-btn">{{ award }}</div>
-          <div class="rs-thumb-content">300F</div>
+          <div class="rs-thumb-content">{{ item.award }}</div>
         </div>
       </div>
       <div class="rs-align-vertical">
         <div>
-          <strong>{{ i.name }}</strong> <div class="rs-badge">校</div>
-          <div class="rs-lines-1 rs-lighten">{{ i.desc }}</div>
+          <strong>{{ item.name }}</strong> <div class="rs-badge rs-font-size-sm">校</div>
+          <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
           <hr>
           <div class="rs-lines-1 rs-clickable">
-            <div class="rs-badge">答</div> <strong>{{ i.title }}</strong>
+            <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
           </div>
           <div class="rs-quote rs-add-pointer" ng-click="goReadingMode()">
-            <div class="rs-lines-5">{{ i.desc }}</div>
-            <div class="reading rs-clickable rs-font-size-sm">沉浸阅读</div>
+            <div class="rs-lines-5">{{ item.desc }}</div>
+            <div class="reading rs-active rs-clickable rs-font-size-sm">沉浸阅读</div>
           </div>
           <div class="tags">
-            <div class="rs-badge-lighten rs-font-size-sm">IT</div>
-            <div class="rs-badge-lighten rs-font-size-sm">计算机科学</div>
-            <div class="rs-badge-lighten rs-font-size-sm">中国科学院</div>
+            <div class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</div>
           </div>
           <div class="action">
-            <div class="rs-lighten rs-font-size-sm">发布于 5-10 14:35</div>
+            <div class="rs-lighten rs-font-size-sm">发布于 {{ item.datetime }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
             <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="attention = attention == '关注' ? '已关注' : '关注'" ng-init="attention='关注'">{{ attention }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
@@ -68,24 +53,26 @@
                 <li>人人</li>
               </ul>
             </div>
+            <div class="rs-lighten rs-font-size-sm">·</div>
+            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="answer = answer == '我来回答' ? '编辑回答' : '我来回答'" ng-init="answer='我来回答'">{{ answer }}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="rs-card main-card">
-      <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable">加载更多</div>
+      <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable" ng-init="loadMore = '加载更多'" ng-click="loadMore = '加载中...'">{{ loadMore }}</div>
     </div>
   </div>
   <!--
   Hot
   -->
   <div class="rs-block10-3">
-    <div class="profile rs-card sub-card rs-align-center">
+    <div class="profile rs-card sub-card rs-align-center" ng-style="{'position': {true:'fixed', false:'relative'}[showProfile], 'width': profileWidth}">
       <div>
         <img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
         <div class="rs-align-vertical">
           <div>
-            <strong>Yang</strong> <div class="rs-badge">校</div>
+            <strong>Yang</strong> <div class="rs-badge rs-font-size-sm">校</div>
             <div class="rs-lines-2 rs-lighten">周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。</div>
           </div>
         </div>
@@ -105,6 +92,12 @@
         </li>
         <li>
           <div class="rs-thumb rs-remove-border">
+            <div class="rs-thumb-btn">上传</div>
+            <div class="rs-thumb-content">20</div>
+          </div>
+        </li>
+        <li>
+          <div class="rs-thumb rs-remove-border">
             <div class="rs-thumb-btn">关注</div>
             <div class="rs-thumb-content">40</div>
           </div>
@@ -119,39 +112,29 @@
     </div>
     <div class="rs-card sub-card">
       <div class="title"><strong>最新问答</strong></div>
-      <div class="main-card" ng-repeat="
-        i in [
-        {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
-        {'name': '蔡依林', 'desc': '蔡依林本名蔡宜凌，祖籍福建省泉州市[34]  ，1980年9月15日出生于中国台湾台北县新庄市（现新北市新庄区），在家中排行老二，有一个姐姐，父亲蔡柱陈从事过会计工作；母亲黄春美为人低调，鲜少在媒体面前出现，在台北医院担任志工有十年时间[35]  。蔡依林毕业于景美女中、并以保送方式进入辅仁大学英文系就读，与F.I.R乐队女主唱Faye为同班同学。[36]', 'title': '琴键上透着光 彩绘的玻璃窗 装饰着歌特式教堂 谁谁谁弹一段 一段流浪忧伤 顺着琴声方向看见 蔷薇依附十八世纪的油画上 在旁 静静欣赏 在想 你的浪漫 在看 是否多久都一样 a a fu shou a a fu shou yap so so sorry so so so moderato andantino portmento fortissimo 盗贼他偷走 修道士说no 梦醒来后我 一切都都没有 '}
-        ]
-      ">
+      <div class="main-card" ng-repeat="item in qa">
         <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
         <div class="rs-align-vertical">
           <div>
-            <strong>{{ i.name }}</strong>
-            <div class="rs-lines-1 rs-lighten">{{ i.desc }}</div>
+            <strong>{{ item.name }}</strong>
+            <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
             <div class="rs-lines-1 rs-clickable">
-              <div class="rs-badge">答</div> <strong>{{ i.title }}</strong>
+              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>最热问答</strong></div>
-      <div class="main-card" ng-repeat="
-        i in [
-        {'name': '周杰伦', 'desc': '周杰伦1979年1月18日出生于台湾台北县（现新北市）[26]  ，祖籍福建省永春县[27]  。父亲周耀中是淡江中学的物理老师，母亲叶惠美是淡江中学的美术老师，周杰伦读初中二年级时，周耀中和叶惠美办理了离婚手续，并协议商定周杰伦归叶惠美抚养。因担心离婚不利于周杰伦的成长，他们决定先瞒着他。然而，不久后发生的一件事，却让周杰伦知道了事情的真相。周杰伦的作文《孝顺的老爸》被老师评为优秀作文，老师让他在课堂上将其作为范文朗读。课后一个男同学却嘲笑道：“你爸和你妈都离婚了，你骗谁呢?”父母的离异给周杰伦带来了巨大的伤害。[28]  课堂上他会经常走神，中考时周杰伦因为成绩差被拒绝入校，幸好因为擅长钢琴才被破格录取。', 'title': '东风破'},
-        {'name': '蔡依林', 'desc': '蔡依林本名蔡宜凌，祖籍福建省泉州市[34]  ，1980年9月15日出生于中国台湾台北县新庄市（现新北市新庄区），在家中排行老二，有一个姐姐，父亲蔡柱陈从事过会计工作；母亲黄春美为人低调，鲜少在媒体面前出现，在台北医院担任志工有十年时间[35]  。蔡依林毕业于景美女中、并以保送方式进入辅仁大学英文系就读，与F.I.R乐队女主唱Faye为同班同学。[36]', 'title': '琴键上透着光 彩绘的玻璃窗 装饰着歌特式教堂 谁谁谁弹一段 一段流浪忧伤 顺着琴声方向看见 蔷薇依附十八世纪的油画上 在旁 静静欣赏 在想 你的浪漫 在看 是否多久都一样 a a fu shou a a fu shou yap so so sorry so so so moderato andantino portmento fortissimo 盗贼他偷走 修道士说no 梦醒来后我 一切都都没有 '}
-        ]
-      ">
+      <div class="title"><strong>热门问答</strong></div>
+      <div class="main-card" ng-repeat="item in qa">
         <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
         <div class="rs-align-vertical">
           <div>
-            <strong>{{ i.name }}</strong>
-            <div class="rs-lines-1 rs-lighten">{{ i.desc }}</div>
+            <strong>{{ item.name }}</strong>
+            <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
             <div class="rs-lines-1 rs-clickable">
-              <div class="rs-badge">答</div> <strong>{{ i.title }}</strong>
+              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
             </div>
           </div>
         </div>
@@ -159,3 +142,5 @@
     </div>
   </div>
 </div>
+</div>
+
