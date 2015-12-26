@@ -21,6 +21,7 @@ html, body {
 .rs-navbar-fixed .rs-container > input {
   width: 190px;
 }
+
 /**
  * Home View
  */
@@ -70,6 +71,7 @@ html, body {
 .home-view .rs-thumb {
   margin-bottom: 5px;
 }
+
 .rs-window > *:first-child {
   margin-top: 10px;
 }

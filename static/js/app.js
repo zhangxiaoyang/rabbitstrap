@@ -11,7 +11,22 @@ app.config(function ($routeProvider) {
   .otherwise({ redirectTo: '/home' });
 });
 
-app.controller('HomeController', function($scope, $window) {
+/**
+ * RootController
+ */
+app.controller('RootController', function($rootScope) {
+  $rootScope.setReadingMode = function(mode) {
+    $rootScope.readingMode = mode;
+  };
+  $rootScope.setAskMode = function(mode) {
+    $rootScope.askMode = mode;
+  };
+});
+
+/**
+ * HomeController
+ */
+app.controller('HomeController', function($scope, $rootScope, $window) {
   $scope.selectedTab = '校园';
   $scope.isSelected = function(tab) {
      return $scope.selectedTab == tab; 

@@ -15,44 +15,7 @@
   -->
   <script src="/static/js/app.js"></script>
 </head>
-<body>
-  <!--TODO
-  <div class="rs-window" ng-show="readingMode">
-    <div class="rs-container-sm">
-      <div class="rs-block10">
-        <div class="rs-block10-5 rs-align-left">
-          <button class="rs-paper" ng-click="readingMode=false">返回</button>
-        </div>
-        <div class="rs-block10-5 rs-align-right">
-          <button class="rs-paper" ng-click="readingMode=false">查看问答</button>
-        </div>
-      </div>
-      <h2 class="rs-align-center">这里显示问答内容，格式参考readability或者evernote悦读</h2>
-    </div>
-  </div>
-  <div class="rs-window" ng-show="publishMode">
-    <div class="rs-container-sm">
-      <div class="rs-block10">
-        <div class="rs-block10-5 rs-align-left">
-          <button class="rs-paper" ng-click="publishMode=false">返回</button>
-        </div>
-        <div class="rs-block10-5 rs-align-right">
-          <button class="rs-paper" ng-click="publishMode=false">提交</button>
-        </div>
-      </div>
-      <h2 class="rs-align-center">在这里清爽的发布问答，编辑框参考zhihu发布</h2>
-    </div>
-  </div>
-  <div class="rs-modal">
-    <div class="rs-modal-dialog">
-      <div class="rs-modal-dialog-title">
-        AAA
-        <div class="rs-close">×</div>
-      </div>
-    </div>
-  </div>
-  -->
-
+<body ng-controller="RootController">
   <!--
   Skin
   ===============================================-->
@@ -74,7 +37,7 @@
       <div class="rs-divider"></div>
       <i class="fa fa-envelope rs-clickable"> 消息</i>
       <i class="fa fa-cog rs-clickable"> 设置</i>
-      <button class="rs-btn">我来提问</button>
+      <button class="rs-btn" ng-click="setAskMode(true)">我来提问</button>
       <button class="rs-btn">上传资源</button>
     </div>
   </div>
@@ -85,6 +48,11 @@
   <div class="rs-container">
     <div class="rs-frosted" ng-view></div>
   </div>
+  <!--
+  Template
+  ===============================================-->
+  <div ng-include src="'/static/template/reading.html'" ng-if="readingMode"></div>
+  <div ng-include src="'/static/template/ask.html'" ng-if="askMode"></div>
   <!--
   Footer
   ===============================================-->
