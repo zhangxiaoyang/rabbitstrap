@@ -31,9 +31,13 @@
           <div class="rs-lines-1 rs-clickable">
             <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
           </div>
-          <div class="rs-quote rs-add-pointer" ng-click="setReadingMode(true)">
+          <div class="rs-quote rs-add-pointer">
             <div class="rs-lines-5">{{ item.desc }}</div>
-            <div class="reading rs-active rs-clickable rs-font-size-sm" ng-click="goReading()">沉浸阅读</div>
+            <div class="reading">
+              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
+              <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block">阅读全部</div>
+            </div>
           </div>
           <div class="tags">
             <div class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</div>

@@ -17,6 +17,14 @@
       color: @navbar-color;
       text-decoration: none;
     }
+    &.rs-active {
+      & when(@navbar-color = @navbar-color) {
+        background-color: darken(@navbar-background-color, @base-change-sm)
+      }
+      & when(@navbar-color = @navbar-inverse-color) {
+        background-color: darken(@navbar-background-color, @base-change-sm)
+      }
+    }
     &:hover, &:focus, &:active {
       & when(@navbar-color = @navbar-color) {
         background-color: darken(@navbar-background-color, @base-change-sm)

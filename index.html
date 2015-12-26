@@ -28,11 +28,9 @@
       <a class="rs-font-size-lg rs-clickable" href="/">校园星空</a>
       <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程、悬赏">
       <ul class="rs-navbar-list">
-        <li><a href="#/home">问答</a></li>
-        <li><a href="#/classmate">同学</a></li>
-        <li><a href="#/course">课程</a></li>
-        <li><a href="#/reward">悬赏</a></li>
-        <li><a href="#/more">更多</a></li>
+        <li ng-click="setCurrNavTab(arr[0])" ng-class="{true: 'rs-active'}[isCurrNavTab(arr[0])]" ng-repeat="arr in [['问答', 'home'], ['同学', 'classmate'], ['课程', 'course'], ['悬赏', 'reward'], ['更多', 'more']]">
+          <a href="#/{{ arr[1]}}">{{ arr[0] }}</a>
+        </li>
       </ul>
       <div class="rs-divider"></div>
       <i class="fa fa-envelope rs-clickable"> 消息</i>

@@ -3,12 +3,12 @@
 var app = angular.module('rsApp', ['ngRoute']);
 app.config(function ($routeProvider) {
   $routeProvider
-  .when('/home',
+  .when('/qa',
   {
-    controller: 'HomeController',
-    templateUrl: '/static/partial/home.html'
+    controller: 'QAController',
+    templateUrl: '/static/partial/qa.html'
   })
-  .otherwise({ redirectTo: '/home' });
+  .otherwise({ redirectTo: '/qa' });
 });
 
 /**
@@ -21,12 +21,20 @@ app.controller('RootController', function($rootScope) {
   $rootScope.setAskMode = function(mode) {
     $rootScope.askMode = mode;
   };
+  $rootScope.currNavTab = '问答';
+  $rootScope.setCurrNavTab = function(tab) {
+    console.log(tab)
+    $rootScope.currNavTab = tab;
+  }
+  $rootScope.isCurrNavTab = function(tab) {
+    return $rootScope.currNavTab == tab;
+  }
 });
 
 /**
- * HomeController
+ * QAController
  */
-app.controller('HomeController', function($scope, $rootScope, $window) {
+app.controller('QAController', function($scope, $rootScope, $window) {
   $scope.selectedTab = '校园';
   $scope.isSelected = function(tab) {
      return $scope.selectedTab == tab; 
