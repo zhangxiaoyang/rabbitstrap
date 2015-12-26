@@ -8,14 +8,19 @@ html, body {
 .rs-skin {
   background-color: lightblue;
 }
-.rs-navbar-fixed {
-  padding: 0 10px;
-}
-.rs-navbar-fixed * {
-  margin: 0 10px;
+.rs-navbar-fixed .rs-container {
   text-align: center;
+  height: inherit;
 }
-
+.rs-navbar-fixed .rs-container > * {
+  margin: 0 2px;
+}
+.rs-navbar-fixed .rs-container > li {
+  padding: 15px 5px;
+}
+.rs-navbar-fixed .rs-container > input {
+  width: 190px;
+}
 /**
  * Home View
  */

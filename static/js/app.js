@@ -17,7 +17,6 @@ app.controller('HomeController', function($scope, $window) {
      return $scope.selectedTab == tab; 
   };
   $scope.setSelectedTab = function(tab) {
-    console.log(tab)
     $scope.selectedTab = tab;
   };
 
