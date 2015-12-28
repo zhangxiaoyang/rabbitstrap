@@ -18,6 +18,9 @@ html, body {
 .rs-navbar-fixed .rs-container > li {
   padding: 15px 5px;
 }
+.rs-navbar-fixed .rs-container > div {
+  display: inline;
+}
 .rs-navbar-fixed .rs-container > input {
   width: 190px;
 }
