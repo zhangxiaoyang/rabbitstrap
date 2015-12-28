@@ -24,57 +24,110 @@ html, body {
 .rs-navbar-fixed .rs-container > input {
   width: 190px;
 }
-
-/**
- * Home View
- */
-.home-view .main-card {
-  margin: 0 10px 10px 0;
-}
-.home-view .sub-card {
-  margin-bottom: 10px;
-}
-.home-view .reading {
-  text-align: right;
-}
-.home-view .notice {
+.rs-window > *:first-child {
   margin-top: 10px;
 }
-.home-view .rs-tabs {
+
+/**
+ * QA View
+ */
+.qa-view .main-card {
+  margin: 0 10px 10px 0;
+}
+.qa-view .sub-card {
+  margin-bottom: 10px;
+}
+.qa-view .reading {
+  text-align: right;
+}
+.qa-view .notice {
+  margin-top: 10px;
+}
+.qa-view .rs-tabs {
   float: right;
 }
-.home-view .tags > * {
+.qa-view .tags > * {
   margin-top: 10px;
   margin-right: 10px;
 }
-.home-view .action > * {
+.qa-view .action > * {
   display: inline-block;
   padding: 10px 10px 0 0;
 }
-.home-view .thumb-column {
+.qa-view .thumb-column {
   float: left;
   margin-right: 10px;
 }
-.home-view .profile ul {
+.qa-view .profile ul {
   width: 250px;
   margin: 10px auto 0 auto;
   overflow: hidden;
 }
-.home-view .rs-logo-sm
+.qa-view .rs-logo-sm
 {
   float: left;
   margin-right: 10px;
 }
-.home-view .rs-quote {
+.qa-view .rs-quote {
   margin-top: 10px;
 }
-.home-view .rs-card > .title {
+.qa-view .rs-card > .title {
   margin-bottom: 10px;
 }
-.home-view .rs-thumb {
+.qa-view .rs-thumb {
   margin-bottom: 5px;
 }
 
-.rs-window > *:first-child {
+/**
+ * QADetail View
+ */
+.qadetail-view .main-card {
+  margin: 0 10px 10px 0;
+}
+.qadetail-view .sub-card {
+  margin-bottom: 10px;
+}
+.qadetail-view .reading {
+  text-align: right;
+}
+.qadetail-view .notice {
+  margin-top: 10px;
+}
+.qadetail-view .rs-tabs {
+  float: right;
+}
+.qadetail-view .tags > * {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.qadetail-view .action > * {
+  display: inline-block;
+  padding: 10px 10px 0 0;
+}
+.qadetail-view .thumb-column {
+  float: left;
+  margin-right: 10px;
+}
+.qadetail-view .profile ul {
+  width: 250px;
+  margin: 10px auto 0 auto;
+  overflow: hidden;
+}
+.qadetail-view .rs-logo-sm
+{
+  float: left;
+  margin-right: 10px;
+}
+.qadetail-view .rs-quote {
+  margin-top: 10px;
+}
+.qadetail-view .rs-card > .title {
+  margin-bottom: 10px;
+}
+.qadetail-view .rs-thumb {
+  margin-bottom: 5px;
+}
+.qadetail-view .comments > * {
+  width: 100%;
   margin-top: 10px;
 }

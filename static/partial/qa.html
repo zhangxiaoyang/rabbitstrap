@@ -1,4 +1,4 @@
-<div class="home-view">
+<div class="qa-view">
 <div class="rs-block10">
   <div class="rs-block10-7">
     <div class="rs-card main-card">
@@ -29,10 +29,10 @@
           <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
           <hr>
           <div class="rs-lines-1 rs-clickable">
-            <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
+            <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
           </div>
           <div class="rs-quote rs-add-pointer">
-            <div class="rs-lines-5">{{ item.desc }}</div>
+            <a href="#/qadetail" target="_blank"><div class="rs-lines-5">{{ item.desc }}</div></a>
             <div class="reading">
               <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
             </div>
@@ -121,7 +121,7 @@
             <strong>{{ item.name }}</strong>
             <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
             <div class="rs-lines-1 rs-clickable">
-              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
+              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@
             <strong>{{ item.name }}</strong>
             <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
             <div class="rs-lines-1 rs-clickable">
-              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
+              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
             </div>
           </div>
         </div>
