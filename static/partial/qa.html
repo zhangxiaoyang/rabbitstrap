@@ -56,7 +56,7 @@
               </ul>
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="answer = answer == '我来回答' ? '编辑回答' : '我来回答'" ng-init="answer='我来回答'">{{ answer }}</div>
+            <div class="rs-lighten rs-font-size-sm rs-clickable">{{ $index < 2 ? {0: "编辑提问", 1: "编辑回答", 2: "我来回答" }[$index] : "我来回答" }}</div>
           </div>
         </div>
       </div>

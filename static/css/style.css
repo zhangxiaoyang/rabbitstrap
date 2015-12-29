@@ -22,7 +22,7 @@ html, body {
   display: inline;
 }
 .rs-navbar-fixed .rs-container > input {
-  width: 190px;
+  width: 210px;
 }
 .rs-window > *:first-child {
   margin-top: 10px;
