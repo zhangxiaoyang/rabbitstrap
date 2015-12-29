@@ -55,7 +55,10 @@
             </div>
           </div>
           <div class="comments" ng-if="showComments[$index]">
-            <input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply">
+            <div class="rs-form-group">
+              <button class="rs-btn rs-font-size-sm">发布评论</button>
+              <div><input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply"></div>
+            </div>
             <div class="main-card" ng-repeat="item in qa">
               <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
               <div class="rs-align-vertical">
