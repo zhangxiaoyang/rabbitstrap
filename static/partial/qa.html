@@ -25,16 +25,20 @@
       </div>
       <div class="rs-align-vertical">
         <div>
-          <strong>{{ item.name }}</strong> <div class="rs-badge rs-font-size-sm">校</div>
+          <strong>{{ item.name }}</strong> 清华大学 <div class="rs-badge rs-font-size-sm">校</div>
           <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
           <hr>
           <div class="rs-lines-1 rs-clickable">
             <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
           </div>
-          <div class="rs-quote rs-add-pointer">
-            <a href="#/qadetail" target="_blank"><div class="rs-lines-5">{{ item.desc }}</div></a>
+          <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
+            <a href="#/qadetail" target="_blank"><div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.desc }}</div></a>
             <div class="reading">
               <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
+              <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingOpen($index, !readingOpen[$index])">
+                {{ readingOpen[$index] ? "收起全部" : "展开全部" }}
+              </div>
             </div>
           </div>
           <div class="tags">
@@ -56,7 +60,32 @@
               </ul>
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable">{{ $index < 2 ? {0: "编辑提问", 1: "编辑回答", 2: "我来回答" }[$index] : "我来回答" }}</div>
+            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-init="showComments[$index] = false" ng-click="showComments[$index] = !showComments[$index]">
+              {{ showComments[$index] ? "收起评论" : qa.length + " 条评论" }}
+            </div>
+          </div>
+          <div class="comments" ng-if="showComments[$index]">
+            <div class="rs-form-group">
+              <button class="rs-btn rs-font-size-sm">发布评论</button>
+              <div><input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply"></div>
+            </div>
+            <div class="main-card" ng-repeat="item in qa">
+              <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+              <div class="rs-align-vertical">
+                <div>
+                  <strong class="rs-font-size-sm">{{ item.name }}</strong>
+                  <div class="rs-font-size-sm">{{ item.desc }}</div>
+                  <div class="action">
+                    <div class="rs-lighten rs-font-size-sm">发布于 {{ item.datetime }}</div>
+                    <div class="rs-lighten rs-font-size-sm">·</div>
+                    <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="replySomebody($index)">回复</div>
+                    <div class="rs-lighten rs-font-size-sm">·</div>
+                    <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">{{ like }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable" ng-init="loadMore = '加载更多'" ng-click="loadMore = '加载中...'">{{ loadMore }}</div>
           </div>
         </div>
       </div>

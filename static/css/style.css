@@ -77,6 +77,13 @@ html, body {
 .qa-view .rs-thumb {
   margin-bottom: 5px;
 }
+.qa-view .comments > * {
+  width: 100%;
+  margin-top: 10px;
+}
+.qa-view .rs-badge i {
+  color: white;
+}
 
 /**
  * QADetail View
