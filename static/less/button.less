@@ -10,12 +10,24 @@
     background-color: darken(@base-background-color, @base-change-sm)
   }
 }
+.rs-btn-style(@btn-background-color, @btn-color) {
+  background-color: @btn-background-color;
+  color: @btn-color;
+  border: darken(@btn-background-color, @base-change-sm);
+
+  &:hover, &:focus, &:active {
+    background-color: darken(@btn-background-color, @base-change-sm);
+  }
+}
 .rs-btn {
-  .rs-btn(@btn-padding, @base-font-size)
+  .rs-btn(@btn-padding, @base-font-size);
 }
 .rs-btn-sm {
-  .rs-btn(@btn-padding-sm, @base-font-size-sm)
+  .rs-btn(@btn-padding-sm, @base-font-size-sm);
 }
 .rs-btn-lg {
-  .rs-btn(@btn-padding-lg, @base-font-size-lg)
+  .rs-btn(@btn-padding-lg, @base-font-size-lg);
+}
+.rs-btn-primary {
+  .rs-btn-style(@base-primary-color, white);
 }

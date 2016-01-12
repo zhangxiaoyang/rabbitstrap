@@ -13,7 +13,7 @@ html, body {
   height: inherit;
 }
 .rs-navbar-fixed .rs-container > * {
-  margin: 0 2px;
+  margin: 0 10px;
 }
 .rs-navbar-fixed .rs-container > li {
   padding: 15px 5px;
@@ -23,6 +23,10 @@ html, body {
 }
 .rs-navbar-fixed .rs-container > input {
   width: 210px;
+}
+.rs-navbar-fixed .rs-dropdown {
+  margin-top: 15px;
+  margin-left: -15px;
 }
 .rs-window > *:first-child {
   margin-top: 10px;
