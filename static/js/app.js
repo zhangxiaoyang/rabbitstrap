@@ -26,7 +26,7 @@ app.controller('RootController', function($rootScope, $location, $window) {
   $rootScope.setAskMode = function(mode) {
     $rootScope.askMode = mode;
   };
-  $rootScope.currNavTab = '问答';
+  $rootScope.currNavTab = '首页';
   $rootScope.setCurrNavTab = function(tab) {
     $rootScope.currNavTab = tab;
   };

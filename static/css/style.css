@@ -15,8 +15,14 @@ html, body {
 .rs-navbar-fixed .rs-container > * {
   margin: 0 10px;
 }
-.rs-navbar-fixed .rs-container > li {
-  padding: 15px 5px;
+.rs-navbar-fixed .rs-container .typcn {
+  font-size: 24px;
+}
+.rs-navbar-fixed .rs-container .rs-clickable:hover * {
+  color: #2556b1;
+}
+.rs-navbar-fixed .rs-container > ul > li {
+  padding: 6px 15px 12px 15px;
 }
 .rs-navbar-fixed .rs-container > div {
   display: inline;
@@ -25,7 +31,7 @@ html, body {
   width: 210px;
 }
 .rs-navbar-fixed .rs-dropdown {
-  margin-top: 15px;
+  margin-top: 12px;
   margin-left: -15px;
 }
 .rs-window > *:first-child {
