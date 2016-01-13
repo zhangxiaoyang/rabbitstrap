@@ -31,13 +31,13 @@
         <li ng-click="setCurrNavTab(arr[0])" ng-class="{true: 'rs-active'}[isCurrNavTab(arr[0])]" ng-repeat="arr in [['首页', 'home', 'home-outline'], ['同学帮', 'classmate', 'group-outline'], ['课程堂', 'course', 'mortar-board']]">
           <a href="#/{{ arr[1]}}"><span ng-class="'typcn typcn-' + arr[2]"></span> {{ arr[0] }}</a>
         </li>
-        <li class="rs-dropdown-target"><span class="typcn typcn-puzzle-outline"></span> 更多
-          <ul class="rs-dropdown">
-            <li>a</li>
-            <li>a</li>
-          </ul>
-        </li>
       </ul>
+      <div class="rs-clickable rs-dropdown-target"><span class="typcn typcn-puzzle-outline"></span> 更多
+        <ul class="rs-dropdown">
+          <li>a</li>
+          <li>a</li>
+        </ul>
+      </div>
       <div class="rs-clickable"><span class="typcn typcn-user-outline"></span> Yang</div>
       <div class="rs-divider"></div>
       <div class="rs-clickable"><span class="typcn typcn-bell"></span></div>
