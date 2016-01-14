@@ -5,36 +5,48 @@ html, body {
   z-index: -2;
   background-color: lightblue;
 }
-.rs-skin {
+body > .rs-skin {
   background-color: lightblue;
 }
-.rs-navbar-fixed .rs-container {
+body > .rs-navbar-fixed .rs-container {
   text-align: center;
   height: inherit;
   overflow: hidden;
 }
-.rs-navbar-fixed .rs-container > * {
+body > .rs-navbar-fixed .rs-container > * {
   margin: 0 10px;
 }
-.rs-navbar-fixed .rs-container .typcn {
+body > .rs-navbar-fixed .rs-navbar-list > li.rs-active {
+  background-color: transparent;
+}
+body > .rs-navbar-fixed .rs-navbar-list > li.rs-active * {
+  color: #4579d8;
+  font-weight: bold;
+}
+body > .rs-navbar-fixed .rs-navbar-list > li:hover,
+body > .rs-navbar-fixed .rs-navbar-list > li:focus,
+body > .rs-navbar-fixed .rs-navbar-list > li:active {
+  background-color: transparent;
+}
+body > .rs-navbar-fixed .rs-container .typcn {
   font-size: 24px;
 }
-.rs-navbar-fixed .rs-container .rs-clickable:hover > * {
-  color: #2556b1;
+body > .rs-navbar-fixed .rs-container .rs-clickable:hover > * {
+  color: #4579d8;
 }
-.rs-navbar-fixed .rs-container .rs-dropdown {
+body > .rs-navbar-fixed .rs-container .rs-dropdown {
   position: fixed;
 }
-.rs-navbar-fixed .rs-container > ul > li {
+body > .rs-navbar-fixed .rs-container > ul > li {
   padding: 6px 15px 12px 15px;
 }
-.rs-navbar-fixed .rs-container > div {
+body > .rs-navbar-fixed .rs-container > div {
   display: inline-block;
 }
-.rs-navbar-fixed .rs-container > input {
+body > .rs-navbar-fixed .rs-container > input {
   width: 210px;
 }
-.rs-window > *:first-child {
+body > .rs-window > *:first-child {
   margin-top: 10px;
 }
 
