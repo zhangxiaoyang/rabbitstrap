@@ -6,7 +6,7 @@
     -->
     <div class="rs-card main-card" ng-repeat="item in qa" ng-if="$index == 0">
       <div class="thumb-column">
-        <img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+        <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-thumb" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
         <div class="rs-thumb-btn">{{ like }}</div>
           <div class="rs-thumb-content">{{ item.like }}</div>
@@ -18,14 +18,23 @@
       </div>
       <div class="rs-align-vertical">
         <div>
-          <strong>{{ item.name }}</strong> <div class="rs-badge rs-font-size-sm">校</div>
-          <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
+          <strong class="rs-clickable">{{ item.name }}</strong>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
+          <div class="rs-badge rs-font-size-sm">校</div>
+          <div class="rs-lines-1 rs-lighten rs-font-size-sm">
+            <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
+            等同学也觉得赞，
+            <span class="rs-clickable rs-font-size-sm">Yang</span>、<span class="rs-clickable rs-font-size-sm">Lee</span>
+            等同学有赏
+          </div>
           <hr>
           <div class="rs-lines-1 rs-clickable" ng-if="$index == 0">
             <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
           </div>
           <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
-            <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.desc }}</div>
+            <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
             <div class="reading">
               <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
               <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
@@ -35,16 +44,16 @@
             </div>
           </div>
           <div class="tags" ng-if="$index == 0">
-            <div class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</div>
+            <a href="#" title="查看该话题" class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</a>
           </div>
           <div class="action">
-            <div class="rs-lighten rs-font-size-sm">发布于 {{ item.datetime }}</div>
+            <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="attention = attention == '关注' ? '已关注' : '关注'" ng-init="attention='关注'">{{ attention }}</div>
+            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="attention = attention == '关注问题' ? '已关注问题' : '关注问题'" ng-init="attention='关注问题'">{{ attention }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
             <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="mark = mark == '收藏' ? '已收藏' : '收藏'" ng-init="mark='收藏'">{{ mark }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable rs-dropdown-target">转发
+            <div class="rs-lighten rs-font-size-sm rs-clickable rs-dropdown-target">分享
               <ul class="rs-dropdown">
                 <li>新浪微博</li>
                 <li>微信</li>
@@ -63,13 +72,14 @@
               <div><input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply"></div>
             </div>
             <div class="main-card" ng-repeat="item in qa">
-              <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
               <div class="rs-align-vertical">
                 <div>
-                  <strong class="rs-font-size-sm">{{ item.name }}</strong>
-                  <div class="rs-font-size-sm">{{ item.desc }}</div>
+                  <strong class="rs-font-size-sm rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+                  <div class="rs-font-size-sm">Hi</div>
                   <div class="action">
-                    <div class="rs-lighten rs-font-size-sm">发布于 {{ item.datetime }}</div>
+                    <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
                     <div class="rs-lighten rs-font-size-sm">·</div>
                     <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="replySomebody($index)">回复</div>
                     <div class="rs-lighten rs-font-size-sm">·</div>
@@ -91,7 +101,7 @@
     -->
     <div class="rs-card main-card" ng-repeat="item in qa" ng-if="$index > 0">
       <div class="thumb-column">
-        <img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+        <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-thumb" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
         <div class="rs-thumb-btn">{{ like }}</div>
           <div class="rs-thumb-content">{{ item.like }}</div>
@@ -103,14 +113,23 @@
       </div>
       <div class="rs-align-vertical">
         <div>
-          <strong>{{ item.name }}</strong> <div class="rs-badge rs-font-size-sm">校</div>
-          <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
+          <strong class="rs-clickable">{{ item.name }}</strong>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
+          <div class="rs-badge rs-font-size-sm">校</div>
+          <div class="rs-lines-1 rs-lighten rs-font-size-sm">
+            <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
+            等同学也觉得赞，
+            <span class="rs-clickable rs-font-size-sm">Yang</span>、<span class="rs-clickable rs-font-size-sm">Lee</span>
+            等同学有赏
+          </div>
           <hr>
           <div class="rs-lines-1 rs-clickable" ng-if="$index == 0">
             <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
           </div>
           <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
-            <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.desc }}</div>
+            <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
             <div class="reading">
               <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
               <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
@@ -123,11 +142,11 @@
             <div class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</div>
           </div>
           <div class="action">
-            <div class="rs-lighten rs-font-size-sm">发布于 {{ item.datetime }}</div>
+            <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
             <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="mark = mark == '收藏' ? '已收藏' : '收藏'" ng-init="mark='收藏'">{{ mark }}</div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable rs-dropdown-target">转发
+            <div class="rs-lighten rs-font-size-sm rs-clickable rs-dropdown-target">分享
               <ul class="rs-dropdown">
                 <li>新浪微博</li>
                 <li>微信</li>
@@ -146,13 +165,14 @@
               <div><input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply"></div>
             </div>
             <div class="main-card" ng-repeat="item in qa">
-              <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
               <div class="rs-align-vertical">
                 <div>
-                  <strong class="rs-font-size-sm">{{ item.name }}</strong>
-                  <div class="rs-font-size-sm">{{ item.desc }}</div>
+                  <strong class="rs-font-size-sm rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+                  <div class="rs-font-size-sm">Hi</div>
                   <div class="action">
-                    <div class="rs-lighten rs-font-size-sm">发布于 {{ item.datetime }}</div>
+                    <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
                     <div class="rs-lighten rs-font-size-sm">·</div>
                     <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="replySomebody($index)">回复</div>
                     <div class="rs-lighten rs-font-size-sm">·</div>
@@ -181,15 +201,15 @@
   -->
   <div class="rs-block10-3">
     <div class="rs-card sub-card">
-      <div class="title"><strong>相关问答</strong></div>
+      <div class="title"><strong>相关问题</strong></div>
       <div class="main-card" ng-repeat="item in qa">
-        <img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1">
+        <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-align-vertical">
           <div>
-            <strong>{{ item.name }}</strong>
-            <div class="rs-lines-1 rs-lighten">{{ item.desc }}</div>
+            <strong class="rs-clickable">{{ item.name }}</strong>
+            <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
             <div class="rs-lines-1 rs-clickable">
-              <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
+              <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
             </div>
           </div>
         </div>
