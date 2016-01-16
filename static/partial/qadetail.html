@@ -7,32 +7,17 @@
     <div class="rs-card main-card" ng-repeat="item in qa" ng-if="$index == 0">
       <div class="thumb-column">
         <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
-        <div class="rs-thumb" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
-        <div class="rs-thumb-btn">{{ like }}</div>
-          <div class="rs-thumb-content">{{ item.like }}</div>
-        </div>
-        <div class="rs-thumb" ng-click="award = award == '赏' ? '已赏' : '赏'" ng-init="award='赏'">
-          <div class="rs-thumb-btn">{{ award }}</div>
-          <div class="rs-thumb-content">{{ item.award }}</div>
-        </div>
       </div>
       <div class="rs-align-vertical">
         <div>
-          <strong class="rs-clickable">{{ item.name }}</strong>
-          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+          <div class="rs-lines-1 rs-clickable">
+            <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
+          </div>
+          <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+          <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
-          <div class="rs-badge rs-font-size-sm">校</div>
-          <div class="rs-lines-1 rs-lighten rs-font-size-sm">
-            <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
-            等同学也觉得赞，
-            <span class="rs-clickable rs-font-size-sm">Yang</span>、<span class="rs-clickable rs-font-size-sm">Lee</span>
-            等同学有赏
-          </div>
-          <hr>
-          <div class="rs-lines-1 rs-clickable" ng-if="$index == 0">
-            <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
-          </div>
           <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
             <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
             <div class="reading">
@@ -113,23 +98,21 @@
       </div>
       <div class="rs-align-vertical">
         <div>
-          <strong class="rs-clickable">{{ item.name }}</strong>
-          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+          <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+          <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
-          <div class="rs-badge rs-font-size-sm">校</div>
-          <div class="rs-lines-1 rs-lighten rs-font-size-sm">
-            <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
-            等同学也觉得赞，
-            <span class="rs-clickable rs-font-size-sm">Yang</span>、<span class="rs-clickable rs-font-size-sm">Lee</span>
-            等同学有赏
-          </div>
-          <hr>
-          <div class="rs-lines-1 rs-clickable" ng-if="$index == 0">
-            <div class="rs-badge rs-font-size-sm">{{ item.type }}</div> <strong class="rs-active">{{ item.title }}</strong>
-          </div>
           <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
-            <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
+            <a ng-if="$index % 2" class="rs-block10" href="#/qadetail" target="_blank">
+              <img class="rs-block10-3" src="http://ww4.sinaimg.cn/large/659dc7b4jw1e96tf7pynej20u00gvwii.jpg">
+              <div class="rs-block10-7">
+                <div class="content" ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
+              </div>
+            </a>
+            <a ng-if="!($index % 2)" class="rs-block10" href="#/qadetail" target="_blank">
+              <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
+            </a>
             <div class="reading">
               <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
               <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
@@ -158,6 +141,8 @@
             <div class="rs-lighten rs-font-size-sm rs-clickable" ng-init="showComments[$index] = false" ng-click="showComments[$index] = !showComments[$index]">
               {{ showComments[$index] ? "收起评论" : qa.length + " 条评论" }}
             </div>
+              <div ng-if="$index == 1" class="rs-lighten rs-font-size-sm">·</div>
+              <div ng-if="$index == 1" class="rs-lighten rs-font-size-sm rs-clickable">编辑回答</div>
           </div>
           <div class="comments" ng-if="showComments[$index]">
             <div class="rs-form-group">
@@ -193,21 +178,32 @@
     Editbox
     -->
     <div class="rs-card main-card">
-      <div class="rs-align-center rs-font-size-lg">TODO: 编辑框在这里</div>
+      <div class="rs-align-center rs-font-size-lg">编辑框在这里（如果当前用户未回答）；否则，编辑框则嵌入到其回答的内容中</div>
     </div>
   </div>
   <!--
   Hot
   -->
-  <div class="rs-block10-3">
+  <div class="rs-block10-3" ng-init="thisBtnName = '关注该问题'">
+    <div class="profile rs-card sub-card rs-align-center" ng-style="{'position': {true:'fixed', false:'relative'}[showProfile], 'width': profileWidth}">
+      <div class="rs-font-size-sm rs-align-left rs-lighten">共有 <span class="rs-font-size-sm rs-clickable">1024</span> 个同学关注该问题</div>
+      <div class="people1">
+        <a ng-repeat="i in [1,2,3,4,5,6,7]" href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+      </div>
+      <div class="people2">
+        <a ng-repeat="i in [1,2,3,4,5,6,7]" href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+      </div>
+      <button class="rs-btn rs-btn-primary rs-block10" ng-click="thisBtnName = thisBtnName == '关注该问题' ? '已关注' : '关注该问题'">{{ thisBtnName }}</button>
+    </div>
     <div class="rs-card sub-card">
       <div class="title"><strong>相关问题</strong></div>
       <div class="main-card" ng-repeat="item in qa">
         <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-align-vertical">
           <div>
+            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
             <strong class="rs-clickable">{{ item.name }}</strong>
-            <div class="rs-lighten rs-font-size-sm rs-add-inline-block">清华大学</div>
+            <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
             <div class="rs-lines-1 rs-clickable">
               <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
             </div>

@@ -10,10 +10,16 @@
 @base-font-size-sm: 12px;
 @base-font-size-lg: 16px;
 @font-face {
-  font-family: "Custom Font";
-  src: url("../font/microsoftyaheiuilight.otf");
+  font-family: "custom-font";
+  src: url("../font/MicrosoftYaHeiLight.eot");
+  src: url("../font/MicrosoftYaHeiLight.eot?#iefix") format("embedded-opentype"),
+  url("../font/MicrosoftYaHeiLight.svg#custom-font") format("svg"),
+  url("../font/MicrosoftYaHeiLight.woff") format("woff"),
+  url("../font/MicrosoftYaHeiLight.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-@base-font-family: "Custom Font";
+@base-font-family: "custom-font";
 /*"Helvetica Neue",Helvetica,Arial,sans-serif;*/
 @base-font-weight: 500;
 @base-line-height: 1.4;

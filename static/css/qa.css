@@ -1,0 +1,60 @@
+/**
+ * QA View
+ */
+.qa-view .typcn.typcn-star {
+  color: orange;
+  cursor: pointer;
+}
+.qa-view .main-card {
+  margin: 0 10px 10px 0;
+}
+.qa-view .sub-card {
+  margin-bottom: 10px;
+}
+.qa-view .reading {
+  text-align: right;
+}
+.qa-view .notice {
+  margin-top: 10px;
+}
+.qa-view .rs-tabs {
+  float: right;
+}
+.qa-view .tags > * {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.qa-view .action > * {
+  display: inline-block;
+  padding: 10px 10px 0 0;
+}
+.qa-view .thumb-column {
+  float: left;
+  margin-right: 10px;
+}
+.qa-view .profile ul {
+  width: 250px;
+  margin: 10px auto 0 auto;
+  overflow: hidden;
+}
+.qa-view .rs-logo-sm
+{
+  float: left;
+  margin-right: 10px;
+}
+.qa-view .rs-card > .title {
+  margin-bottom: 10px;
+}
+.qa-view .rs-thumb {
+  margin-bottom: 5px;
+}
+.qa-view .comments > * {
+  width: 100%;
+  margin-top: 10px;
+}
+.qa-view .rs-badge i {
+  color: white;
+}
+.qa-view .rs-quote .content {
+  padding-left: 5px;
+}

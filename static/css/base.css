@@ -1,0 +1,51 @@
+/**
+ * Global
+ */
+html, body {
+  z-index: -2;
+  background-color: lightblue;
+}
+body > .rs-skin {
+  background-color: lightblue;
+}
+body > .rs-navbar-fixed .rs-container {
+  text-align: center;
+  height: inherit;
+  overflow: hidden;
+}
+body > .rs-navbar-fixed .rs-container > * {
+  margin: 0 10px;
+}
+body > .rs-navbar-fixed .rs-navbar-list > li.rs-active {
+  background-color: transparent;
+}
+body > .rs-navbar-fixed .rs-navbar-list > li.rs-active * {
+  color: #4579d8;
+  font-weight: bold;
+}
+body > .rs-navbar-fixed .rs-navbar-list > li:hover,
+body > .rs-navbar-fixed .rs-navbar-list > li:focus,
+body > .rs-navbar-fixed .rs-navbar-list > li:active {
+  background-color: transparent;
+}
+body > .rs-navbar-fixed .rs-container .typcn {
+  font-size: 24px;
+}
+body > .rs-navbar-fixed .rs-container .rs-clickable:hover > * {
+  color: #4579d8;
+}
+body > .rs-navbar-fixed .rs-container .rs-dropdown {
+  position: fixed;
+}
+body > .rs-navbar-fixed .rs-container > ul > li {
+  padding: 6px 15px 12px 15px;
+}
+body > .rs-navbar-fixed .rs-container > div {
+  display: inline-block;
+}
+body > .rs-navbar-fixed .rs-container > input {
+  width: 210px;
+}
+body > .rs-window > *:first-child {
+  margin-top: 10px;
+}
