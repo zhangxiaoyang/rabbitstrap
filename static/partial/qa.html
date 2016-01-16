@@ -14,7 +14,62 @@
     </div>
     <div class="rs-card main-card" ng-repeat="item in qa">
       <div class="thumb-column">
-        <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+        <!--
+        Card
+        ===============================================-->
+        <div class="rs-dropdown-target">
+          <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+          <div class="rs-dropdown">
+            <div class="rs-card">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+              <div class="rs-align-vertical">
+                <div>
+                  <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+                  <strong class="rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
+                </div>
+                <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
+              </div>
+              <hr>
+              <ul class="rs-tabs-static">
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">F币</div>
+                    <div class="rs-thumb-content">12k</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">回答</div>
+                    <div class="rs-thumb-content">198</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">上传</div>
+                    <div class="rs-thumb-content">20</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">关注</div>
+                    <div class="rs-thumb-content">40</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">粉丝</div>
+                    <div class="rs-thumb-content">199</div>
+                  </div>
+                </li>
+              </ul>
+              <button ng-init="thisBtnName = '关注Ta'" class="rs-btn rs-block10 rs-font-size-sm" ng-click="thisBtnName = thisBtnName == '关注Ta' ? '已关注' : '关注Ta'">
+                <span ng-class="{'关注Ta': 'typcn typcn-plus', '已关注': 'typcn typcn-tick'}[thisBtnName]"></span>
+                {{ thisBtnName }}
+              </button>
+            </div>
+          </div>
+        </div>
         <div ng-if="item.type != '关注了该问题'">
           <div class="rs-thumb" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
           <div class="rs-thumb-btn">{{ like }}</div>

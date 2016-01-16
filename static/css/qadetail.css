@@ -58,12 +58,15 @@
 .qadetail-view .rs-quote .content {
   padding-left: 5px;
 }
-.qadetail-view .people1 {
+.qadetail-view .people {
   display: inline-block;
   margin-top: 10px;
-}
-.qadetail-view .people2 {
-  display: inline-block;
-  margin-top: 5px;
   margin-bottom: 10px;
+}
+.qadetail-view .rs-dropdown {
+  width: 260px;
+}
+.qadetail-view .rs-dropdown .rs-card {
+  width: 240px;
+  display: table;
 }
