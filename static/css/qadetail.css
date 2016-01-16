@@ -63,10 +63,10 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.qadetail-view .rs-dropdown {
+.qadetail-view .card {
   width: 260px;
 }
-.qadetail-view .rs-dropdown .rs-card {
+.qadetail-view .card > .rs-card {
   width: 240px;
   display: table;
 }
