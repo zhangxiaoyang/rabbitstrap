@@ -5,3 +5,23 @@
     color: darken(@clickable-color, @base-change);
   }
 }
+.rs-clickable-all {
+  cursor: pointer;
+
+  &:hover, &:focus, &:active {
+    color: darken(@clickable-color, @base-change);
+  }
+  &:hover *, &:focus *, &:active * {
+    color: darken(@clickable-color, @base-change);
+  }
+}
+.rs-clickable-child {
+  cursor: pointer;
+
+  &:hover, &:focus, &:active {
+    color: darken(@clickable-color, @base-change);
+  }
+  &:hover > *, &:focus > *, &:active > * {
+    color: darken(@clickable-color, @base-change);
+  }
+}

@@ -31,9 +31,6 @@ body > .rs-navbar-fixed .rs-navbar-list > li:active {
 body > .rs-navbar-fixed .rs-container .typcn {
   font-size: 24px;
 }
-body > .rs-navbar-fixed .rs-container .rs-clickable:hover > * {
-  color: #4579d8;
-}
 body > .rs-navbar-fixed .rs-container .rs-dropdown {
   position: fixed;
 }
@@ -43,8 +40,18 @@ body > .rs-navbar-fixed .rs-container > ul > li {
 body > .rs-navbar-fixed .rs-container > div {
   display: inline-block;
 }
-body > .rs-navbar-fixed .rs-container > input {
+body > .rs-navbar-fixed .rs-container > .search {
   width: 210px;
+}
+body > .rs-navbar-fixed .rs-container > .search > input {
+  width: 210px;
+  padding-right: 31px;/*for search icon 24icon width+5padding*/
+}
+body > .rs-navbar-fixed .rs-container > .search > span {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  cursor: pointer;
 }
 body > .rs-window > *:first-child {
   margin-top: 10px;

@@ -10,7 +10,9 @@
       <ul class="rs-tabs">
         <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['校园', '考研', '留学', '考证', '就业', '实习']">{{ tab }}</li>
       </ul>
-      <div class="notice rs-notice-primary" ng-hide="closed">有 10 条新的动态哦，点我查看<span class="rs-close" ng-click="closed=true">×</span></div>
+      <div class="notice rs-notice-primary" ng-hide="closed">
+        <span class="typcn typcn-rss rs-active"></span> 有 10 条新的动态哦，点我查看<span class="rs-close" ng-click="closed=true">×</span>
+      </div>
     </div>
     <div class="rs-card main-card" ng-repeat="item in qa">
       <div class="thumb-column">
@@ -24,7 +26,7 @@
               <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
               <div class="rs-align-vertical">
                 <div>
-                  <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+                  <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
                   <strong class="rs-clickable">{{ item.name }}</strong>
                   <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
                 </div>
@@ -75,7 +77,7 @@
           <div class="rs-thumb-btn">{{ like }}</div>
             <div class="rs-thumb-content">{{ item.like }}</div>
           </div>
-          <div class="rs-thumb" ng-click="award = award == '赏' ? '已赏' : '赏'" ng-init="award='赏'">
+          <div class="rs-thumb" ng-click="award = award == '赏' ? '已赏' : '已赏'" ng-init="award='赏'">
             <div class="rs-thumb-btn">{{ award }}</div>
             <div class="rs-thumb-content">{{ item.award }}</div>
           </div>
@@ -93,7 +95,7 @@
           <div class="rs-lines-1 rs-clickable">
             <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
           </div>
-          <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+          <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
           <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
@@ -106,10 +108,12 @@
               </div>
             </a>
             <a ng-if="!($index % 2)" class="rs-block10" href="#/qadetail" target="_blank">
-              <div ng-class="{false: 'rs-lines-5'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
+              <div ng-class="{false: 'rs-lines-3'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">{{ item.content }}</div>
             </a>
             <div class="reading">
-              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">沉浸阅读</div>
+              <div class="rs-active rs-clickable-all rs-font-size-sm rs-add-inline-block" ng-click="setReadingMode(true)">
+                <span class="typcn typcn-coffee rs-active"></span> 沉浸阅读
+              </div>
               <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
               <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingOpen($index, !readingOpen[$index])">
                 {{ readingOpen[$index] ? "收起全部" : "展开全部" }}
@@ -120,13 +124,20 @@
             <a href="#" title="查看该话题" class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</a>
           </div>
           <div class="action">
-            <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
+            <div class="rs-lighten-all rs-font-size-sm">
+              <span class="typcn typcn-time"></span> {{ item.datetime }}
+            </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="attention = attention == '关注问题' ? '已关注问题' : '关注问题'" ng-init="attention='关注问题'">{{ attention }}</div>
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all" ng-click="attention = attention == '关注问题' ? '已关注问题' : '关注问题'" ng-init="attention='关注问题'">
+              <span class="typcn typcn-plus"></span> {{ attention }}
+            </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="mark = mark == '收藏' ? '已收藏' : '收藏'" ng-init="mark='收藏'">{{ mark }}</div>
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all" ng-click="mark = mark == '收藏' ? '已收藏' : '收藏'" ng-init="mark='收藏'">
+              <span class="typcn typcn-bookmark"></span> {{ mark }}
+            </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable rs-dropdown-target">分享
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-child rs-dropdown-target">
+              <span class="typcn typcn-arrow-forward-outline"></span> 分享
               <ul class="rs-dropdown">
                 <li>新浪微博</li>
                 <li>微信</li>
@@ -135,8 +146,8 @@
               </ul>
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten rs-font-size-sm rs-clickable" ng-init="showComments[$index] = false" ng-click="showComments[$index] = !showComments[$index]">
-              {{ showComments[$index] ? "收起评论" : qa.length + " 条评论" }}
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all" ng-init="showComments[$index] = false" ng-click="showComments[$index] = !showComments[$index]">
+              <span class="typcn typcn-message"></span> {{ showComments[$index] ? "收起评论" : qa.length + " 条评论" }}
             </div>
           </div>
           <div class="comments" ng-if="showComments[$index]">
@@ -177,7 +188,7 @@
       <div>
         <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div>
-          <div class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+          <div class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
           <strong>Yang</strong> 清华大学
           <div class="rs-lines-1 rs-lighten">生命在于运动</div>
         </div>
@@ -222,7 +233,7 @@
         <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-align-vertical">
           <div>
-            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
             <strong class="rs-clickable">{{ item.name }}</strong>
             <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
             <div class="rs-lines-1 rs-clickable">
@@ -238,7 +249,7 @@
         <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-align-vertical">
           <div>
-            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star"></span></div>
+            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
             <strong class="rs-clickable">{{ item.name }}</strong>
             <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
             <div class="rs-lines-1 rs-clickable">

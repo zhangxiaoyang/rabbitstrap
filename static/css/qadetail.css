@@ -14,6 +14,10 @@
 .qadetail-view .reading {
   text-align: right;
 }
+.qadetail-view .reading > * {
+  display: inline-block;
+  padding-left: 5px;
+}
 .qadetail-view .notice {
   margin-top: 10px;
 }

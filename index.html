@@ -37,13 +37,15 @@
   <div class="rs-navbar-fixed">
     <div class="rs-container">
       <a class="rs-font-size-lg rs-clickable" href="/">校园星空</a>
-      <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程等">
+      <div class="search">
+        <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程等"><span class="typcn typcn-zoom rs-clickable rs-lighten"></span>
+      </div>
       <ul class="rs-navbar-list">
-        <li ng-click="setCurrNavTab(arr[0])" ng-class="{true: 'rs-active'}[isCurrNavTab(arr[0])]" ng-repeat="arr in [['首页', 'home', 'home-outline'], ['同学帮', 'classmate', 'group-outline'], ['课程堂', 'course', 'mortar-board']]">
+        <li ng-click="setCurrNavTab(arr[0])" ng-class="{true: 'rs-active'}[isCurrNavTab(arr[0])]" ng-repeat="arr in [['首页', 'home', 'home-outline'], ['同学帮', 'classmate', 'lightbulb'], ['课程堂', 'course', 'mortar-board']]">
           <a href="#/{{ arr[1]}}"><span ng-class="'typcn typcn-' + arr[2]"></span> {{ arr[0] }}</a>
         </li>
       </ul>
-      <div class="rs-clickable rs-dropdown-target"><span class="typcn typcn-puzzle-outline"></span> 更多
+      <div class="rs-clickable-child rs-dropdown-target"><span class="typcn typcn-puzzle-outline"></span> 更多
         <ul class="rs-dropdown">
           <li>a</li>
           <li>a</li>

@@ -1,3 +1,9 @@
 .rs-lighten {
   color: @lighten-color;
 }
+.rs-lighten-all {
+  color: @lighten-color;
+  & * {
+    color: @lighten-color;
+  }
+}
