@@ -2,11 +2,14 @@
 <div class="rs-block10">
   <div class="rs-block10-7">
     <div class="rs-card main-card">
-      <select>
-        <option>圈子</option>
-        <option>本校</option>
-        <option>全国</option>
-      </select>
+      <div class="rs-dropdown-target rs-add-inline-block">
+        <button class="rs-btn">圈子 <span class="typcn typcn-arrow-sorted-down"></span></button>
+        <ul class="rs-dropdown">
+          <li>圈子</li>
+          <li>本校</li>
+          <li>全国</li>
+        </ul>
+      </div>
       <ul class="rs-tabs">
         <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['校园', '考研', '留学', '考证', '就业', '实习']">{{ tab }}</li>
       </ul>
