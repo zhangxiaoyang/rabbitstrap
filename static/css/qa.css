@@ -1,6 +1,20 @@
 /**
  * QA View
  */
+.qa-view .search {
+  vertical-align: top;
+  float: right;
+}
+.qa-view .search > input {
+  width: 210px;
+  padding-right: 31px;/*for search icon 24icon width+5padding*/
+}
+.qa-view .search > span {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 20px;
+}
 .qa-view .typcn.typcn-star {
   color: orange;
   cursor: pointer;

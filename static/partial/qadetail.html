@@ -109,7 +109,7 @@
               <span class="typcn typcn-bookmark"></span> {{ mark }}
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten-all rs-font-size-sm rs-clickable-child rs-dropdown-target">
+            <div class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
               <span class="typcn typcn-arrow-forward-outline"></span> 分享
               <ul class="rs-dropdown">
                 <li>新浪微博</li>
@@ -266,7 +266,7 @@
               <span class="typcn typcn-bookmark"></span> {{ mark }}
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten-all rs-font-size-sm rs-clickable-child rs-dropdown-target">
+            <div class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
               <span class="typcn typcn-arrow-forward-outline"></span> 分享
               <ul class="rs-dropdown">
                 <li>新浪微博</li>
@@ -393,10 +393,10 @@
         <div class="rs-align-vertical">
           <div>
             <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
-            <strong class="rs-clickable">{{ item.name }}</strong>
+            <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
             <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
             <div class="rs-lines-1 rs-clickable">
-              <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
+              <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
             </div>
           </div>
         </div>

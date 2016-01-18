@@ -29,13 +29,13 @@ body > .rs-navbar-fixed .rs-navbar-list > li:active {
   background-color: transparent;
 }
 body > .rs-navbar-fixed .rs-container .typcn {
-  font-size: 24px;
+  font-size: 20px;
 }
 body > .rs-navbar-fixed .rs-container .rs-dropdown {
   position: fixed;
 }
 body > .rs-navbar-fixed .rs-container > ul > li {
-  padding: 6px 15px 12px 15px;
+  padding-top: 10px;
 }
 body > .rs-navbar-fixed .rs-container > div {
   display: inline-block;
@@ -50,7 +50,7 @@ body > .rs-navbar-fixed .rs-container > .search > input {
 body > .rs-navbar-fixed .rs-container > .search > span {
   position: absolute;
   right: 5px;
-  bottom: 2px;
+  bottom: 5px;
   cursor: pointer;
 }
 body > .rs-window > *:first-child {
