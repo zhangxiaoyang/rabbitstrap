@@ -53,7 +53,9 @@
       </div>
       <div class="rs-clickable-all"><span class="typcn typcn-user-outline"></span> Yang</div>
       <div class="rs-divider"></div>
-      <div class="rs-clickable-all"><span class="typcn typcn-bell"></span></div>
+      <div class="rs-clickable-all"><span class="typcn typcn-bell" ng-init="message = '你有新的消息哦'" title="{{ message }}"></span>
+        <span class="typcn typcn-media-record" ng-if="message"></span>
+      </div>
       <div class="rs-clickable-all"><span class="typcn typcn-cog-outline"></span></div>
     </div>
   </div>

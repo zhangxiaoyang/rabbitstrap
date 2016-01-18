@@ -31,6 +31,13 @@ body > .rs-navbar-fixed .rs-navbar-list > li:active {
 body > .rs-navbar-fixed .rs-container .typcn {
   font-size: 20px;
 }
+body > .rs-navbar-fixed .rs-container .typcn.typcn-media-record {
+  position: absolute;
+  font-size: 15px;
+  color: red;
+  right: -5px;
+  top: 6px;
+}
 body > .rs-navbar-fixed .rs-container .rs-dropdown {
   position: fixed;
 }
