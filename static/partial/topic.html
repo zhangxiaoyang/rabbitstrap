@@ -1,32 +1,37 @@
-<div class="qa-view">
+<div class="topic-view">
 <div class="rs-block10">
   <div class="rs-block10-7">
-    <div class="rs-card main-card">
-      <!--
-      <div class="rs-dropdown-target rs-add-inline-block">
-        <button class="rs-btn">圈子 <span class="typcn typcn-arrow-sorted-down"></span></button>
-        <ul class="rs-dropdown">
-          <li>圈子</li>
-          <li>本校</li>
-          <li>全国</li>
-        </ul>
-      </div>
-      <ul class="rs-tabs">
-        <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['校园', '考研', '留学', '考证', '就业', '实习']">{{ tab }}</li>
-      </ul>
-      -->
-      <div class="rs-add-inline-block">
-        <ul class="rs-tabs">
-          <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['圈子', '本校', '全国']">{{ tab }}</li>
-        </ul>
-      </div>
-      <div class="rs-add-inline-block search">
-        <input class="rs-input-text" type="text" placeholder="搜索 {{ selectedTab }} 中的所有问答"><span class="typcn typcn-zoom rs-clickable rs-lighten"></span>
-      </div>
-      <div class="notice rs-notice-primary" ng-hide="closed">
-        <span class="typcn typcn-rss rs-active"></span> {{ selectedTab }} 有 10 条新的动态哦，点我查看<span class="rs-close" ng-click="closed=true">×</span>
+    <!--
+    Question
+    -->
+    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="$index == 0">
+      <div class="rs-align-vertical">
+        <div>
+          <div class="rs-lines-1 rs-clickable">
+            <div class="rs-add-inline-block rs-font-size"><span class="typcn typcn-social-vimeo" title="认证话题"></span></div>
+            <a><strong class="rs-active">中国科学院大学</strong></a>
+          </div>
+          <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
+            <a class="rs-block10" ng-click="setReadingOpen($index, !readingOpen[$index])">
+              <div ng-class="{false: 'rs-lines-3'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">
+                中国科学院大学（University of Chinese Academy of Sciences），简称“国科大”，中国科学技术最高学府，隶属于中国科学院，前身是中国科学院研究生院，创建于1978年，是经国务院批准创办的新中国第一所研究生院，培养了中国的第一个理学博士、第一个工学博士、第一个女博士、第一个双学位博士。 中国科学院大学（University of Chinese Academy of Sciences），简称“国科大”，中国科学技术最高学府，隶属于中国科学院，前身是中国科学院研究生院，创建于1978年，是经国务院批准创办的新中国第一所研究生院，培养了中国的第一个理学博士、第一个工学博士、第一个女博士、第一个双学位博士。
+              </div>
+            </a>
+            <div class="reading">
+              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingOpen($index, !readingOpen[$index])">
+                {{ readingOpen[$index] ? "收起全部" : "展开全部" }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="rs-card main-card">
+      <div class="rs-align-center rs-font-size-sm rs-lighten">相关问答</div>
+    </div>
+    <!--
+    Answer
+    -->
     <div class="rs-card main-card" ng-repeat="item in qa">
       <div class="thumb-column">
         <!--
@@ -195,80 +200,79 @@
   </div>
   <!--
   Hot
-  ===============================================-->
-  <div class="rs-block10-3">
+  -->
+  <div class="rs-block10-3" ng-init="thisBtnName = '关注该话题'">
     <div class="profile rs-card sub-card rs-align-center" ng-style="{'position': {true:'fixed', false:'relative'}[showProfile], 'width': profileWidth}">
-      <div>
-        <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
-        <div>
-          <div class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
-          <strong>Yang</strong> 清华大学
-          <div class="rs-lines-1 rs-lighten">生命在于运动</div>
-        </div>
-      </div>
-      <ul class="rs-tabs-static">
-        <li>
-          <div class="rs-thumb rs-remove-border">
-            <div class="rs-thumb-btn">F币</div>
-            <div class="rs-thumb-content">12k</div>
-          </div>
-        </li>
-        <li>
-          <div class="rs-thumb rs-remove-border">
-            <div class="rs-thumb-btn">回答</div>
-            <div class="rs-thumb-content">198</div>
-          </div>
-        </li>
-        <li>
-          <div class="rs-thumb rs-remove-border">
-            <div class="rs-thumb-btn">上传</div>
-            <div class="rs-thumb-content">20</div>
-          </div>
-        </li>
-        <li>
-          <div class="rs-thumb rs-remove-border">
-            <div class="rs-thumb-btn">关注</div>
-            <div class="rs-thumb-content">40</div>
-          </div>
-        </li>
-        <li>
-          <div class="rs-thumb rs-remove-border">
-            <div class="rs-thumb-btn">粉丝</div>
-            <div class="rs-thumb-content">199</div>
-          </div>
-        </li>
-      </ul>
-      <button class="rs-btn rs-btn-primary rs-block10" ng-click="setAskMode(true)">提问</button>
-    </div>
-    <div class="rs-card sub-card">
-      <div class="title"><strong>最新回答</strong></div>
-      <div class="main-card" ng-repeat="item in qa">
-        <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
-        <div class="rs-align-vertical">
-          <div>
-            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
-            <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
-            <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
-            <div class="rs-lines-1 rs-clickable">
-              <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
+      <div class="rs-font-size-sm rs-align-left rs-lighten">有 <span class="rs-font-size-sm rs-clickable">1024</span> 个同学关注了该话题</div>
+      <div class="people1">
+        <!--
+        Card
+        ===============================================-->
+        <div class="people rs-dropdown-target" ng-repeat="i in [1,2,3,4,5,6,7]">
+          <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+          <div class="card rs-dropdown">
+            <div class="rs-card">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+              <div class="rs-align-vertical">
+                <div>
+                  <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
+                  <strong class="rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
+                </div>
+                <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
+              </div>
+              <hr>
+              <ul class="rs-tabs-static">
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">F币</div>
+                    <div class="rs-thumb-content">12k</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">回答</div>
+                    <div class="rs-thumb-content">198</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">上传</div>
+                    <div class="rs-thumb-content">20</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">关注</div>
+                    <div class="rs-thumb-content">40</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">粉丝</div>
+                    <div class="rs-thumb-content">199</div>
+                  </div>
+                </li>
+              </ul>
+              <button ng-init="thisBtnName = '关注Ta'" class="rs-btn rs-block10 rs-font-size-sm" ng-click="thisBtnName = thisBtnName == '关注Ta' ? '已关注' : '关注Ta'">
+                <span ng-class="{'关注Ta': 'typcn typcn-plus', '已关注': 'typcn typcn-tick'}[thisBtnName]"></span>
+                {{ thisBtnName }}
+              </button>
             </div>
           </div>
         </div>
       </div>
+      <button class="rs-btn rs-block10" ng-class="{'关注该话题': 'rs-btn-primary'}[thisBtnName]" ng-click="thisBtnName = thisBtnName == '关注该话题' ? '已关注' : '关注该话题'">
+        <span ng-class="{'关注该话题': 'typcn typcn-plus', '已关注': 'typcn typcn-tick'}[thisBtnName]" ng-style="{'color': {'关注该话题': 'white'}[thisBtnName]}"></span>
+        {{ thisBtnName }}
+      </button>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>热门回答</strong></div>
+      <div class="title"><strong>相关话题</strong></div>
       <div class="main-card" ng-repeat="item in qa">
-        <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
-        <div class="rs-align-vertical">
-          <div>
-            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
-            <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
-            <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
-            <div class="rs-lines-1 rs-clickable">
-              <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
-            </div>
-          </div>
+        <div class="rs-lines-1 rs-clickable">
+          <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-social-vimeo" title="认证话题"></span></div>
+          <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
         </div>
       </div>
     </div>
