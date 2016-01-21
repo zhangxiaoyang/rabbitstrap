@@ -18,6 +18,11 @@
       <div class="rs-add-inline-block">
         <ul class="rs-tabs">
           <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['圈子', '本校', '全国']">{{ tab }}</li>
+          <li class="rs-remove-border xueba" ng-class="{true: 'rs-active-all', false: 'rs-lighten-all'}[isXuebaMode()]" ng-click="setXuebaMode(!isXuebaMode())">
+            <span class="typcn typcn-mortar-board rs-font-size-sm"> 
+              {{ isXuebaMode() ? '学霸模式已开启' : '开启学霸模式' }}
+            </span>
+          </li>
         </ul>
       </div>
       <div class="rs-add-inline-block search">

@@ -1,3 +1,13 @@
 .rs-active {
   color: @active-color;
 }
+.rs-active-all {
+  & * {
+    color: darken(@active-color, @base-change);
+  }
+}
+.rs-active-child {
+  & > * {
+    color: darken(@active-color, @base-change);
+  }
+}

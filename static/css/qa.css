@@ -84,3 +84,6 @@
   width: 240px;
   display: table;
 }
+.qa-view .xueba.rs-active-all * {
+  color: orange;
+}

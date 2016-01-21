@@ -94,6 +94,17 @@ app.controller('QAController', function($scope, $rootScope, $window) {
   };
 
   $scope.qa = gQA;
+
+  $scope.xuebaMode = false;
+  $scope.isXuebaMode = function() {
+    return $scope.xuebaMode;
+  };
+  $scope.setXuebaMode = function(mode) {
+    if (mode) {
+      alert("弹窗进行设置，引导用户填写考研、就业的相关内容，进行更精准的推荐");
+    }
+    $scope.xuebaMode = mode;
+  }
 });
 
 /**
