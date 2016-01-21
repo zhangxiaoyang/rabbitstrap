@@ -25,11 +25,16 @@ app.config(function ($routeProvider) {
     controller: 'QADetailController',
     templateUrl: '/static/partial/qadetail.html'
   })
-  // Topic
   .when('/topic',
   {
     controller: 'TopicController',
     templateUrl: '/static/partial/topic.html'
+  })
+  // Topic
+  .when('/course',
+  {
+    controller: 'CourseController',
+    templateUrl: '/static/partial/course.html'
   })
   .otherwise({ redirectTo: '/qa' });
 });
@@ -94,17 +99,6 @@ app.controller('QAController', function($scope, $rootScope, $window) {
   };
 
   $scope.qa = gQA;
-
-  $scope.xuebaMode = false;
-  $scope.isXuebaMode = function() {
-    return $scope.xuebaMode;
-  };
-  $scope.setXuebaMode = function(mode) {
-    if (mode) {
-      alert("弹窗进行设置，引导用户填写考研、就业的相关内容，进行更精准的推荐");
-    }
-    $scope.xuebaMode = mode;
-  }
 });
 
 /**
@@ -139,6 +133,45 @@ app.controller('QADetailController', function($scope, $rootScope, $window) {
  * TopicController
  */
 app.controller('TopicController', function($scope, $rootScope, $window) {
+  var resetSideUI = function() {
+    var nodes = document.querySelectorAll('.rs-card.sub-card');
+    var rightSide = angular.element(nodes[nodes.length - 1]);
+    var windowTop = rightSide.prop('offsetTop') + rightSide.prop('offsetHeight') - $window.pageYOffset;
+    $scope.$apply(function() {
+      $scope.showProfile = windowTop <= 0;
+      $scope.profileWidth = rightSide.prop('offsetWidth') - 20 + 'px';
+    });
+  }
+  angular.element($window).on('resize', resetSideUI);
+  angular.element($window).bind('scroll', resetSideUI);
+
+  $scope.readingOpen = {};
+  $scope.setReadingOpen = function(index, open) {
+    $scope.readingOpen[index] = open;
+  }
+
+  $scope.replySomebody = function(index) {
+    $scope.reply = '回复 周杰伦: ';
+  };
+
+  $scope.qa = gQA;
+});
+
+/**
+ * CourseController
+ */
+app.controller('CourseController', function($scope, $rootScope, $window) {
+  $scope.selectedTab = '本专业';
+  $scope.isSelected = function(tab) {
+     return $scope.selectedTab == tab; 
+  };
+  $scope.setSelectedTab = function(tab) {
+    $scope.selectedTab = tab;
+  };
+  $scope.getSelectedTab = function() {
+    return $scope.setSelectedTab;
+  };
+
   var resetSideUI = function() {
     var nodes = document.querySelectorAll('.rs-card.sub-card');
     var rightSide = angular.element(nodes[nodes.length - 1]);

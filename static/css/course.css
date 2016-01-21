@@ -1,86 +1,86 @@
 /**
  * QA View
  */
-.qa-view .search {
+.course-view .search {
   vertical-align: top;
   float: right;
 }
-.qa-view .search > input {
+.course-view .search > input {
   width: 210px;
   padding-right: 31px;/*for search icon 24icon width+5padding*/
 }
-.qa-view .search > span {
+.course-view .search > span {
   position: absolute;
   right: 5px;
   bottom: 5px;
   font-size: 20px;
 }
-.qa-view .typcn.typcn-star {
+.course-view .typcn.typcn-star {
   color: orange;
   cursor: pointer;
 }
-.qa-view .main-card {
+.course-view .main-card {
   margin: 0 10px 10px 0;
 }
-.qa-view .sub-card {
+.course-view .sub-card {
   margin-bottom: 10px;
 }
-.qa-view .reading {
+.course-view .reading {
   text-align: right;
 }
-.qa-view .reading > * {
+.course-view .reading > * {
   display: inline-block;
   padding-left: 5px;
 }
-.qa-view .notice {
+.course-view .notice {
   margin: 10px -10px -10px -10px;
   border-radius: 0 0 3px 3px;
 }
-.qa-view .rs-tabs {
+.course-view .rs-tabs {
   float: right;
 }
-.qa-view .tags > * {
+.course-view .tags > * {
   margin-top: 10px;
   margin-right: 10px;
 }
-.qa-view .action > * {
+.course-view .action > * {
   display: inline-block;
   padding: 10px 10px 0 0;
 }
-.qa-view .thumb-column {
+.course-view .thumb-column {
   float: left;
   margin-right: 10px;
 }
-.qa-view .profile ul {
+.course-view .profile ul {
   width: 250px;
   margin: 10px auto 0 auto;
   overflow: hidden;
 }
-.qa-view .rs-logo-sm
+.course-view .rs-logo-sm
 {
   float: left;
   margin-right: 10px;
 }
-.qa-view .rs-card > .title {
+.course-view .rs-card > .title {
   margin-bottom: 10px;
 }
-.qa-view .rs-thumb {
+.course-view .rs-thumb {
   margin-bottom: 5px;
 }
-.qa-view .comments > * {
+.course-view .comments > * {
   width: 100%;
   margin-top: 10px;
 }
-.qa-view .rs-badge i {
+.course-view .rs-badge i {
   color: white;
 }
-.qa-view .rs-quote .content {
+.course-view .rs-quote .content {
   padding-left: 5px;
 }
-.qa-view .card {
+.course-view .card {
   width: 260px;
 }
-.qa-view .card .rs-card {
+.course-view .card .rs-card {
   width: 240px;
   display: table;
 }

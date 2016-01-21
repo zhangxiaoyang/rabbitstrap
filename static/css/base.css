@@ -38,6 +38,9 @@ body > .rs-navbar-fixed .rs-container .typcn.typcn-media-record {
   right: -5px;
   top: 6px;
 }
+body > .rs-navbar-fixed .rs-container .typcn.typcn-flash-outline {
+  font-size: 15px;
+}
 body > .rs-navbar-fixed .rs-container .rs-dropdown {
   position: fixed;
 }

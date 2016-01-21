@@ -16,9 +16,12 @@
   App
   ===============================================-->
   <link rel="stylesheet" href="/static/css/base.css">
+  <!-- QA -->
   <link rel="stylesheet" href="/static/css/qa.css">
   <link rel="stylesheet" href="/static/css/qadetail.css">
   <link rel="stylesheet" href="/static/css/topic.css">
+  <!-- Course -->
+  <link rel="stylesheet" href="/static/css/course.css">
   <script src="/static/js/app.js"></script>
 
   <!--
@@ -52,7 +55,15 @@
           <li>a</li>
         </ul>
       </div>
-      <div class="rs-clickable-all"><span class="typcn typcn-user-outline"></span> Yang</div>
+      <div class="rs-clickable-child rs-dropdown-target"><span class="typcn typcn-user-outline"></span> Yang
+        <ul class="rs-dropdown">
+          <li>个人主页</li>
+          <li><span class="typcn typcn-flash-outline"></span> 学霸模式</li>
+        </ul>
+      </div>
+
+
+
       <div class="rs-divider"></div>
       <div class="rs-clickable-all"><span class="typcn typcn-bell" ng-init="message = '你有新的消息哦'" title="{{ message }}"></span>
         <span class="typcn typcn-media-record" ng-if="message"></span>
