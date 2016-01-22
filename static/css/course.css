@@ -3,7 +3,6 @@
  */
 .course-view .search {
   vertical-align: top;
-  float: right;
 }
 .course-view .search > input {
   width: 210px;
@@ -14,6 +13,9 @@
   right: 5px;
   bottom: 5px;
   font-size: 20px;
+}
+.course-view .search > input:first-child {
+  width: 450px;
 }
 .course-view .typcn.typcn-star {
   color: orange;
@@ -83,4 +85,15 @@
 .course-view .card .rs-card {
   width: 240px;
   display: table;
+}
+.course-view .poster.rs-logo {
+  height: auto;
+  border-radius: 0;
+}
+.course-view .intro {
+  margin: 10px 0;
+}
+.course-view .intro * {
+  display: block;
+  
 }

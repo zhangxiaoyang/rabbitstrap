@@ -100,14 +100,14 @@ app.controller('QAController', function($scope, $rootScope, $window) {
 
   $scope.qa = gQA;
 
-  $scope.xuebaMode = false;
-  $scope.isXuebaMode = function() {
-    return $scope.xuebaMode;
+  $scope.helperMode = false;
+  $scope.isHelperMode = function() {
+    return $scope.helperMode;
   }
-  $scope.setXuebaMode = function(mode) {
-    $scope.xuebaMode = mode;
+  $scope.setHelperMode = function(mode) {
+    $scope.helperMode = mode;
     if (mode) {
-      alert("已开启学霸模式，初次开启，需要弹窗设置，比如考研要考的学校，要考证的类型等");
+      alert("我可以帮你辅导考研哦，快到碗里来");
     }
   }
 });

@@ -84,11 +84,11 @@
   width: 240px;
   display: table;
 }
-.qa-view .typcn-flash {
-  position: absolute;
-  bottom: 2px;
-  cursor: pointer;
-}
 .qa-view .typcn-feather {
   color: #80a4e4;
+}
+.qa-view .typcn-heart {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
 }

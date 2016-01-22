@@ -204,7 +204,8 @@
       <div>
         <div>
           <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
-          <span class="typcn typcn-flash" title="已开启学霸模式" ng-style="{'color': {true:'red', false:'lightgrey'}[isXuebaMode()]}" ng-click="setXuebaMode(!isXuebaMode())"></span>
+          <span class="typcn typcn-heart" title="{{ isHelperMode() ? '已开启辅导模式' : '开启辅导模式' }}"
+            ng-style="{'color': {true:'red', false:'lightgrey'}[isHelperMode()]}" ng-click="setHelperMode(!isHelperMode())"></span>
         </div>
         <div>
           <div class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
