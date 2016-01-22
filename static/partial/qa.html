@@ -135,6 +135,8 @@
           </div>
           <div class="tags">
             <a href="#/topic" target="_blank" title="查看该话题" class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</a>
+            <a ng-if="$index % 2" title="已关联课程体系
+              清华大学-信息工程学院-计算机专业-C语言程序设计" class="rs-add-pointer"><span class="typcn typcn-feather"></span></a>
           </div>
           <div class="action">
             <div class="rs-lighten-all rs-font-size-sm">
@@ -183,6 +185,7 @@
                   </div>
                 </div>
               </div>
+              <hr class="rs-dashed">
             </div>
             <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable" ng-init="loadMore = '加载更多'" ng-click="loadMore = '加载中...'">{{ loadMore }}</div>
           </div>
@@ -199,7 +202,10 @@
   <div class="rs-block10-3">
     <div class="profile rs-card sub-card rs-align-center" ng-style="{'position': {true:'fixed', false:'relative'}[showProfile], 'width': profileWidth}">
       <div>
-        <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+        <div>
+          <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+          <span class="typcn typcn-flash" title="已开启学霸模式" ng-style="{'color': {true:'red', false:'lightgrey'}[isXuebaMode()]}" ng-click="setXuebaMode(!isXuebaMode())"></span>
+        </div>
         <div>
           <div class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
           <strong>Yang</strong> 清华大学
