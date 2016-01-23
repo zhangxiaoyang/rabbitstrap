@@ -172,7 +172,7 @@ app.controller('TopicController', function($scope, $rootScope, $window) {
  * CourseController
  */
 app.controller('CourseController', function($scope, $rootScope, $window) {
-  $scope.selectedTab = '本专业';
+  $scope.selectedTab = '课程';
   $scope.isSelected = function(tab) {
      return $scope.selectedTab == tab; 
   };

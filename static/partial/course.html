@@ -2,16 +2,17 @@
 <div class="rs-block10">
   <div class="rs-block10-7">
     <div class="rs-card main-card">
-      <div class="rs-add-inline-block search">
-        <input class="rs-input-text" type="text" placeholder="输入学校、学院，如清华 计算机">
-        <input class="rs-input-text" type="text" placeholder="输入课程名称"><span class="typcn typcn-zoom rs-clickable rs-lighten"></span>
+      <div class="rs-add-inline-block">
+        <ul class="rs-tabs">
+          <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['课程', '悬赏']">{{ tab }}</li>
+        </ul>
+      </div>
+      <div ng-show="isSelected('课程')" class="rs-add-inline-block search">
+        <input class="rs-input-text" type="text" placeholder="输入学校、学院、课程、资源名称等"><span class="typcn typcn-zoom rs-clickable rs-lighten"></span>
       </div>
     </div>
-    <div class="rs-card main-card" ng-repeat="item in qa">
+    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="isSelected('课程')">
       <div class="thumb-column">
-        <!--
-        Card
-        ===============================================-->
         <div class="rs-dropdown-target">
           <a href="#"><img class="poster rs-logo" src="http://img3.doubanio.com/mpic/s3395366.jpg"></a>
         </div>
@@ -21,13 +22,40 @@
           <div class="rs-lines-1 rs-clickable">
             <a href="#/qadetail" target="_blank"><strong class="rs-active">数据结构</strong></a>
           </div>
-          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学 信息学院 计算机专业' : '同校同专业' }}</div>
-          <div class="rs-quote rs-add-pointer" ng-init="readingOpen[$index] = false">
-            <!-- TODO -->
+          <div class="rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学 信息学院 计算机专业' : '同校同专业' }}</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">累计上传 100 份资料</div>
+          <div class="rs-quote rs-add-pointer">
+            <div class="rs-add-inline-block rs-font-size-sm rs-clickable-all">
+              <i class="fa fa-file-pdf-o"></i> 2011年武汉大学331社会工作原理考研试题（回忆版）.pdf
+            </div>
+            <div class="rs-add-inline-block rs-font-size-sm rs-clickable-all">
+              <i class="fa fa-file-word-o"></i> 2011年武汉大学331社会工作原理考研试题（回忆版）.docx
+            </div>
+            <div class="rs-add-inline-block rs-font-size-sm rs-clickable-all">
+              <i class="fa fa-file-powerpoint-o"></i> 2011年武汉大学331社会工作原理考研试题（回忆版）.ppt
+            </div>
+            <div class="reading">
+              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingOpen($index, !readingOpen[$index])">
+                查看更多
+              </div>
+            </div>
           </div>
           <div class="action">
             <div class="rs-lighten-all rs-font-size-sm">
               <span class="typcn typcn-time"></span> 更新于 {{ item.datetime }}
+            </div>
+            <div class="rs-lighten rs-font-size-sm">·</div>
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+              <span class="typcn typcn-book"></span> 进入课程
+            </div>
+            <div ng-hide="$index % 2" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-hide="$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+              <span class="typcn typcn-upload-outline"></span> 上传资源
+            </div>
+            <div ng-hide="$index % 2" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-hide="$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+              <span class="typcn typcn-info-large-outline"></span> 悬赏
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
             <div class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
@@ -39,33 +67,6 @@
                 <li>人人</li>
               </ul>
             </div>
-            <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all" ng-init="showComments[$index] = false" ng-click="showComments[$index] = !showComments[$index]">
-              <span class="typcn typcn-message"></span> {{ showComments[$index] ? "收起评论" : qa.length + " 条评论" }}
-            </div>
-          </div>
-          <div class="comments" ng-if="showComments[$index]">
-            <div class="rs-form-group">
-              <button class="rs-btn rs-font-size-sm">发布评论</button>
-              <div><input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply"></div>
-            </div>
-            <div class="main-card" ng-repeat="item in qa">
-              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
-              <div class="rs-align-vertical">
-                <div>
-                  <strong class="rs-font-size-sm rs-clickable">{{ item.name }}</strong>
-                  <div class="rs-font-size-sm">Hi</div>
-                  <div class="action">
-                    <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
-                    <div class="rs-lighten rs-font-size-sm">·</div>
-                    <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="replySomebody($index)">回复</div>
-                    <div class="rs-lighten rs-font-size-sm">·</div>
-                    <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">{{ like }}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable" ng-init="loadMore = '加载更多'" ng-click="loadMore = '加载中...'">{{ loadMore }}</div>
           </div>
         </div>
       </div>
@@ -104,7 +105,7 @@
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>最新资源</strong></div>
+      <div class="title"><strong>最新资源</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
       <div class="main-card" ng-repeat="item in qa">
         <div class="rs-lines-1 rs-clickable">
           <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
@@ -112,7 +113,7 @@
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>热门资源</strong></div>
+      <div class="title"><strong>热门资源</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
       <div class="main-card" ng-repeat="item in qa">
         <div class="rs-lines-1 rs-clickable">
           <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
