@@ -66,7 +66,7 @@ app.controller('RootController', function($rootScope, $location, $window) {
  * QAController
  */
 app.controller('QAController', function($scope, $rootScope, $window) {
-  $scope.selectedTab = '圈子';
+  $scope.selectedTab = '本校';
   $scope.isSelected = function(tab) {
      return $scope.selectedTab == tab; 
   };

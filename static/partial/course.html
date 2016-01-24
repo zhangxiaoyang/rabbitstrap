@@ -20,7 +20,11 @@
       <div class="rs-align-vertical">
         <div>
           <div class="rs-lines-1 rs-clickable">
-            <a href="#/qadetail" target="_blank"><strong class="rs-active">数据结构</strong></a>
+            <a href="#/qadetail" target="_blank">
+              <strong class="rs-active">数据结构</strong>
+              <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+              <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '本科' : '硕士' }}</div>
+            </a>
           </div>
           <div class="rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学 信息学院 计算机专业' : '同校同专业' }}</div>
           <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
@@ -41,7 +45,7 @@
               </div>
             </div>
           </div>
-          <div class="action">
+          <div class="action" ng-init="needShowAction = false" ng-mouseenter="needShowAction = true" ng-mouseleave="needShowAction = false">
             <div class="rs-lighten-all rs-font-size-sm">
               <span class="typcn typcn-time"></span> 更新于 {{ item.datetime }}
             </div>
@@ -49,16 +53,16 @@
             <div class="rs-lighten-all rs-font-size-sm rs-clickable-all">
               <span class="typcn typcn-book"></span> 进入课程
             </div>
-            <div ng-hide="$index % 2" class="rs-lighten rs-font-size-sm">·</div>
-            <div ng-hide="$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+            <div ng-show="needShowAction && !$index % 2" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction && !$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
               <span class="typcn typcn-upload-outline"></span> 上传资源
             </div>
-            <div ng-hide="$index % 2" class="rs-lighten rs-font-size-sm">·</div>
-            <div ng-hide="$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+            <div ng-show="needShowAction && !$index % 2" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction && !$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
               <span class="typcn typcn-info-large-outline"></span> 悬赏
             </div>
-            <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
+            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction" class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
               <span class="typcn typcn-arrow-forward-outline"></span> 分享
               <ul class="rs-dropdown">
                 <li>新浪微博</li>
@@ -97,7 +101,7 @@
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>正在悬赏</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
+      <div class="title"><strong><i class="fa fa-jpy"></i> 正在悬赏</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
       <div class="main-card" ng-repeat="item in qa">
         <div class="rs-lines-1 rs-clickable">
           <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
@@ -105,7 +109,7 @@
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>最新资源</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
+      <div class="title"><strong>最新资源</strong></div>
       <div class="main-card" ng-repeat="item in qa">
         <div class="rs-lines-1 rs-clickable">
           <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
@@ -113,7 +117,7 @@
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>热门资源</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
+      <div class="title"><strong>热门资源</strong></div>
       <div class="main-card" ng-repeat="item in qa">
         <div class="rs-lines-1 rs-clickable">
           <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>

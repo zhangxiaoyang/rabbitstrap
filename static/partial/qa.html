@@ -17,7 +17,7 @@
       -->
       <div class="rs-add-inline-block">
         <ul class="rs-tabs">
-          <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['圈子', '本校', '全国']">{{ tab }}</li>
+          <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['本校', '全国']">{{ tab }}</li>
         </ul>
       </div>
       <div class="rs-add-inline-block search">
@@ -28,6 +28,13 @@
       </div>
     </div>
     <div class="rs-card main-card" ng-repeat="item in qa">
+      <div ng-if="item.type != ''">
+        <div class="rs-lines-1 rs-lighten rs-font-size-sm">
+          <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
+          {{ item.type }}
+        </div>
+        <hr>
+      </div>
       <div class="thumb-column">
         <!--
         Card
@@ -86,25 +93,16 @@
           </div>
         </div>
         <div ng-if="item.type != '关注了该问题'">
-          <div class="rs-thumb rs-lighten-all" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">
-          <div class="rs-thumb-btn">{{ like }}</div>
-            <div class="rs-thumb-content">{{ item.like }}</div>
+          <div class="rs-thumb" title="赞同" ng-click="like = '已赞'" ng-init="like='赞'" ng-class="{'已赞': 'rs-active-all', '赞':'rs-lighten-all'}[like]">
+            <div class="rs-thumb-btn rs-font-size-sm rs-align-center rs-add-pointer"><span class="fa fa-thumbs-o-up"></span> {{ item.like }}</div>
           </div>
-          <div class="rs-thumb rs-lighten-all" ng-click="award = award == '赏' ? '已赏' : '已赏'" ng-init="award='赏'">
-            <div class="rs-thumb-btn">{{ award }}</div>
-            <div class="rs-thumb-content">{{ item.award }}</div>
+          <div class="rs-thumb" title="打赏" ng-click="award = '已赏'" ng-init="award='赏'" ng-class="{'已赏': 'rs-active-all', '赏':'rs-lighten-all'}[award]">
+            <div class="rs-thumb-btn rs-font-size-sm rs-align-center rs-add-pointer"><span class="fa fa-jpy"></span> {{ item.award }}</div>
           </div>
         </div>
       </div>
       <div class="rs-align-vertical">
         <div>
-          <div ng-if="item.type != ''">
-            <div class="rs-lines-1 rs-lighten rs-font-size-sm">
-              <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
-              {{ item.type }}
-            </div>
-            <hr>
-          </div>
           <div class="rs-lines-1 rs-clickable">
             <a href="#/qadetail" target="_blank"><strong class="rs-active">{{ item.title }}</strong></a>
           </div>
@@ -246,6 +244,22 @@
         </li>
       </ul>
       <button class="rs-btn rs-btn-primary rs-block10" ng-click="setAskMode(true)">提问</button>
+    </div>
+    <div class="rs-card sub-card">
+      <div class="title"><strong>最新提问</strong><span class="rs-active rs-font-size-sm rs-clickable rs-float-right">查看更多</span></div>
+      <div class="main-card" ng-repeat="item in qa">
+        <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+        <div class="rs-align-vertical">
+          <div>
+            <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
+            <strong class="rs-clickable rs-font-size-sm">{{ item.name }}</strong>
+            <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
+            <div class="rs-lines-1 rs-clickable">
+              <a href="#/qadetail" target="_blank"><strong class="rs-active rs-font-size-sm">{{ item.title }}</strong></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="rs-card sub-card">
       <div class="title"><strong>最新回答</strong></div>

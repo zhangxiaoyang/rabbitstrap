@@ -74,6 +74,9 @@
 .qa-view .rs-badge i {
   color: white;
 }
+.qa-view .rs-quote {
+  margin-top: 5px;
+}
 .qa-view .rs-quote .content {
   padding-left: 5px;
 }
