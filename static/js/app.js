@@ -14,7 +14,7 @@ var gQA = [
 
 app.config(function ($routeProvider) {
   $routeProvider
-  // Question and Answer
+  // QA
   .when('/qa',
   {
     controller: 'QAController',
@@ -30,11 +30,16 @@ app.config(function ($routeProvider) {
     controller: 'TopicController',
     templateUrl: '/static/partial/topic.html'
   })
-  // Topic
+  // Course
   .when('/course',
   {
     controller: 'CourseController',
     templateUrl: '/static/partial/course.html'
+  })
+  .when('/course/:courseId',
+  {
+    controller: 'CourseIdController',
+    templateUrl: '/static/partial/courseid.html'
   })
   .otherwise({ redirectTo: '/qa' });
 });
@@ -49,7 +54,12 @@ app.controller('RootController', function($rootScope, $location, $window) {
   $rootScope.setAskMode = function(mode) {
     $rootScope.askMode = mode;
   };
-  $rootScope.currNavTab = '首页';
+  $rootScope.currNavTab = {
+    'qa': '首页',
+    'classmate': '同学帮',
+    'course': '课程堂',
+    '': '首页'
+  }[($location.path() + '/').split('/')[1]];
   $rootScope.setCurrNavTab = function(tab) {
     $rootScope.currNavTab = tab;
   };
@@ -206,3 +216,43 @@ app.controller('CourseController', function($scope, $rootScope, $window) {
 
   $scope.qa = gQA;
 });
+
+/**
+ * CourseIdController
+ */
+app.controller('CourseIdController', function($scope, $rootScope, $window) {
+  $scope.selectedTab = '讨论';
+  $scope.isSelected = function(tab) {
+     return $scope.selectedTab == tab; 
+  };
+  $scope.setSelectedTab = function(tab) {
+    $scope.selectedTab = tab;
+  };
+  $scope.getSelectedTab = function() {
+    return $scope.setSelectedTab;
+  };
+
+  var resetSideUI = function() {
+    var nodes = document.querySelectorAll('.rs-card.sub-card');
+    var rightSide = angular.element(nodes[nodes.length - 1]);
+    var windowTop = rightSide.prop('offsetTop') + rightSide.prop('offsetHeight') - $window.pageYOffset;
+    $scope.$apply(function() {
+      $scope.showProfile = windowTop <= 0;
+      $scope.profileWidth = rightSide.prop('offsetWidth') - 20 + 'px';
+    });
+  }
+  angular.element($window).on('resize', resetSideUI);
+  angular.element($window).bind('scroll', resetSideUI);
+
+  $scope.readingOpen = {};
+  $scope.setReadingOpen = function(index, open) {
+    $scope.readingOpen[index] = open;
+  }
+
+  $scope.replySomebody = function(index) {
+    $scope.reply = '回复 周杰伦: ';
+  };
+
+  $scope.qa = gQA;
+});
+

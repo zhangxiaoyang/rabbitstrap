@@ -1,0 +1,87 @@
+/**
+ * CourseId View
+ */
+.courseid-view .typcn.typcn-star {
+  color: orange;
+  cursor: pointer;
+}
+.courseid-view .typcn.typcn-social-vimeo {
+  color: blue;
+  cursor: pointer;
+}
+.courseid-view .main-card {
+  margin: 0 10px 10px 0;
+}
+.courseid-view .sub-card {
+  margin-bottom: 10px;
+}
+.courseid-view .reading {
+  text-align: right;
+}
+.courseid-view .reading > * {
+  display: inline-block;
+  padding-left: 5px;
+}
+.courseid-view .notice {
+  margin-top: 10px;
+}
+.courseid-view .rs-tabs {
+  float: right;
+}
+.courseid-view .tags > * {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.courseid-view .action > * {
+  display: inline-block;
+  padding: 10px 10px 0 0;
+}
+.courseid-view .thumb-column {
+  float: left;
+  margin-right: 10px;
+}
+.courseid-view .profile ul {
+  width: 250px;
+  margin: 10px auto 0 auto;
+  overflow: hidden;
+}
+.courseid-view .rs-logo-sm
+{
+  float: left;
+  margin-right: 10px;
+}
+.courseid-view .rs-quote {
+  margin-top: 5px;
+}
+.courseid-view .rs-card > .title {
+  margin-bottom: 10px;
+}
+.courseid-view .rs-thumb {
+  margin-bottom: 5px;
+}
+.courseid-view .comments > * {
+  width: 100%;
+  margin-top: 10px;
+}
+.courseid-view .rs-quote .content {
+  padding-left: 5px;
+}
+.courseid-view .people {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.courseid-view .card {
+  width: 260px;
+}
+.courseid-view .card > .rs-card {
+  width: 240px;
+  display: table;
+}
+.courseid-view .typcn-feather {
+  color: #80a4e4;
+}
+.courseid-view .poster.rs-logo {
+  height: auto;
+  border-radius: 0;
+}
