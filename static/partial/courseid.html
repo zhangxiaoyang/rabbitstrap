@@ -1,84 +1,17 @@
 <div class="courseid-view">
 <div class="rs-block10">
   <div class="rs-block10-7">
-    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="$index == 0">
-      <div class="thumb-column">
-        <div class="rs-dropdown-target">
-          <a href="#"><img class="poster rs-logo" src="http://img3.doubanio.com/mpic/s3395366.jpg"></a>
-        </div>
-      </div>
-      <div class="rs-align-vertical">
-        <div>
-          <div class="rs-lines-1 rs-clickable">
-            <a href="#/course/1234" target="_blank">
-              <strong class="rs-active">数据结构</strong>
-              <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
-              <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '本科' : '硕士' }}</div>
-            </a>
-          </div>
-          <div class="rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学 信息学院 计算机专业' : '同校同专业' }}</div>
-          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
-          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">累计上传 100 份资料</div>
-          <div class="rs-quote rs-add-pointer">
-            <a class="rs-block10" ng-click="setReadingOpen($index, !readingOpen[$index])">
-              <div ng-class="{false: 'rs-lines-3'}[readingOpen[$index]]" ng-click="setReadingOpen(true)">
-                中国科学院大学（University of Chinese Academy of Sciences），简称“国科大”，中国科学技术最高学府，隶属于中国科学院，前身是中国科学院研究生院，创建于1978年，是经国务院批准创办的新中国第一所研究生院，培养了中国的第一个理学博士、第一个工学博士、第一个女博士、第一个双学位博士。 中国科学院大学（University of Chinese Academy of Sciences），简称“国科大”，中国科学技术最高学府，隶属于中国科学院，前身是中国科学院研究生院，创建于1978年，是经国务院批准创办的新中国第一所研究生院，培养了中国的第一个理学博士、第一个工学博士、第一个女博士、第一个双学位博士。
-              </div>
-            </a>
-            <div class="reading">
-              <div class="rs-active rs-clickable rs-font-size-sm rs-add-inline-block" ng-click="setReadingOpen($index, !readingOpen[$index])">
-                查看更多
-              </div>
-            </div>
-          </div>
-          <div class="action" ng-init="needShowAction = false" ng-mouseenter="needShowAction = true" ng-mouseleave="needShowAction = false">
-            <div class="rs-lighten-all rs-font-size-sm">
-              <span class="typcn typcn-time"></span> 更新于 {{ item.datetime }}
-            </div>
-            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
-            <div ng-show="needShowAction" class="rs-lighten-all rs-font-size-sm rs-clickable-all" ng-click="attention = attention == '关注课程' ? '已关注课程' : '关注课程'" ng-init="attention='关注课程'">
-              <span class="typcn typcn-plus"></span> {{ attention }}
-            </div>
-            <div ng-show="needShowAction && !$index % 2" class="rs-lighten rs-font-size-sm">·</div>
-            <div ng-show="needShowAction && !$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
-              <span class="typcn typcn-upload-outline"></span> 上传资源
-            </div>
-            <div ng-show="needShowAction && !$index % 2" class="rs-lighten rs-font-size-sm">·</div>
-            <div ng-show="needShowAction && !$index % 2" class="rs-lighten-all rs-font-size-sm rs-clickable-all">
-              <span class="typcn typcn-info-large-outline"></span> 悬赏
-            </div>
-            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
-            <div ng-show="needShowAction" class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
-              <span class="typcn typcn-arrow-forward-outline"></span> 分享
-              <ul class="rs-dropdown">
-                <li>新浪微博</li>
-                <li>微信</li>
-                <li>QQ空间</li>
-                <li>人人</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="rs-card main-card">
       <div class="rs-add-inline-block">
         <ul class="rs-tabs">
-          <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['讨论', '正在悬赏', '资源', '问答']">{{ tab }}</li>
+          <li ng-click="setSelectedTab(tab)" ng-class="{'rs-active': isSelected(tab)}" ng-repeat="tab in ['资源', '悬赏', '问答', '讨论']">{{ tab }}</li>
         </ul>
       </div>
     </div>
     <!--
-    Answer
-    -->
-    <div class="rs-card main-card" ng-repeat="item in qa">
-      <div ng-if="item.type != ''">
-        <div class="rs-lines-1 rs-lighten rs-font-size-sm">
-          <span class="rs-clickable rs-font-size-sm">周杰伦</span>、<span class="rs-clickable rs-font-size-sm">蔡依林</span>
-          {{ item.type }}
-        </div>
-        <hr>
-      </div>
+    Resource
+    ===============================================-->
+    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="isSelected('资源')">
       <div class="thumb-column">
         <!--
         Card
@@ -136,12 +69,212 @@
             </div>
           </div>
         </div>
-        <div ng-if="item.type != '关注了该问题'">
-          <div class="rs-thumb" title="赞同" ng-click="like = '已赞'" ng-init="like='赞'" ng-class="{'已赞': 'rs-active-all', '赞':'rs-lighten-all'}[like]">
-            <div class="rs-thumb-btn rs-font-size-sm rs-align-center rs-add-pointer"><span class="fa fa-thumbs-o-up"></span> {{ item.like }}</div>
+      </div>
+      <div class="rs-align-vertical">
+        <div>
+          <div class="rs-lines-1 rs-clickable">
+            <a href="#/course/1234" target="_blank">
+              <strong class="rs-active"><i class="fa fa-file-pdf-o"></i> 2011年武汉大学331社会工作原理考研试题（回忆版）.pdf</strong>
+            </a>
           </div>
-          <div class="rs-thumb" title="打赏" ng-click="award = '已赏'" ng-init="award='赏'" ng-class="{'已赏': 'rs-active-all', '赏':'rs-lighten-all'}[award]">
-            <div class="rs-thumb-btn rs-font-size-sm rs-align-center rs-add-pointer"><span class="fa fa-jpy"></span> {{ item.award }}</div>
+          <div class="rs-quote rs-add-pointer">
+            <a class="rs-block10">
+              <div class="rs-font-size-sm">
+                中国科学院大学（University of Chinese Academy of Sciences），简称“国科大”，中国科学技术最高学府，隶属于中国科学院，前身是中国科学院研究生院，创建于1978年，是经国务院批准创办的新中国第一所研究生院，培养了中国的第一个理学博士、第一个工学博士、第一个女博士、第一个双学位博士。 中国科学院大学...
+              </div>
+            </a>
+          </div>
+          <div class="action" ng-init="needShowAction = false" ng-mouseenter="needShowAction = true" ng-mouseleave="needShowAction = false">
+            <div class="rs-lighten-all rs-font-size-sm">
+              <span class="typcn typcn-time"></span> 上传于 {{ item.datetime }}
+            </div>
+            <div class="rs-lighten rs-font-size-sm">·</div>
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+              <span class="typcn typcn-download-outline"></span> 下载
+            </div>
+            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction" class="rs-lighten-all rs-font-size-sm">
+              共 10 页
+            </div>
+            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction" class="rs-lighten-all rs-font-size-sm">
+              1024 次下载
+            </div>
+            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction" class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
+              <span class="typcn typcn-arrow-forward-outline"></span> 分享
+              <ul class="rs-dropdown">
+                <li>新浪微博</li>
+                <li>微信</li>
+                <li>QQ空间</li>
+                <li>人人</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+    Reward
+    ===============================================-->
+    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="isSelected('悬赏')">
+      <div class="thumb-column">
+        <!--
+        Card
+        ===============================================-->
+        <div class="rs-dropdown-target">
+          <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+          <div class="card rs-dropdown">
+            <div class="rs-card">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+              <div class="rs-align-vertical">
+                <div>
+                  <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
+                  <strong class="rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
+                </div>
+                <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
+              </div>
+              <hr>
+              <ul class="rs-tabs-static">
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">F币</div>
+                    <div class="rs-thumb-content">12k</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">回答</div>
+                    <div class="rs-thumb-content">198</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">上传</div>
+                    <div class="rs-thumb-content">20</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">关注</div>
+                    <div class="rs-thumb-content">40</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">粉丝</div>
+                    <div class="rs-thumb-content">199</div>
+                  </div>
+                </li>
+              </ul>
+              <button ng-init="thisBtnName = '关注Ta'" class="rs-btn rs-block10 rs-font-size-sm" ng-click="thisBtnName = thisBtnName == '关注Ta' ? '已关注' : '关注Ta'">
+                <span ng-class="{'关注Ta': 'typcn typcn-plus', '已关注': 'typcn typcn-tick'}[thisBtnName]"></span>
+                {{ thisBtnName }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rs-align-vertical">
+        <div>
+          <div class="rs-lines-1 rs-clickable">
+            <a href="#/course/1234" target="_blank">
+              <strong class="rs-active">2011年武汉大学331社会工作原理考研试题（回忆版）.pdf</strong>
+            </a>
+          </div>
+          <div class="rs-quote rs-add-pointer">
+            <a class="rs-block10">
+              <div class="rs-font-size-sm">
+                我要悬赏
+              </div>
+            </a>
+          </div>
+          <div class="action" ng-init="needShowAction = false" ng-mouseenter="needShowAction = true" ng-mouseleave="needShowAction = false">
+            <div class="rs-lighten-all rs-font-size-sm">
+              <span class="typcn typcn-time"></span> 发布于 {{ item.datetime }}
+            </div>
+            <div class="rs-lighten rs-font-size-sm">·</div>
+            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all">
+              <span class="typcn typcn-upload-outline"></span> 上传
+            </div>
+            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction" class="rs-lighten-all rs-font-size-sm">
+              10 次上传
+            </div>
+            <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
+            <div ng-show="needShowAction" class="rs-lighten-child rs-font-size-sm rs-clickable-child rs-dropdown-target">
+              <span class="typcn typcn-arrow-forward-outline"></span> 分享
+              <ul class="rs-dropdown">
+                <li>新浪微博</li>
+                <li>微信</li>
+                <li>QQ空间</li>
+                <li>人人</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+    Answer
+    ===============================================-->
+    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="isSelected('问答')">
+      <div class="thumb-column">
+        <!--
+        Card
+        ===============================================-->
+        <div class="rs-dropdown-target">
+          <a href="#"><img class="rs-logo" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+          <div class="card rs-dropdown">
+            <div class="rs-card">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+              <div class="rs-align-vertical">
+                <div>
+                  <div ng-if="$index % 2" class="rs-add-inline-block rs-font-size"><span class="typcn typcn-star" title="校园之星"></span></div>
+                  <strong class="rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '清华大学' : '同校计算机学院' }}</div>
+                </div>
+                <div class="rs-lighten rs-font-size-sm rs-add-inline-block">生命在于运动</div>
+              </div>
+              <hr>
+              <ul class="rs-tabs-static">
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">F币</div>
+                    <div class="rs-thumb-content">12k</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">回答</div>
+                    <div class="rs-thumb-content">198</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">上传</div>
+                    <div class="rs-thumb-content">20</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">关注</div>
+                    <div class="rs-thumb-content">40</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="rs-thumb rs-remove-border">
+                    <div class="rs-thumb-btn">粉丝</div>
+                    <div class="rs-thumb-content">199</div>
+                  </div>
+                </li>
+              </ul>
+              <button ng-init="thisBtnName = '关注Ta'" class="rs-btn rs-block10 rs-font-size-sm" ng-click="thisBtnName = thisBtnName == '关注Ta' ? '已关注' : '关注Ta'">
+                <span ng-class="{'关注Ta': 'typcn typcn-plus', '已关注': 'typcn typcn-tick'}[thisBtnName]"></span>
+                {{ thisBtnName }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -177,7 +310,7 @@
           </div>
           <div class="tags">
             <a href="#/topic" target="_blank" title="查看该课程" class="rs-badge-lighten rs-font-size-sm" ng-repeat="tag in item.tags">{{ tag }}</a>
-            <a ng-if="$index % 2" title="已关联课程体系
+            <a title="已关联课程体系
               清华大学-信息工程学院-计算机专业-C语言程序设计" class="rs-add-pointer"><span class="typcn typcn-feather"></span></a>
           </div>
           <div class="action" ng-init="needShowAction = false" ng-mouseenter="needShowAction = true" ng-mouseleave="needShowAction = false">
@@ -234,6 +367,35 @@
         </div>
       </div>
     </div>
+    <!--
+    Discus
+    ===============================================-->
+    <div class="rs-card main-card" ng-repeat="item in qa" ng-if="isSelected('讨论') && $index == 0">
+          <div class="comments">
+            <div class="rs-form-group">
+              <button class="rs-btn rs-font-size-sm">发布</button>
+              <div><input class="rs-input-text rs-font-size-sm" type="text" placeholder="写下你的看法..." ng-model="reply"></div>
+            </div>
+            <div class="main-card" ng-repeat="item in qa">
+              <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
+              <div class="rs-align-vertical">
+                <div>
+                  <strong class="rs-font-size-sm rs-clickable">{{ item.name }}</strong>
+                  <div class="rs-font-size-sm">Hi</div>
+                  <div class="action">
+                    <div class="rs-lighten rs-font-size-sm"> {{ item.datetime }}</div>
+                    <div class="rs-lighten rs-font-size-sm">·</div>
+                    <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="replySomebody($index)">回复</div>
+                    <div class="rs-lighten rs-font-size-sm">·</div>
+                    <div class="rs-lighten rs-font-size-sm rs-clickable" ng-click="like = like == '赞' ? '已赞' : '赞'" ng-init="like='赞'">{{ like }}</div>
+                  </div>
+                </div>
+              </div>
+              <hr class="rs-dashed">
+            </div>
+            <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable" ng-init="loadMore = '加载更多'" ng-click="loadMore = '加载中...'">{{ loadMore }}</div>
+          </div>
+    </div>
     <div class="rs-card main-card">
       <div class="rs-align-center rs-lighten rs-font-size-sm rs-clickable" ng-init="loadMore = '加载更多'" ng-click="loadMore = '加载中...'">{{ loadMore }}</div>
     </div>
@@ -243,6 +405,26 @@
   -->
   <div class="rs-block10-3" ng-init="thisBtnName = '关注该课程'">
     <div class="profile rs-card sub-card rs-align-center" ng-style="{'position': {true:'fixed', false:'relative'}[showProfile], 'width': profileWidth}">
+      <div>
+        <a href="#"><img class="poster rs-logo" src="http://img3.doubanio.com/mpic/s3395366.jpg"></a>
+        <div>
+          数据结构
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">·</div>
+          <div class="rs-lighten rs-font-size-sm rs-add-inline-block">{{ $index % 2 ? '本科' : '硕士' }}</div>
+        </div>
+        <div class="intro">
+          <div class="rs-font-size-sm">累计上传 12.2k 份课程资料</div>
+          <div class="rs-font-size-sm">已有 2.2w 名同学加入</div>
+          <div class="rs-font-size-sm rs-clickable rs-active">正在进行 100 份资料的悬赏</div>
+        </div>
+      </div>
+      <div class="rs-block10">
+        <button class="rs-btn rs-btn-primary rs-block10-5">上传</button>
+        <button class="rs-btn rs-btn-primary rs-block10-5">悬赏</button>
+      </div>
+    </div>
+
+    <div class="profile rs-card sub-card rs-align-center">
       <div class="rs-font-size-sm rs-align-left rs-lighten">有 <span class="rs-font-size-sm rs-clickable">1024</span> 个同学关注了该课程</div>
       <div class="people1">
         <!--

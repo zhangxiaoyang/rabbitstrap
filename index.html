@@ -47,8 +47,8 @@
         <input class="rs-input-text" type="text" placeholder="搜索问答、同学、课程等"><span class="typcn typcn-zoom rs-clickable rs-lighten"></span>
       </div>
       <ul class="rs-navbar-list">
-        <li ng-click="setCurrNavTab(arr[0])" ng-class="{true: 'rs-active'}[isCurrNavTab(arr[0])]" ng-repeat="arr in [['首页', 'home', 'home-outline'], ['同学帮', 'classmate', 'lightbulb'], ['课程堂', 'course', 'mortar-board']]">
-          <a href="#/{{ arr[1]}}"><span ng-class="'typcn typcn-' + arr[2]"></span> {{ arr[0] }}</a>
+        <li ng-class="{true: 'rs-active'}[isCurrNavTab(arr[0])]" ng-repeat="arr in [['首页', 'home', 'home-outline'], ['同学帮', 'classmate', 'lightbulb'], ['课程堂', 'course', 'mortar-board']]">
+          <a ng-click="setCurrNavTab(arr[0])" href="#/{{ arr[1]}}"><span ng-class="'typcn typcn-' + arr[2]"></span> {{ arr[0] }}</a>
         </li>
       </ul>
       <div class="rs-clickable-child rs-dropdown-target"><span class="typcn typcn-puzzle-outline"></span> 更多

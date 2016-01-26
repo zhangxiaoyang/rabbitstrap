@@ -53,8 +53,8 @@
               <span class="typcn typcn-time"></span> 更新于 {{ item.datetime }}
             </div>
             <div class="rs-lighten rs-font-size-sm">·</div>
-            <div class="rs-lighten-all rs-font-size-sm rs-clickable-all">
-              <span class="typcn typcn-book"></span> 进入课程
+            <div class="rs-lighten-all rs-clickable-all">
+              <a href="#/course/1234" target="_blank" class="rs-font-size-sm"><span class="typcn typcn-book"></span> 进入课程</a>
             </div>
             <div ng-show="needShowAction" class="rs-lighten rs-font-size-sm">·</div>
             <div ng-show="needShowAction" class="rs-lighten-all rs-font-size-sm rs-clickable-all" ng-click="attention = attention == '关注课程' ? '已关注课程' : '关注课程'" ng-init="attention='关注课程'">
@@ -208,7 +208,7 @@
       </div>
     </div>
     <div class="rs-card sub-card">
-      <div class="title"><strong>相关资源</strong></div>
+      <div class="title"><strong>最热资源</strong></div>
       <div class="main-card" ng-repeat="item in qa">
         <a href="#"><img class="rs-logo-sm" src="http://tp1.sinaimg.cn/1704839092/180/40056779711/1"></a>
         <div class="rs-align-vertical">

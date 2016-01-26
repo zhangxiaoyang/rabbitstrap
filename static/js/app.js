@@ -221,7 +221,7 @@ app.controller('CourseController', function($scope, $rootScope, $window) {
  * CourseIdController
  */
 app.controller('CourseIdController', function($scope, $rootScope, $window) {
-  $scope.selectedTab = '讨论';
+  $scope.selectedTab = '资源';
   $scope.isSelected = function(tab) {
      return $scope.selectedTab == tab; 
   };

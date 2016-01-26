@@ -85,3 +85,10 @@
   height: auto;
   border-radius: 0;
 }
+.courseid-view .intro {
+  margin: 10px 0;
+}
+.courseid-view .intro * {
+  display: block;
+  
+}
