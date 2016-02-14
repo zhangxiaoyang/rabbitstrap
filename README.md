@@ -1,3 +1,5 @@
+**Source code has been migrated to <https://bitbucket.org/zhangxiaoyang/rabbitstrap>**
+
 Usage
 ====
 
