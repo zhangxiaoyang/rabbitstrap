@@ -2,29 +2,29 @@
   <!--
   Left
   ===============================================-->
-  <div class="rs-block10-7" ng-switch on="tab.getCurrentTab()">
+  <div class="rs-block10-7" ng-switch on="Tab.getCurrentTab()">
     <div class="tab rs-align-center">
-      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['课程动态', '我关注的课程']); tab.setCurrentTab('课程动态')">
-        <li class="rs-font-size-lg" ng-click="tab.setCurrentTab(t)" ng-class="{'rs-active': tab.isCurrentTab(t)}" ng-repeat="t in tab.getTabs()" title="{{ t }}">{{ t }}</li>
+      <ul class="rs-tabs rs-add-inline-block" ng-init="Tab.resetTabs(['课程动态', '我关注的课程']); Tab.setCurrentTab('课程动态')">
+        <li class="rs-font-size-lg" ng-click="Tab.setCurrentTab(t)" ng-class="{'rs-active': Tab.isCurrentTab(t)}" ng-repeat="t in Tab.getTabs()" title="{{ t }}">{{ t }}</li>
       </ul>
     </div>
     <div class="wrapper" ng-switch-when="课程动态">
       <div class="activity rs-add-block rs-block10" ng-repeat="a in activities">
         <div class="rs-float-left rs-margin-right-10">
           <img class="rs-logo-circle-sm" src="/static/img/poster.jpg" alt="{{ a.from }}">
-          <span class="rs-badge-sm rs-add-block rs-clickable rs-align-center" title="{{ {'ask': '想知道', 'answer': '支持', 'upload': '赞', 'teach': '赞'}[a.type]}}">{{ a.weight }}</span>
+          <span class="rs-badge-sm rs-add-block rs-clickable rs-align-center" title="{{ Like.toChs(a.type) }}">{{ a.weight }}</span>
         </div>
         <div class="rs-add-table">
           <span class="rs-active rs-clickable rs-add-block">
             <span class="rs-font-size-sm rs-lighten">{{ a.from }}</span>
-            <span class="rs-font-size-sm rs-lighten">[{{ trans.toChs(a.type) }}]</span> {{ a.to }}
+            <span class="rs-font-size-sm rs-lighten">[{{ Trans.toChs(a.type) }}]</span> {{ a.to }}
           </span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
-          <span class="rs-add-table" ng-if="a.type == 'ask' && !a.poster">
+          <span class="rs-add-table" ng-if="a.type == 'question' && !a.poster">
             <span class="rs-lines-3 rs-add-pointer">{{ a.desc }}</span>
           </span>
-          <span class="rs-add-table" ng-if="a.type == 'ask' && a.poster">
+          <span class="rs-add-table" ng-if="a.type == 'question' && a.poster">
             <div class="rs-block10">
               <img class="rs-block10-3" ng-src="{{ a.poster }}">
               <div class="rs-block10-7">
