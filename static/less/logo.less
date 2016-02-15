@@ -1,15 +1,23 @@
-.rs-logo(@logo-size) {
+.rs-logo(@logo-size, @logo-border-radius) {
   width: @logo-size;
   height: @logo-size;
   border-radius: @logo-border-radius;
-  display: inline-block;
+}
+.rs-logo-circle {
+  .rs-logo(@logo-size, @logo-circle-border-radius);
+}
+.rs-logo-circle-sm {
+  .rs-logo(@logo-size-sm, @logo-circle-border-radius);
+}
+.rs-logo-circle-lg {
+  .rs-logo(@logo-size-lg, @logo-circle-border-radius);
 }
 .rs-logo {
-  .rs-logo(@logo-size)
+  .rs-logo(@logo-size, @logo-border-radius);
 }
 .rs-logo-sm {
-  .rs-logo(@logo-size-sm)
+  .rs-logo(@logo-size-sm, @logo-border-radius);
 }
 .rs-logo-lg {
-  .rs-logo(@logo-size-lg)
+  .rs-logo(@logo-size-lg, @logo-border-radius);
 }

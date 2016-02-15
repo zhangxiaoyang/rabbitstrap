@@ -1,4 +1,4 @@
-.rs-lines-x(@x) {
+.rs-lines-x(@x, @font-size) {
   display: block;
   display: -webkit-box;
   overflow: hidden;
@@ -7,24 +7,60 @@
   -webkit-box-orient: vertical;
   
   /* non-webkit browsers */
-  height: @base-font-size * @base-line-height * @x;
+  max-height: @font-size * @base-line-height * @x;
   text-overflow: -o-ellipsis-lastline;
 }
 .rs-lines-1 {
-  .rs-lines-x(1);
+  .rs-lines-x(1, @base-font-size);
 }
 .rs-lines-2 {
-  .rs-lines-x(2);
+  .rs-lines-x(2, @base-font-size);
 }
 .rs-lines-3 {
-  .rs-lines-x(3);
+  .rs-lines-x(3, @base-font-size);
 }
 .rs-lines-4 {
-  .rs-lines-x(4);
+  .rs-lines-x(4, @base-font-size);
 }
 .rs-lines-5 {
-  .rs-lines-x(5);
+  .rs-lines-x(5, @base-font-size);
 }
 .rs-lines-6 {
-  .rs-lines-x(6);
+  .rs-lines-x(6, @base-font-size);
+}
+.rs-lines-1-sm {
+  .rs-lines-x(1, @base-font-size-sm);
+}
+.rs-lines-2-sm {
+  .rs-lines-x(2, @base-font-size-sm);
+}
+.rs-lines-3-sm {
+  .rs-lines-x(3, @base-font-size-sm);
+}
+.rs-lines-4-sm {
+  .rs-lines-x(4, @base-font-size-sm);
+}
+.rs-lines-5-sm {
+  .rs-lines-x(5, @base-font-size-sm);
+}
+.rs-lines-6-sm {
+  .rs-lines-x(6, @base-font-size-sm);
+}
+.rs-lines-1-lg {
+  .rs-lines-x(1, @base-font-size-lg);
+}
+.rs-lines-2-lg {
+  .rs-lines-x(2, @base-font-size-lg);
+}
+.rs-lines-3-lg {
+  .rs-lines-x(3, @base-font-size-lg);
+}
+.rs-lines-4-lg {
+  .rs-lines-x(4, @base-font-size-lg);
+}
+.rs-lines-5-lg {
+  .rs-lines-x(5, @base-font-size-lg);
+}
+.rs-lines-6-lg {
+  .rs-lines-x(6, @base-font-size-lg);
 }

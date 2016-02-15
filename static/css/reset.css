@@ -1,0 +1,69 @@
+/*
+* {
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+*/
+
+/**
+ * Navbar
+ */
+body > .rs-navbar {
+  height: 30px;
+  background: #333;
+}
+body > .rs-navbar .rs-navbar-list {
+  margin: 0 5px;
+}
+body > .rs-navbar .rs-navbar-list:nth-child(2) {
+  float: right;
+}
+body > .rs-navbar .rs-navbar-list > li {
+  padding: 5px;
+  margin: 0;
+}
+body > .rs-navbar .rs-navbar-list > li > a {
+  color: white;
+}
+body > .rs-navbar .rs-navbar-list > li:hover {
+  background: #444;
+}
+
+/**
+ * Banner
+ */
+body > .banner {
+  background: #f2f7f6; 
+  padding: 20px 0;
+}
+body > .banner > .rs-container {
+  text-align: center;
+}
+body > .banner > .rs-container > * {
+  display: inline-block;
+}
+body > .banner > .rs-container > .logo {
+  font-size: 24px;
+  margin-right: 10px;
+}
+body > .banner > .rs-container > .logo > span {
+  font-size: 18px;
+}
+body > .banner > .rs-container > .search > input {
+  padding-right: 28px;
+  width: 380px;
+}
+body > .banner > .rs-container > .search > i {
+  position: absolute;
+  right: 5px;
+  bottom: 7px;
+  cursor: pointer;
+  font-size: 20px;
+  color: lightgrey;
+}
+
+/**
+ * Skin
+ */
+body > .rs-skin {
+  background-color: lightblue;
+}
