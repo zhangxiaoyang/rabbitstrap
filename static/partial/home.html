@@ -16,7 +16,6 @@
         </div>
         <div class="rs-add-table">
           <span class="rs-active rs-clickable rs-add-block"><span class="rs-font-size-sm rs-lighten">[{{ trans.toChs(a.type) }}]</span> {{ a.to }}</span>
-          <span class="rs-font-size-sm rs-lighten rs-add-block rs-add-pointer">{{ a.location.join(' / ') }}</span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
           <span class="rs-add-table" ng-if="a.type == 'ask' && !a.poster">
@@ -52,6 +51,10 @@
           <span class="rs-add-table" ng-if="a.type == 'teach'">
             <span class="rs-lines-5 rs-add-pointer">{{ a.desc }}</span>
           </span>
+          <div class="rs-margin-top-10 rs-font-size-sm-all rs-lighten-all">
+            <span class="rs-margin-right-5">发布于 {{ a.time }}</span>
+            <span class="rs-add-pointer">{{ a.location.join(' / ') }}</span>
+          </div>
         </div>
       </div>
       <div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">{{ loading }}</div>
@@ -61,13 +64,17 @@
       <div class="course" ng-repeat="c in courses" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
         <img class="rs-poster rs-margin-right-10" src="/static/img/poster.jpg" alt="{{ c.name }}">
         <div class="rs-add-inline-block rs-align-vertical-top">
-          <span class="rs-font-size rs-add-inline-block rs-clickable rs-lines-1">{{ c.name }}</span>
-          <span class="rs-font-size-sm rs-add-block rs-lighten rs-add-pointer">{{ c.location.slice(0, a.length - 1).join(' / ') }}</span>
+          <span class="rs-add-inline-block rs-active rs-clickable rs-lines-1">{{ c.name }}</span>
           <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">回答</span>
           <span class="rs-divider"></span>
           <span class="rs-clickable">30</span> <span class="rs-font-size-sm rs-lighten">上传</span>
           <span class="rs-divider"></span>
           <span class="rs-clickable">12</span> <span class="rs-font-size-sm rs-lighten">辅导</span>
+          <div class="rs-margin-top-10 rs-font-size-sm-all rs-lighten-all">
+            <span class="rs-margin-right-5">关注于 {{ c.time }}</span>
+            <span class="rs-add-pointer">{{ c.location.slice(0, a.length - 1).join(' / ') }}</span>
+          </div>
+
         </div>
         <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
       </div>

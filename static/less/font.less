@@ -1,6 +1,18 @@
 .rs-font-size(@font-size) {
   font-size: @font-size;
 }
+.rs-font-size-all(@font-size) {
+  font-size: @font-size;
+  & * {
+    font-size: @font-size;
+  }
+}
+.rs-font-size-child(@font-size) {
+  font-size: @font-size;
+  & > * {
+    font-size: @font-size;
+  }
+}
 .rs-font-size {
   .rs-font-size(@font-size)
 }
@@ -9,4 +21,22 @@
 }
 .rs-font-size-lg {
   .rs-font-size(@font-size-lg)
+}
+.rs-font-size-all {
+  .rs-font-size-all(@font-size)
+}
+.rs-font-size-sm-all {
+  .rs-font-size-all(@font-size-sm)
+}
+.rs-font-size-lg-all {
+  .rs-font-size-all(@font-size-lg)
+}
+.rs-font-size-child {
+  .rs-font-size-child(@font-size)
+}
+.rs-font-size-sm-child {
+  .rs-font-size-child(@font-size-sm)
+}
+.rs-font-size-lg-child {
+  .rs-font-size-child(@font-size-lg)
 }
