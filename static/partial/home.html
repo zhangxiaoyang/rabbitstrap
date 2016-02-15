@@ -15,7 +15,10 @@
           <span class="rs-badge-sm rs-add-block rs-clickable rs-align-center" title="{{ {'ask': '想知道', 'answer': '支持', 'upload': '赞', 'teach': '赞'}[a.type]}}">{{ a.weight }}</span>
         </div>
         <div class="rs-add-table">
-          <span class="rs-active rs-clickable rs-add-block"><span class="rs-font-size-sm rs-lighten">[{{ trans.toChs(a.type) }}]</span> {{ a.to }}</span>
+          <span class="rs-active rs-clickable rs-add-block">
+            <span class="rs-font-size-sm rs-lighten">{{ a.from }}</span>
+            <span class="rs-font-size-sm rs-lighten">[{{ trans.toChs(a.type) }}]</span> {{ a.to }}
+          </span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
           <span class="rs-add-table" ng-if="a.type == 'ask' && !a.poster">
@@ -53,7 +56,9 @@
           </span>
           <div class="rs-margin-top-10 rs-font-size-sm-all rs-lighten-all">
             <span class="rs-margin-right-5">发布于 {{ a.time }}</span>
-            <span class="rs-add-pointer">{{ a.location.join(' / ') }}</span>
+            <span class="rs-add-pointer" ng-mouseenter="showFullLocation = true" ng-mouseleave="showFullLocation = false">
+              {{ showFullLocation ? a.location.join(' / ') : a.location[0] }}
+            </span>
           </div>
         </div>
       </div>
@@ -72,7 +77,9 @@
           <span class="rs-clickable">12</span> <span class="rs-font-size-sm rs-lighten">辅导</span>
           <div class="rs-margin-top-10 rs-font-size-sm-all rs-lighten-all">
             <span class="rs-margin-right-5">关注于 {{ c.time }}</span>
-            <span class="rs-add-pointer">{{ c.location.slice(0, a.length - 1).join(' / ') }}</span>
+            <span class="rs-add-pointer" ng-mouseenter="showFullLocation = true" ng-mouseleave="showFullLocation = false">
+              {{ showFullLocation ? c.location.join(' / ') : c.location[0] }}
+            </span>
           </div>
 
         </div>
