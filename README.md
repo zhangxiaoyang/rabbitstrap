@@ -1,16 +1,16 @@
-**Source code has been migrated to <https://bitbucket.org/zhangxiaoyang/rabbitstrap>**
-
 Usage
 ====
 
-Step 1: Run local server
+Step 1: 
 ```
-python -m SimpleHTTPServer
+cd rabbitstrap && git checkout dev-rs2
+```
 
-OR
-
+Step 2:
+```
+npm install
 node serve.js
 ```
 
-Step 2: Visit <http://127.0.0.1:8000>
+Step 3: Visit <http://127.0.0.1:8000>
 
