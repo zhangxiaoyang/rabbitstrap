@@ -15,6 +15,11 @@ app.config(function($routeProvider) {
     controller: 'QAController',
     templateUrl: '/static/partial/qa.html'
   })
+  .when('/doc',
+  {
+    controller: 'DocController',
+    templateUrl: '/static/partial/doc.html'
+  })
   .when('/topic',
   {
     controller: 'TopicController',

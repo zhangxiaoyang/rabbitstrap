@@ -17,7 +17,9 @@
         <div class="rs-add-table">
           <span class="rs-add-block">
             <span class="rs-font-size-sm">{{ a.from }}</span>
-            <span class="rs-font-size-sm rs-lighten">{{ Trans.toChs(a.type) }}</span> <a href="#/qa" class="rs-active rs-clickable">{{ a.to }}</a>
+            <span class="rs-font-size-sm rs-lighten">{{ Trans.toChs(a.type) }}</span> 
+            <a href="#/qa" class="rs-active rs-clickable" ng-if="a.type != 'upload'">{{ a.to }}</a>
+            <a href="#/doc" class="rs-active rs-clickable" ng-if="a.type == 'upload'">{{ a.to }}</a>
           </span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
