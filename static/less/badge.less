@@ -1,21 +1,24 @@
-.rs-badge-x(@badge-background-color, @font-size) {
-  padding: @badge-padding;
+.rs-badge-x(@font-size) {
   background-color: @badge-background-color;
   color: @badge-color;
+  padding: @badge-padding;
   border-radius: @badge-border-radius;
   font-size: @font-size;
 
   & > * {
-    color: @badge-color;
     font-size: @font-size;
   }
 }
 .rs-badge-sm {
-  .rs-badge-x(@badge-background-color, @base-font-size-sm);
+  .rs-badge-x(@base-font-size-sm);
 }
 .rs-badge {
-  .rs-badge-x(@badge-background-color, @base-font-size);
+  .rs-badge-x(@base-font-size);
 }
 .rs-badge-lg {
-  .rs-badge-x(@badge-background-color, @base-font-size-lg);
+  .rs-badge-x(@base-font-size-lg);
+}
+.rs-badge-primary {
+  background-color: @badge-background-color-primary;
+  color: @badge-color-primary;
 }
