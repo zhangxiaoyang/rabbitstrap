@@ -4,11 +4,13 @@
   ===============================================-->
   <div class="rs-block10-7">
     <div class="tab">
-      <div class="rs-font-size-lg rs-active rs-add-bold rs-add-inline-block">话题名称</div>
-      <div class="rs-add-inline-block">
-        <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">提问</span>
+      <div class="rs-font-size-lg rs-active rs-add-bold rs-add-inline-block">话题名称 <button class="rs-btn-sm">已关注</button></div>
+      <div class="rs-add-block rs-margin-top-5 rs-lighten-all">
+        <span>121</span> <span class="rs-font-size-sm">提问</span>
         <span class="rs-divider"></span>
-        <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">回答</span>
+        <span>121</span> <span class="rs-font-size-sm">回答</span>
+        <span class="rs-divider"></span>
+        <span>121</span> <span class="rs-font-size-sm">关注</span>
       </div>
     </div>
     <div class="wrapper">
@@ -76,7 +78,10 @@
   <div class="rs-block10-3">
     <div class="rs-block10 rs-margin-left-50">
       <div class="wrapper">
-        <button class="rs-btn rs-active rs-block10 rs-margin-top-10">提问题</button>
+        <div class="rs-add-block rs-block10 rs-margin-top-10 rs-active-all">
+          <button class="rs-btn rs-block10-5">提问题</button>
+          <button class="rs-btn rs-block10-5">传资料</button>
+        </div>
       </div>
       <div class="rs-pack-height-10"></div>
       <div class="wrapper">
@@ -84,7 +89,6 @@
         <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="a in answers">
           <div class="rs-add-block">
             <span class="rs-font-size rs-clickable">{{ a.to }}</span>
-            <span class="rs-font-size-sm rs-lighten">{{ a.location[0] }}</span>
         </div>
       </div>
     </div>

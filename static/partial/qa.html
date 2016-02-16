@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="answer-count rs-font-size-sm rs-lighten">110 个回答</div>
+    <div class="answer-count rs-font-size-sm rs-lighten">共有 110 个回答</div>
     <div class="wrapper answer">
       <div class="qa rs-add-block rs-block10" ng-repeat="a in answers">
         <div class="rs-float-left rs-margin-right-10">
@@ -57,18 +57,20 @@
   Right
   ===============================================-->
   <div class="rs-block10-3">
-    <div class="rs-block10 rs-margin-left-50">
+    <div class="rs-block10 rs-margin-left-20">
       <div class="wrapper">
-        <button class="rs-btn rs-active rs-block10 rs-margin-top-10">邀请回答</button>
-        <span class="rs-font-size-sm rs-clickable rs-lighten rs-float-right rs-margin-top-10 rs-margin-bottom-10">没有解决你的问题？提一个问题吧</span>
+        <div class="rs-add-block rs-block10 rs-margin-top-10 rs-active-all">
+          <button class="rs-btn rs-block10-5">提问题</button>
+          <button class="rs-btn rs-block10-5">传资料</button>
+        </div>
+        <span class="rs-font-size-sm rs-clickable rs-lighten rs-float-right rs-margin-top-10">没有解决你的问题？邀请同学回答吧</span>
       </div>
-      <div class="rs-pack-height-10"></div>
+      <div class="rs-pack-height-30"></div>
       <div class="wrapper">
-        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">相关内容</div>
+        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">相关问题</div>
         <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="a in answers">
           <div class="rs-add-block">
             <span class="rs-font-size rs-clickable">{{ a.to }}</span>
-            <span class="rs-font-size-sm rs-lighten">{{ a.location[0] }}</span>
         </div>
       </div>
     </div>
