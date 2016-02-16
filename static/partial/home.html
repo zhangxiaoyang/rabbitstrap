@@ -12,7 +12,8 @@
       <div class="activity rs-add-block rs-block10" ng-repeat="a in activities">
         <div class="rs-float-left rs-margin-right-10">
           <img class="rs-logo-circle-sm" src="/static/img/poster.jpg" alt="{{ a.from }}">
-          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center" title="{{ Like.toChs(a.type) }}">{{ a.weight }}</span>
+          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center" title="有{{ a.weight }}个同学{{ Like.toChs(a.type) }}">{{ a.weight }}</span>
+          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center rs-margin-top-5" title="打赏Ta">赏</span>
         </div>
         <div class="rs-add-table">
           <span class="rs-add-block">
@@ -137,6 +138,13 @@
   ===============================================-->
   <div class="rs-block10-3">
     <div class="rs-block10 rs-margin-left-50">
+      <div class="wrapper">
+        <div class="rs-add-block rs-block10 rs-margin-top-10 rs-active-all">
+          <button class="rs-btn rs-block10-5">提问题</button>
+          <button class="rs-btn rs-block10-5">传资料</button>
+        </div>
+      </div>
+      <div class="rs-pack-height-10"></div>
       <div class="wrapper">
         <div class="title rs-font-size-lg rs-color-theme rs-add-bold">我的成就</div>
         <div class="rs-add-block">

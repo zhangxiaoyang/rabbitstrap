@@ -1,0 +1,11 @@
+.topic-view .title {
+  margin: 10px 0;
+}
+.topic-view .tab {
+  margin: 10px 0;
+}
+.topic-view .activity {
+  border-bottom: 1px dashed #eee;
+  padding: 10px 0;
+  margin: 10px 0;
+}

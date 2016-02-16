@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/static/css/reset.css">
   <link rel="stylesheet" href="/static/css/home.css">
   <link rel="stylesheet" href="/static/css/qa.css">
+  <link rel="stylesheet" href="/static/css/topic.css">
 
   <script src="/static/js/class/class.js"></script>
 
@@ -27,6 +28,7 @@
   <script src="/static/js/controller/root.js"></script>
   <script src="/static/js/controller/home.js"></script>
   <script src="/static/js/controller/qa.js"></script>
+  <script src="/static/js/controller/topic.js"></script>
 
   <!--
   Vendor
@@ -63,12 +65,12 @@
     <div class="rs-container">
       <div class="logo rs-color-theme">校园星空</div>
       <div class="search">
-        <input class="rs-input-text" type="text" placeholder=""><i class="fa fa-search"></i>
+        <input class="rs-input-text" type="text" placeholder="搜索 问题、回答、大学、专业、课程资料"><i class="fa fa-search"></i>
       </div>
     </div>
   </div>
   <div class="rs-container">
-    <div class="animated fadeIn" ng-view></div>
+    <div ng-view></div>
   </div>
   <!--
   Footer

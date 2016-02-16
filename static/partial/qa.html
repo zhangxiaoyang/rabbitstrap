@@ -8,18 +8,17 @@
         <div class="rs-float-left rs-margin-right-10">
           <img class="rs-logo-circle-sm" src="/static/img/poster.jpg" alt="{{ question.from }}">
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center" title="{{ Like.toChs(question.type) }}">{{ question.weight }}</span>
+          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center rs-margin-top-5" title="打赏Ta">赏</span>
         </div>
         <div class="rs-add-table">
           <div class="tags rs-margin-bottom-10">
-            <span class="rs-badge-sm rs-badge-primary rs-margin-right-10" ng-repeat="t in question.tags">{{ t }}</span>
+            <a href="#/topic" class="rs-badge-sm rs-badge-primary rs-margin-right-10" ng-repeat="t in question.tags">{{ t }}</a>
           </div>
           <span class="rs-active rs-clickable rs-add-block rs-font-size-lg">{{ question.to }}</span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
           <span class="rs-add-table">
-            <div class="rs-block10">
-              <img class="rs-block10-5" ng-src="{{ question.poster }}">
-            </div>
+            <img class="image" ng-src="{{ question.poster }}">
             {{ question.desc }}
           </span>
         </div>
@@ -31,10 +30,12 @@
         <div class="rs-float-left rs-margin-right-10">
           <img class="rs-logo-circle-sm" src="/static/img/poster.jpg" alt="{{ a.from }}">
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center" title="{{ Trans.toChs(a.type) }}">{{ a.weight }}</span>
+          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center rs-margin-top-5" title="打赏Ta">赏</span>
         </div>
         <div class="rs-add-table">
           <span class="rs-active rs-clickable rs-add-block rs-font-size-sm-all rs-lighten-all">
             <span>{{ a.from }}</span>
+            <span>Simple is the best</span>
             <span class="rs-add-pointer" ng-mouseenter="showFullLocation = true" ng-mouseleave="showFullLocation = false">
               {{ showFullLocation ? a.location.slice(0, a.length-1).join(' / ') : a.location[0] }}
             </span>
@@ -42,9 +43,7 @@
           <span class="rs-pack-height-5"></span>
           <!-- 回答 -->
           <span class="rs-add-table" ng-if="a.type == 'answer'">
-            <div class="rs-block10 rs-margin-bottom-10">
-              <img class="rs-block10-5" ng-src="{{ a.poster }}">
-            </div>
+            <img class="image" ng-src="{{ a.poster }}">
             {{ a.desc }}
           </span>
         </div>
@@ -60,7 +59,7 @@
   <div class="rs-block10-3">
     <div class="rs-block10 rs-margin-left-50">
       <div class="wrapper">
-        <button class="rs-btn rs-block10 rs-margin-top-10">邀请回答</button>
+        <button class="rs-btn rs-active rs-block10 rs-margin-top-10">邀请回答</button>
         <span class="rs-font-size-sm rs-clickable rs-lighten rs-float-right rs-margin-top-10 rs-margin-bottom-10">没有解决你的问题？提一个问题吧</span>
       </div>
       <div class="rs-pack-height-10"></div>

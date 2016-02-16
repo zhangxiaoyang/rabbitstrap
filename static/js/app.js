@@ -15,5 +15,10 @@ app.config(function($routeProvider) {
     controller: 'QAController',
     templateUrl: '/static/partial/qa.html'
   })
+  .when('/topic',
+  {
+    controller: 'TopicController',
+    templateUrl: '/static/partial/topic.html'
+  })
   .otherwise({ redirectTo: '/home' });
 });
