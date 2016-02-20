@@ -1,5 +1,8 @@
 'use strict';
 
+/*
+ * RSTab Class
+ */
 var RSTab = function(tabs) {
   this.resetTabs(tabs);
 };
@@ -20,34 +23,34 @@ RSTab.prototype.isCurrentTab = function(tab) {
   return this._currentTab == tab; 
 };
 
-var RSTrans = function() {
-  this.dict = {
-    'question': '提问了',
-    'answer': '回答了',
-    'upload': '上传了',
-    'teach': '辅导了',
-    
-    '提问了': 'question',
-    '回答了': 'answer',
-    '上传了': 'upload',
-    '辅导了': 'teach',
-  }
-};
-RSTrans.prototype.toChs = function(en) {
-  return this.dict[en];
-};
-RSTrans.prototype.toEn = function(chs) {
-  return this.dict[chs];
-};
 
-var RSLike = function() {
-  this.dict = {
-    'question': '想知道',
-    'answer': '觉得赞',
-    'upload': '觉得赞',
-    'teach': '觉得赞',
-  };
-};
-RSLike.prototype.toChs = function(type) {
-  return this.dict[type];
+/*
+ * Add replaceAll to String object
+ */
+/**
+ * ReplaceAll by Fagner Brack (MIT Licensed)
+ * Replaces all occurrences of a substring in a string
+ */
+String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
+  var _token;
+  var str = this + '';
+  var i = -1;
+
+  if(typeof token === 'string') {
+    if(ignoreCase ) {
+      _token = token.toLowerCase();
+      while((
+        i = str.toLowerCase().indexOf(
+         _token, i >= 0 ? i + newToken.length : 0
+        )) !== -1
+      ) {
+        str = str.substring( 0, i ) +
+        newToken +
+        str.substring( i + token.length );
+      }
+    } else {
+      return this.split( token ).join( newToken );
+    }
+  }
+  return str;
 };

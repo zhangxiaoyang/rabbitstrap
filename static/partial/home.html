@@ -2,119 +2,155 @@
   <!--
   Left
   ===============================================-->
-  <div class="rs-block10-7" ng-switch on="Tab.getCurrentTab()">
+  <div class="rs-block10-7" ng-switch on="tab.getCurrentTab()">
     <div class="tab">
-      <ul class="rs-tabs rs-add-inline-block" ng-init="Tab.resetTabs(['动态', '我的关注']); Tab.setCurrentTab('动态')">
-        <li class="rs-font-size-lg" ng-click="Tab.setCurrentTab(t)" ng-class="{'rs-active': Tab.isCurrentTab(t)}" ng-repeat="t in Tab.getTabs()" title="{{ t }}">{{ t }}</li>
+      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['动态', '我的关注']); tab.setCurrentTab('动态')">
+        <li class="rs-font-size-lg"
+          ng-click="tab.setCurrentTab(t)"
+          ng-class="{'rs-active': tab.isCurrentTab(t)}"
+          ng-repeat="t in tab.getTabs()"
+          title="{{ t }}">
+          {{ t }}
+        </li>
       </ul>
     </div>
     <div class="wrapper" ng-switch-when="动态">
-      <div class="activity rs-add-block rs-block10" ng-repeat="a in activities">
+      <div class="trends rs-add-block rs-block10" ng-repeat="t in trends">
         <div class="rs-float-left rs-margin-right-10">
-          <img class="rs-logo-circle-sm" src="/static/img/poster.jpg" alt="{{ a.from }}">
-          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center" title="有{{ a.weight }}个同学{{ Like.toChs(a.type) }}">{{ a.weight }}</span>
+          <a href="#/user/{{ t.author.id }}" target="_blank"><img class="rs-logo-circle-sm" src="/static/img/poster.jpg"></a>
+          <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
+            title="有{{ t.like }}个同学{{ t.type | transToChs:'like' }}">
+            {{ t.like }}
+          </span>
         </div>
         <div class="rs-add-table">
           <span class="rs-add-block">
-            <span class="rs-font-size-sm">{{ a.from }}</span>
-            <span class="rs-font-size-sm rs-lighten">{{ Trans.toChs(a.type) }}</span> 
-            <a href="#/qa" class="rs-active rs-clickable" ng-if="a.type != 'upload'">{{ a.to }}</a>
-            <a href="#/doc" class="rs-active rs-clickable" ng-if="a.type == 'upload'">{{ a.to }}</a>
+            <a href="#/user/{{ t.author.id }}" target="_blank" class="rs-font-size-sm">{{ t.author.name }}</a>
+            <span class="rs-font-size-sm rs-lighten">{{ t.type | transToChs:"trends" }}</span> 
+            <a href="#/qa/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type != TrendsType.upload">{{ t.name }}</a>
+            <a href="#/doc" class="rs-active rs-clickable" ng-if="t.type == TrendsType.upload">{{ t.name }}</a>
           </span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
-          <span class="rs-add-table" ng-if="a.type == 'question' && !a.poster">
-            <span class="rs-lines-3 rs-add-pointer">{{ a.desc }}</span>
+          <span class="rs-add-table" ng-if="t.type == TrendsType.question && !t.poster">
+            <span class="rs-lines-3 rs-add-pointer">{{ t.desc }}</span>
           </span>
-          <span class="rs-add-table" ng-if="a.type == 'question' && a.poster">
+          <span class="rs-add-table" ng-if="t.type == TrendsType.question && t.poster">
             <div class="rs-block10">
-              <img class="rs-block10-3" ng-src="{{ a.poster }}">
+              <img class="rs-block10-3" ng-src="{{ t.poster }}">
               <div class="rs-block10-7">
-                <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ a.desc }}</span>
+                <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ t.desc }}</span>
               </div>
             </div>
           </span>
           <!-- 回答 -->
-          <span class="rs-add-table" ng-if="a.type == 'answer' && !a.poster">
-            <span class="rs-lines-3 rs-add-pointer">{{ a.desc }}</span>
+          <span class="rs-add-table" ng-if="t.type == TrendsType.answer && !t.poster">
+            <span class="rs-lines-3 rs-add-pointer">{{ t.desc }}</span>
           </span>
-          <span class="rs-add-table" ng-if="a.type == 'answer' && a.poster">
+          <span class="rs-add-table" ng-if="t.type == TrendsType.answer && t.poster">
             <div class="rs-block10">
-              <img class="rs-block10-3" ng-src="{{ a.poster }}">
+              <img class="rs-block10-3" ng-src="{{ t.poster }}">
               <div class="rs-block10-7">
-                <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ a.desc }}</span>
+                <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ t.desc }}</span>
               </div>
             </div>
           </span>
           <!-- 上传 -->
-          <span class="rs-add-table" ng-if="a.type == 'upload'">
-            <span class="rs-lines-3 rs-add-pointer rs-margin-bottom-5">{{ a.desc }}</span>
+          <span class="rs-add-table" ng-if="t.type == TrendsType.upload">
+            <span class="rs-lines-3 rs-add-pointer rs-margin-bottom-5">{{ t.desc }}</span>
             <button class="rs-btn rs-font-size-sm"><i class="typcn typcn-document"></i> 预览文件</button>
             <button class="rs-btn rs-font-size-sm rs-margin-left-5"><i class="typcn typcn-printer"></i> 免费打印</button>
           </span>
+          <div class="rs-add-block rs-font-size-sm rs-lighten rs-margin-top-5">
+            <i class="typcn typcn-time"></i>发布于 {{ t.time }}
+            <a href="#/major/{{ t.path }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+              {{ showFullPath ? t.path.replaceAll(';', ' / ') : t.path.split(';')[0] }}
+            </a>
+          </div>
         </div>
       </div>
       <div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">{{ loading }}</div>
       <div class="rs-pack-height-10"></div>
     </div>
-    <div class="wrapper" ng-switch-when="我的关注" ng-switch on="Tab2.getCurrentTab()">
+    <div class="wrapper" ng-switch-when="我的关注" ng-switch on="tab2.getCurrentTab()">
       <div class="tab rs-align-center rs-font-size-all">
-        <ul class="rs-tabs rs-add-inline-block" ng-init="Tab2.resetTabs(['话题', '课程', '同学']); Tab2.setCurrentTab('话题')">
-          <li class="rs-font-size-lg" ng-click="Tab2.setCurrentTab(t)" ng-class="{'rs-active': Tab2.isCurrentTab(t)}" ng-repeat="t in Tab2.getTabs()" title="{{ t }}">{{ t }}</li>
+        <ul class="rs-tabs rs-add-inline-block" ng-init="tab2.resetTabs(['课程', '同学', '标签']); tab2.setCurrentTab('课程')">
+          <li class="rs-font-size-lg" ng-click="tab2.setCurrentTab(t)" ng-class="{'rs-active': tab2.isCurrentTab(t)}" ng-repeat="t in tab2.getTabs()" title="{{ t }}">{{ t }}</li>
         </ul>
       </div>
-      <div ng-switch-when="话题" class="course" ng-repeat="c in courses" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
-        <img class="rs-poster rs-margin-right-10" src="/static/img/poster.jpg" alt="{{ c.name }}">
-        <div class="rs-add-inline-block rs-align-vertical-top">
-          <span class="rs-add-block rs-active rs-clickable rs-margin-bottom-5">{{ c.name }}</span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">提问</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">回答</span>
-          <div class="rs-margin-top-5 rs-font-size-sm-all rs-lighten-all">
-          </div>
-        </div>
-        <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
-      </div>
-      <div ng-switch-when="课程" class="course" ng-repeat="c in courses" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
-        <img class="rs-poster rs-margin-right-10" src="/static/img/poster.jpg" alt="{{ c.name }}">
-        <div class="rs-add-inline-block rs-align-vertical-top">
-          <span class="rs-add-block rs-active rs-clickable rs-margin-bottom-5">{{ c.name }}</span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">提问</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">回答</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">30</span> <span class="rs-font-size-sm rs-lighten">上传</span>
-          <div class="rs-margin-top-5 rs-font-size-sm-all rs-lighten-all">
-            <span class="rs-add-pointer" ng-mouseenter="showFullLocation = true" ng-mouseleave="showFullLocation = false">
-              {{ showFullLocation ? c.location.join(' / ') : c.location[0] }}
-            </span>
-          </div>
-        </div>
-        <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
-      </div>
-      <div ng-switch-when="同学" class="course" ng-repeat="c in courses" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
-        <img class="rs-logo-circle rs-margin-right-10" src="/static/img/poster.jpg" alt="{{ c.name }}">
-        <div class="rs-add-inline-block rs-align-vertical-top">
+      <div ng-switch-when="课程" class="attention" ng-repeat="c in attention.courses" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
+        <a href="#/courses/{{ c.id }}" target="_blank"><img class="rs-poster rs-float-left rs-margin-right-10" src="/static/img/poster.jpg"></a>
+        <div class="rs-add-table">
           <div class="rs-add-block rs-margin-bottom-5">
-            <span class="rs-active rs-clickable">小明</span>
-            <span class="rs-lighten rs-font-size-sm">Simple is the best</span>
+            <a href="#/course/{{ c.id }}" target="_blank" class="rs-active rs-clickable">{{ c.name }}</a>
+            <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
           </div>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">赞</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">粉</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">问</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">答</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">30</span> <span class="rs-font-size-sm rs-lighten">传</span>
+          <div class="rs-add-block">
+            <a href="#/course/{{ c.id }}" target="_blank" class="rs-clickable">{{ c.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+            <a class="rs-divider"></a>
+            <a href="#/course/{{ c.id }}" target="_blank" class="rs-clickable">{{ c.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+            <a class="rs-divider"></a>
+            <a href="#/course/{{ c.id }}" target="_blank" class="rs-clickable">{{ c.achievement.upload }}</a> <a class="rs-font-size-sm rs-lighten">传</a>
+          </div>
+          <span class="rs-add-table rs-margin-top-5">
+            <span class="rs-lines-2-sm rs-lighten">{{ c.desc }}</span>
+          </span>
           <div class="rs-margin-top-5 rs-font-size-sm-all rs-lighten-all">
-            <span class="rs-add-pointer" ng-mouseenter="showFullLocation = true" ng-mouseleave="showFullLocation = false">
-              {{ showFullLocation ? c.location.join(' / ') : c.location[0] }}
-            </span>
+            <a href="#/major/{{ c.path }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+              {{ showFullPath ? c.path.replaceAll(';', ' / ') : c.path.split(';')[0] }}
+            </a>
           </div>
         </div>
-        <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
+      </div>
+      <div ng-switch-when="同学" class="attention" ng-repeat="u in attention.users" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
+        <a href="#/user/{{ u.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" src="/static/img/poster.jpg"></a>
+        <div class="rs-add-table">
+          <div class="rs-add-block rs-margin-bottom-5">
+            <a href="#/user/{{ u.id }}" target="_blank" class="rs-active rs-clickable">{{ u.name }}</a>
+            <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
+          </div>
+          <div class="rs-add-block">
+            <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.like }}</a> <a class="rs-font-size-sm rs-lighten">赞</a>
+            <a class="rs-divider"></a>
+            <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.flower }}</a> <a class="rs-font-size-sm rs-lighten">粉</a>
+            <a class="rs-divider"></a>
+            <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+            <a class="rs-divider"></a>
+            <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+            <a class="rs-divider"></a>
+            <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.upload }}</a> <a class="rs-font-size-sm rs-lighten">传</a>
+          </div>
+          <span class="rs-add-table rs-margin-top-5">
+            <span class="rs-lines-1-sm rs-lighten">{{ u.desc }}</span>
+          </span>
+          <div class="rs-margin-top-5 rs-font-size-sm-all rs-lighten-all">
+            <a href="#/major/{{ u.path }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+              {{ showFullPath ? u.path.replaceAll(';', ' / ') : u.path.split(';')[0] }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div ng-switch-when="标签" class="attention" ng-repeat="t in attention.tags" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
+        <a href="#/tag/{{ t.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" src="/static/img/poster.jpg"></a>
+        <div class="rs-add-table">
+          <div class="rs-add-block rs-margin-bottom-5">
+            <a href="#/tag/{{ t.id }}" target="_blank" class="rs-active rs-clickable">{{ t.name }}</a>
+            <button class="rs-btn-sm rs-float-right" ng-show="showAttentionBtn">取消关注</button>
+          </div>
+          <div class="rs-add-block">
+            <a href="#/user/{{ t.id }}" target="_blank" class="rs-clickable">{{ t.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+            <a class="rs-divider"></a>
+            <a href="#/user/{{ t.id }}" target="_blank" class="rs-clickable">{{ t.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+          </div>
+          <span class="rs-add-table rs-margin-top-5">
+            <span class="rs-lines-1-sm rs-lighten">{{ t.desc }}</span>
+          </span>
+          <div class="rs-margin-top-5 rs-font-size-sm-all rs-lighten-all">
+            <a href="#/major/{{ t.path }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+              {{ showFullPath ? t.path.replaceAll(';', ' / ') : t.path.split(';')[0] }}
+            </a>
+          </div>
+        </div>
       </div>
       <div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">{{ loading }}</div>
       <div class="rs-pack-height-10"></div>
@@ -135,15 +171,15 @@
       <div class="wrapper">
         <div class="title rs-font-size-lg rs-color-theme rs-add-bold">我的成就</div>
         <div class="rs-add-block">
-          <span class="rs-clickable">1.2k</span> <span class="rs-font-size-sm rs-lighten">赞</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">1.2k</span> <span class="rs-font-size-sm rs-lighten">粉</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">问</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">121</span> <span class="rs-font-size-sm rs-lighten">答</span>
-          <span class="rs-divider"></span>
-          <span class="rs-clickable">30</span> <span class="rs-font-size-sm rs-lighten">传</span>
+          <a href="#/user/{{ user.id }}" target="_blank"  class="rs-clickable">{{ user.achievement.like }}</a> <a class="rs-font-size-sm rs-lighten">赞</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.flower }}</a> <a class="rs-font-size-sm rs-lighten">粉</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.upload }}</a> <a class="rs-font-size-sm rs-lighten">传</a>
         </div>
       </div>
       <div class="rs-pack-height-10"></div>
@@ -153,7 +189,7 @@
           <div class="rs-add-block">
             <span class="rs-font-size rs-clickable">{{ c.name }}</span>
         </div>
-        <img ng-show="showPoster" class="rs-poster" src="/static/img/poster.jpg" alt="{{ c.name }}">
+        <img ng-show="showPoster" class="rs-poster" src="/static/img/poster.jpg">
       </div>
     </div>
   </div>

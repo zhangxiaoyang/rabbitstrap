@@ -5,6 +5,4 @@
  * RootController
  */
 app.controller('RootController', function($rootScope) {
-  $rootScope.Trans = new RSTrans();
-  $rootScope.Like = new RSLike();
 });
