@@ -17,7 +17,7 @@
     <div class="wrapper" ng-switch-when="动态">
       <div class="trends rs-add-block rs-block10" ng-repeat="t in trends">
         <div class="rs-float-left rs-margin-right-10">
-          <a href="#/user/{{ t.author.id }}" target="_blank"><img class="rs-logo-circle-sm" src="/static/img/poster.jpg"></a>
+          <a href="#/user/{{ t.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ t.author.logo }}"></a>
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
             title="有{{ t.like }}个同学{{ t.type | transToChs:'like' }}">
             {{ t.like }}
@@ -32,24 +32,24 @@
           </span>
           <span class="rs-pack-height-5"></span>
           <!-- 提问 -->
-          <span class="rs-add-table" ng-if="t.type == TrendsType.question && !t.poster">
+          <span class="rs-add-table" ng-if="t.type == TrendsType.question && !t.image">
             <span class="rs-lines-3 rs-add-pointer">{{ t.desc }}</span>
           </span>
-          <span class="rs-add-table" ng-if="t.type == TrendsType.question && t.poster">
+          <span class="rs-add-table" ng-if="t.type == TrendsType.question && t.image">
             <div class="rs-block10">
-              <img class="rs-block10-3" ng-src="{{ t.poster }}">
+              <img class="rs-block10-3" ng-src="{{ t.image }}">
               <div class="rs-block10-7">
                 <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ t.desc }}</span>
               </div>
             </div>
           </span>
           <!-- 回答 -->
-          <span class="rs-add-table" ng-if="t.type == TrendsType.answer && !t.poster">
+          <span class="rs-add-table" ng-if="t.type == TrendsType.answer && !t.image">
             <span class="rs-lines-3 rs-add-pointer">{{ t.desc }}</span>
           </span>
-          <span class="rs-add-table" ng-if="t.type == TrendsType.answer && t.poster">
+          <span class="rs-add-table" ng-if="t.type == TrendsType.answer && t.image">
             <div class="rs-block10">
-              <img class="rs-block10-3" ng-src="{{ t.poster }}">
+              <img class="rs-block10-3" ng-src="{{ t.image }}">
               <div class="rs-block10-7">
                 <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ t.desc }}</span>
               </div>
@@ -79,7 +79,7 @@
         </ul>
       </div>
       <div ng-switch-when="课程" class="attention" ng-repeat="c in attention.courses" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
-        <a href="#/courses/{{ c.id }}" target="_blank"><img class="rs-poster rs-float-left rs-margin-right-10" src="/static/img/poster.jpg"></a>
+        <a href="#/courses/{{ c.id }}" target="_blank"><img class="rs-poster rs-float-left rs-margin-right-10" ng-src="{{ c.logo }}"></a>
         <div class="rs-add-table">
           <div class="rs-add-block rs-margin-bottom-5">
             <a href="#/course/{{ c.id }}" target="_blank" class="rs-active rs-clickable">{{ c.name }}</a>
@@ -103,7 +103,7 @@
         </div>
       </div>
       <div ng-switch-when="同学" class="attention" ng-repeat="u in attention.users" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
-        <a href="#/user/{{ u.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" src="/static/img/poster.jpg"></a>
+        <a href="#/user/{{ u.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" ng-src="{{ u.logo }}"></a>
         <div class="rs-add-table">
           <div class="rs-add-block rs-margin-bottom-5">
             <a href="#/user/{{ u.id }}" target="_blank" class="rs-active rs-clickable">{{ u.name }}</a>
@@ -131,7 +131,7 @@
         </div>
       </div>
       <div ng-switch-when="标签" class="attention" ng-repeat="t in attention.tags" ng-mouseenter="showAttentionBtn = true" ng-mouseleave="showAttentionBtn = false">
-        <a href="#/tag/{{ t.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" src="/static/img/poster.jpg"></a>
+        <a href="#/tag/{{ t.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" ng-src="{{ t.logo }}"></a>
         <div class="rs-add-table">
           <div class="rs-add-block rs-margin-bottom-5">
             <a href="#/tag/{{ t.id }}" target="_blank" class="rs-active rs-clickable">{{ t.name }}</a>
@@ -185,11 +185,10 @@
       <div class="rs-pack-height-10"></div>
       <div class="wrapper">
         <div class="title rs-font-size-lg rs-color-theme rs-add-bold">大家想知道</div>
-        <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="c in courses" ng-if="$index < 5">
+        <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="q in topQuestions">
           <div class="rs-add-block">
-            <span class="rs-font-size rs-clickable">{{ c.name }}</span>
+            <a href="#/qa/{{ q.id }}" target="_blank" class="rs-font-size rs-clickable">{{ q.name }}</a>
         </div>
-        <img ng-show="showPoster" class="rs-poster" src="/static/img/poster.jpg">
       </div>
     </div>
   </div>

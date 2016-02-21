@@ -4,7 +4,7 @@
 /**
  * HomeController
  */
-app.controller('HomeController', function($scope, Trends, User, Attention) {
+app.controller('HomeController', function($scope, Trends, User, Attention, TopQuestions) {
   $scope.tab = new RSTab();
   $scope.tab2 = new RSTab();
 
@@ -25,16 +25,7 @@ app.controller('HomeController', function($scope, Trends, User, Attention) {
     $scope.attention.tags = d;
   });
 
-  $scope.courses = [
-    {'name': '数据结构', 'location': ['清华大学', '计算机系', '计算机专业', '数据结构'], 'time': '昨天 11:20'},
-    {'name': '数据结构与算法', 'location': ['清华大学', '计算机系', '计算机专业', '数据结构与算法'], 'time': '前天 11:00'},
-    {'name': 'C++程序设计', 'location': ['清华大学', '计算机系', '计算机专业', 'C++程序设计'], 'time': '11月5日 9:00'},
-    {'name': '计算机组成原理', 'location': ['清华大学', '计算机系', '计算机专业', '计算机组成原理'], 'time': '11月5日 3:00'},
-    {'name': '计算机网络', 'location': ['清华大学', '计算机系', '计算机专业', '计算机网络'], 'time': '11月5日 3:00'},
-    {'name': '组合数学', 'location': ['清华大学', '计算机系', '计算机专业', '组合数学'], 'time': '11月5日 3:00'},
-    {'name': 'C++程序设计', 'location': ['清华大学', '计算机系', '计算机专业', 'C++程序设计'], 'time': '11月5日 3:00'},
-    {'name': '计算机组成原理', 'location': ['清华大学', '计算机系', '计算机专业', '计算机组成原理'], 'time': '11月5日 3:00'},
-    {'name': '计算机网络', 'location': ['清华大学', '计算机系', '计算机专业', '计算机网络'], 'time': '11月5日 3:00'},
-    {'name': '组合数学', 'location': ['清华大学', '计算机系', '计算机专业', '组合数学'], 'time': '2011年11月5日 3:00'},
-  ];
+  TopQuestions.get(function(d) {
+    $scope.topQuestions = d;
+  });
 });
