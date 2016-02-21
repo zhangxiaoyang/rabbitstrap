@@ -1,9 +1,9 @@
 'use strict';
 
 /*
- * 大家想知道
+ * 相关问题
  */
-app.factory('TopQuestions', function($http) {
+app.factory('RelatedQuestions', function($http) {
   return {
     get: function(callback) {
       var result = [

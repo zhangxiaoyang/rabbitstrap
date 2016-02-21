@@ -6,6 +6,7 @@ var GET_RANDOM = function() {
   return Math.floor(Math.random() * 500);
 };
 
+
 /*
  * 动态
  */
@@ -16,11 +17,15 @@ app.factory('Trends', function($http, TrendsType) {
         {
           id: 'ad3dfad4',
           type: TrendsType.question,
-          author: {id: 'e20fea12', name: '小明', logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
           name: '如何快速复习C++',
           desc: LONG_TEXT,
-          tags: ['编程', 'C++', '教程'],
-          path: '清华大学;信息学院;计算机专业',
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           like: GET_RANDOM(),
           image: IMG_URL,
           time: '今天 23:12',
@@ -28,11 +33,15 @@ app.factory('Trends', function($http, TrendsType) {
         {
           id: 'ad3dfad4',
           type: TrendsType.question,
-          author: {id: 'e20fea12', name: '小明', logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
           name: '如何快速复习C++',
           desc: LONG_TEXT,
-          tags: ['编程', 'C++', '教程'],
-          path: '清华大学;信息学院;计算机专业',
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           like: GET_RANDOM(),
           image: null,
           time: '昨天 23:12',
@@ -40,11 +49,15 @@ app.factory('Trends', function($http, TrendsType) {
         {
           id: 'ad3dfad4',
           type: TrendsType.answer,
-          author: {id: 'e20fea12', name: '小明', logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
           name: '如何快速复习C++',
           desc: LONG_TEXT,
-          tags: ['编程', 'C++', '教程'],
-          path: '清华大学;信息学院;计算机专业',
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           like: GET_RANDOM(),
           image: null,
           time: '11月12日 23:12',
@@ -52,11 +65,15 @@ app.factory('Trends', function($http, TrendsType) {
         {
           id: 'ad3dfad4',
           type: TrendsType.upload,
-          author: {id: 'e20fea12', name: '小明', logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
           name: '如何快速复习C++.pdf',
           desc: LONG_TEXT,
-          tags: ['编程', 'C++', '教程'],
-          path: '清华大学;信息学院;计算机专业',
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           like: GET_RANDOM(),
           image: null,
           time: '2014年11月12日 23:12',
@@ -103,7 +120,7 @@ app.factory('Attention', function($http) {
           name: '数据结构',
           logo: IMG_URL,
           desc: LONG_TEXT,
-          path: '清华大学;信息学院;计算机专业',
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             question: GET_RANDOM(),
             answer: GET_RANDOM(),
@@ -115,7 +132,7 @@ app.factory('Attention', function($http) {
           name: '数据结构',
           logo: IMG_URL,
           desc: LONG_TEXT,
-          path: '清华大学;信息学院;计算机专业',
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             question: GET_RANDOM(),
             answer: GET_RANDOM(),
@@ -127,7 +144,7 @@ app.factory('Attention', function($http) {
           name: '数据结构',
           logo: IMG_URL,
           desc: LONG_TEXT,
-          path: '清华大学;信息学院;计算机专业',
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             question: GET_RANDOM(),
             answer: GET_RANDOM(),
@@ -145,7 +162,7 @@ app.factory('Attention', function($http) {
           name: '数据结构',
           logo: IMG_URL,
           desc: LONG_TEXT,
-          path: '清华大学;信息学院;计算机专业',
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             like: GET_RANDOM(),
             flower: GET_RANDOM(),
@@ -159,7 +176,7 @@ app.factory('Attention', function($http) {
           name: '数据结构',
           logo: IMG_URL,
           desc: LONG_TEXT,
-          path: '清华大学;信息学院;计算机专业',
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             like: GET_RANDOM(),
             flower: GET_RANDOM(),
@@ -173,7 +190,7 @@ app.factory('Attention', function($http) {
           name: '数据结构',
           logo: IMG_URL,
           desc: LONG_TEXT,
-          path: '清华大学;信息学院;计算机专业',
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             like: GET_RANDOM(),
             flower: GET_RANDOM(),
@@ -224,4 +241,57 @@ app.factory('Attention', function($http) {
     },
   };
   return thisService;
+});
+
+
+/*
+ * 问答
+ */
+app.factory('QA', function($http, TrendsType) {
+  return {
+    getQuestion: function(callback, qaId) {
+      var result = {
+        id: 'ad3dfad4',
+        type: TrendsType.question,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+        name: '如何快速复习C++',
+        desc: LONG_TEXT,
+        tags: [
+          {id: 'e20fea12', name: '编程'},
+          {id: 'e20fea12', name: '教程'},
+          {id: 'e20fea12', name: 'C++'},
+        ],
+        path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+        like: GET_RANDOM(),
+        image: IMG_URL,
+        time: '今天 23:12',
+      };
+      callback(result);
+    },
+    getAnswers: function(callback, qaId) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.answer,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          desc: LONG_TEXT,
+          like: GET_RANDOM(),
+          image: IMG_URL,
+          time: '今天 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.answer,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          desc: LONG_TEXT,
+          like: GET_RANDOM(),
+          image: null,
+          time: '昨天 23:12',
+        },
+      ];
+      callback(result);
+    },
+  };
 });
