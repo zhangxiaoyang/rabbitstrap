@@ -1,0 +1,57 @@
+<div class="trends rs-add-block rs-block10" ng-repeat="t in trends">
+  <div class="rs-float-left rs-margin-right-10">
+    <a href="#/user/{{ t.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ t.author.logo }}"></a>
+    <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
+      title="有{{ t.like }}个同学{{ t.type | transToChs:'like' }}">
+      {{ t.like }}
+    </span>
+  </div>
+  <div class="rs-add-table">
+    <span class="rs-add-block">
+      <a href="#/user/{{ t.author.id }}" target="_blank" class="rs-font-size-sm">{{ t.author.name }}</a>
+      <span class="rs-font-size-sm rs-lighten">{{ t.type | transToChs:"trends" }}</span> 
+      <a href="#/qa/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type != TrendsType.upload">{{ t.name }}</a>
+      <a href="#/doc" class="rs-active rs-clickable" ng-if="t.type == TrendsType.upload">{{ t.name }}</a>
+    </span>
+    <span class="rs-pack-height-5"></span>
+    <!-- 提问 -->
+    <span class="rs-add-table" ng-if="t.type == TrendsType.question && !t.image">
+      <span class="rs-lines-3 rs-add-pointer">{{ t.desc }}</span>
+    </span>
+    <span class="rs-add-table" ng-if="t.type == TrendsType.question && t.image">
+      <div class="rs-block10">
+        <img class="rs-block10-3" ng-src="{{ t.image }}">
+        <div class="rs-block10-7">
+          <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ t.desc }}</span>
+        </div>
+      </div>
+    </span>
+    <!-- 回答 -->
+    <span class="rs-add-table" ng-if="t.type == TrendsType.answer && !t.image">
+      <span class="rs-lines-3 rs-add-pointer">{{ t.desc }}</span>
+    </span>
+    <span class="rs-add-table" ng-if="t.type == TrendsType.answer && t.image">
+      <div class="rs-block10">
+        <img class="rs-block10-3" ng-src="{{ t.image }}">
+        <div class="rs-block10-7">
+          <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ t.desc }}</span>
+        </div>
+      </div>
+    </span>
+    <!-- 上传 -->
+    <span class="rs-add-table" ng-if="t.type == TrendsType.upload">
+      <span class="rs-lines-3 rs-add-pointer rs-margin-bottom-5">{{ t.desc }}</span>
+      <button class="rs-btn rs-font-size-sm"><i class="typcn typcn-document"></i> 预览文件</button> <button class="rs-btn rs-font-size-sm rs-margin-left-5"><i class="typcn typcn-printer"></i> 免费打印</button>
+    </span>
+    <div class="rs-add-block rs-font-size-sm rs-lighten rs-margin-top-5">
+      <i class="typcn typcn-time"></i>发布于 {{ t.time }}
+      <a href="#/path/{{ t.path.id }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+        {{ showFullPath ? t.path.name.replaceAll(';', ' / ') : t.path.name.split(';')[0] }}
+      </a>
+    </div>
+  </div>
+</div>
+<div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">
+  {{ loading }}
+</div>
+<div class="rs-pack-height-10"></div>

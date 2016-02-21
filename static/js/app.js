@@ -27,10 +27,10 @@ app.config(function($routeProvider) {
     controller: 'DocController',
     templateUrl: '/static/partial/doc.html'
   })
-  .when('/topic',
+  .when('/tag/:id',
   {
-    controller: 'TopicController',
-    templateUrl: '/static/partial/topic.html'
+    controller: 'TagController',
+    templateUrl: '/static/partial/tag.html'
   })
   .otherwise({ redirectTo: '/home' });
 });

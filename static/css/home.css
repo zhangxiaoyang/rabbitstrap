@@ -4,9 +4,3 @@
 .home-view .tab {
   margin: 10px 0;
 }
-.home-view .attention,
-.home-view .trends {
-  border-bottom: 1px dashed #eee;
-  padding: 10px 0;
-  margin: 10px 0;
-}

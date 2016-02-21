@@ -1,11 +1,11 @@
 'use strict';
 
 /*
- * 相关问题
+ * 相关标签
  */
-app.factory('RelatedQuestions', function($http) {
+app.factory('RelatedTags', function($http) {
   return {
-    get: function(callback, qaId) {
+    get: function(callback, tagId) {
       var result = [
         {
           id: 'ad3dfad4',

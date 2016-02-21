@@ -11,7 +11,8 @@ app.controller('QAController', function($scope, QA, RelatedQuestions) {
     $scope.answers = d;
   });
 
+  var qaId = '1234';
   RelatedQuestions.get(function(d) {
     $scope.relatedQuestions = d;
-  });
+  }, qaId);
 });

@@ -1,7 +1,7 @@
 .qa-view .title {
   margin: 10px 0;
 }
-.qa-view .wrapper + .answer-count {
+.qa-view .wrapper + .splitter {
   border-top: 1px solid #eee;
   border-bottom: 1px solid  #eee;
   text-align: center;
@@ -11,7 +11,7 @@
 .qa-view .wrapper .qa {
   margin: 10px 0;
 }
-.qa-view .wrapper.answer .qa {
+.qa-view .wrapper.item .qa {
   padding: 10px 0;
   margin: 10px 0;
   border-bottom: 1px dashed #eee;

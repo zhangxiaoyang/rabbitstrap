@@ -253,7 +253,7 @@ app.factory('QA', function($http, TrendsType) {
       var result = {
         id: 'ad3dfad4',
         type: TrendsType.question,
-          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+        author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
         name: '如何快速复习C++',
         desc: LONG_TEXT,
         tags: [
@@ -265,6 +265,11 @@ app.factory('QA', function($http, TrendsType) {
         like: GET_RANDOM(),
         image: IMG_URL,
         time: '今天 23:12',
+        achievement: {
+          view: GET_RANDOM(),
+          comment: GET_RANDOM(),
+          answer: GET_RANDOM(),
+        },
       };
       callback(result);
     },
@@ -291,6 +296,29 @@ app.factory('QA', function($http, TrendsType) {
           time: '昨天 23:12',
         },
       ];
+      callback(result);
+    },
+  };
+});
+
+
+/*
+ * 标签
+ */
+app.factory('Tag', function($http, TrendsType) {
+  return {
+    get: function(callback, tagId) {
+      var result = {
+        id: 'ad3dfad4',
+        name: '编程',
+        desc: LONG_TEXT,
+        logo: IMG_URL,
+        achievement: {
+          attention: GET_RANDOM(),
+          question: GET_RANDOM(),
+          answer: GET_RANDOM(),
+        },
+      };
       callback(result);
     },
   };

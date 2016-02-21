@@ -29,18 +29,18 @@
                 {{ showFullPath ? question.path.name.replaceAll(';', ' / ') : question.path.name.split(';')[0] }}
               </a>
             </span>
-            <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-eye-outline"></i> 11 次浏览</span>
+            <span class="rs-margin-left-10"><i class="typcn typcn-eye-outline"></i> {{ question.achievement.view }} 次浏览</span>
             <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-export-outline"></i> 分享</span>
-            <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-message"></i> 11 条评论</span>
+            <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-message"></i> {{ question.achievement.comment }} 条评论</span>
             <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-user-add-outline"></i> 邀请回答</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="answer-count rs-font-size-sm rs-lighten">
-      共有 {{ answers.length }} 个回答
+    <div class="splitter rs-font-size-sm rs-lighten">
+      共有 {{ question.achievement.answer }} 个回答
     </div>
-    <div class="wrapper answer">
+    <div class="wrapper item">
       <div class="qa rs-add-block rs-block10" ng-repeat="a in answers">
         <div class="rs-float-left rs-margin-right-10">
           <a href="#/user/{{ a.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ a.author.logo }}"></a>
@@ -83,11 +83,9 @@
   <div class="rs-block10-3">
     <div class="rs-block10 rs-margin-left-20">
       <div class="wrapper">
-        <div class="rs-add-block rs-block10 rs-margin-top-10 rs-active-all">
-          <button class="rs-btn rs-block10-5">提问题</button>
-          <button class="rs-btn rs-block10-5">传资料</button>
-        </div>
+        <div ng-include src="'/static/template/action.html'"></div>
       </div>
+      <div class="rs-pack-height-10"></div>
       <div class="wrapper">
         <div class="title rs-font-size-lg rs-color-theme rs-add-bold">相关问题</div>
         <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="q in relatedQuestions">

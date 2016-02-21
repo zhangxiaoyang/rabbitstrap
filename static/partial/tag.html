@@ -1,0 +1,45 @@
+<div class="tag-view"><div class="rs-block10">
+  <!--
+  Left
+  ===============================================-->
+  <div class="rs-block10-7">
+    <div class="wrapper">
+      <div class="tag rs-add-block rs-block10">
+        <div class="rs-float-left rs-margin-right-10">
+          <img class="rs-logo" ng-src="{{ tag.logo }}">
+        </div>
+        <div class="rs-add-table">
+          <span class="rs-active rs-clickable rs-add-block rs-font-size-lg rs-margin-bottom-5">{{ tag.name }}</span>
+          <!-- 标签 -->
+          <span class="rs-add-table">{{ tag.desc }}</span>
+          <div class="rs-add-block rs-font-size-sm-child rs-lighten-all rs-margin-top-5">
+            <span><i class="typcn typcn-eye-outline"></i> {{ tag.achievement.attention }} 人关注</span>
+            <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-export-outline"></i> 分享</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="splitter rs-font-size-sm rs-lighten">
+      共有 {{ tag.achievement.question }} 次提问 / {{ tag.achievement.answer }} 次回答
+    </div>
+    <div ng-include src="'/static/template/trends.html'" class="animated fadeIn" ng-controller="TrendsController"></div>
+  </div>
+  <!--
+  Right
+  ===============================================-->
+  <div class="rs-block10-3">
+    <div class="rs-block10 rs-margin-left-20">
+      <div class="wrapper">
+        <div ng-include src="'/static/template/action.html'"></div>
+      </div>
+      <div class="rs-pack-height-10"></div>
+      <div class="wrapper">
+        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">相关标签</div>
+        <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="t in relatedTags">
+          <a href="#/tag/{{ t.id }}" target="_blank" class="rs-font-size rs-clickable">{{ t.name }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
