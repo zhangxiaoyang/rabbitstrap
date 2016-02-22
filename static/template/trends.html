@@ -1,4 +1,12 @@
-<div class="trends rs-add-block rs-block10" ng-repeat="t in trends">
+<div class="tab rs-align-center rs-font-size-all">
+  <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['全部', '问答', '文件']); tab.setCurrentTab('全部')">
+    <li class="rs-font-size-lg" ng-click="tab.setCurrentTab(t)" ng-class="{'rs-active': tab.isCurrentTab(t)}" ng-repeat="t in tab.getTabs()" title="{{ t }}">{{ t }}</li>
+  </ul>
+</div>
+<div class="trends rs-add-block rs-block10" ng-repeat="t in trends"
+  ng-if="
+    ((TrendsType.question == t.type || TrendsType.answer == t.type) && (tab.isCurrentTab('全部') || tab.isCurrentTab('问答')))
+    || (TrendsType.upload == t.type && (tab.isCurrentTab('全部') || tab.isCurrentTab('文件')))">
   <div class="rs-float-left rs-margin-right-10">
     <a href="#/user/{{ t.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ t.author.logo }}"></a>
     <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"

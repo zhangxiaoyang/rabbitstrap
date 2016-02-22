@@ -413,3 +413,91 @@ app.factory('Comments', function($http) {
     },
   };
 });
+
+
+/*
+ * 路径
+ */
+app.factory('Path', function($http) {
+  return {
+    get: function(callback, pathId) {
+      var result = {
+        id: 'ad3dfad4',
+        paths: [
+          {id: 'ad3dfad4', name: '清华大学'},
+          {id: 'ad3dfad4', name: '信息学院'},
+          {id: 'ad3dfad4', name: '计算机专业'},
+          {id: 'ad3dfad4', name: '数据结构'},
+        ].slice(0, Math.round(Math.random() * 3) + 1),
+        desc: LONG_TEXT,
+        logo: IMG_URL,
+        achievement: {
+          attention: GET_RANDOM(),
+          question: GET_RANDOM(),
+          answer: GET_RANDOM(),
+          upload: GET_RANDOM(),
+        },
+      };
+      callback(result);
+    },
+  };
+});
+
+
+/*
+ * 热门问答
+ */
+app.factory('HotQA', function($http) {
+  return {
+    getByTag: function(callback, tagId) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+      ];
+      callback(result);
+    },
+    getByPath: function(callback, pathId) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+        },
+      ];
+      callback(result);
+    },
+  };
+});
