@@ -1,0 +1,18 @@
+.file-view .title {
+  margin: 10px 0;
+}
+.file-view .wrapper + .splitter {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid  #eee;
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+.file-view .wrapper .file {
+  margin: 10px 0;
+}
+.file-view .wrapper.item .comment {
+  padding: 10px 0;
+  margin: 10px 0;
+  border-bottom: 1px dashed #eee;
+}

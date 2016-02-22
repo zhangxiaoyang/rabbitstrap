@@ -2,8 +2,8 @@
   <div class="rs-float-left rs-margin-right-10">
     <a href="#/user/{{ t.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ t.author.logo }}"></a>
     <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
-      title="有{{ t.like }}个同学{{ t.type | transToChs:'like' }}">
-      {{ t.like }}
+      title="有{{ t.achievement.like }}个同学{{ t.type | transToChs:'like' }}">
+      {{ t.achievement.like }}
     </span>
   </div>
   <div class="rs-add-table">
@@ -11,7 +11,7 @@
       <a href="#/user/{{ t.author.id }}" target="_blank" class="rs-font-size-sm">{{ t.author.name }}</a>
       <span class="rs-font-size-sm rs-lighten">{{ t.type | transToChs:"trends" }}</span> 
       <a href="#/qa/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type != TrendsType.upload">{{ t.name }}</a>
-      <a href="#/doc" class="rs-active rs-clickable" ng-if="t.type == TrendsType.upload">{{ t.name }}</a>
+      <a href="#/file/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type == TrendsType.upload">{{ t.name }}</a>
     </span>
     <span class="rs-pack-height-5"></span>
     <!-- 提问 -->

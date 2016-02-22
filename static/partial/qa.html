@@ -8,8 +8,8 @@
         <div class="rs-float-left rs-margin-right-10">
           <a href="#/user/{{ question.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ question.author.logo }}"></a>
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
-            title="有{{ question.like }}个同学{{ question.type | transToChs:'like' }}">
-            {{ question.like }}
+            title="有{{ question.achievement.like }}个同学{{ question.type | transToChs:'like' }}">
+            {{ question.achievement.like }}
           </span>
         </div>
         <div class="rs-add-table">
@@ -45,8 +45,8 @@
         <div class="rs-float-left rs-margin-right-10">
           <a href="#/user/{{ a.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ a.author.logo }}"></a>
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
-            title="有{{ a.like }}个同学{{ a.type | transToChs:'like' }}">
-            {{ a.like }}
+            title="有{{ a.achievement.like }}个同学{{ a.type | transToChs:'like' }}">
+            {{ a.achievement.like }}
           </span>
         </div>
         <div class="rs-add-table">
@@ -75,7 +75,7 @@
       <div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">{{ loading }}</div>
       <div class="rs-pack-height-10"></div>
     </div>
-    <div class="rs-quote">发布你的回答</div>
+    <div style="background: #333; height: 100px; color: white">发布回答区域</div>
   </div>
   <!--
   Right

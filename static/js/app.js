@@ -22,15 +22,15 @@ app.config(function($routeProvider) {
     controller: 'UserController',
     templateUrl: '/static/partial/user.html'
   })
-  .when('/doc',
-  {
-    controller: 'DocController',
-    templateUrl: '/static/partial/doc.html'
-  })
   .when('/tag/:id',
   {
     controller: 'TagController',
     templateUrl: '/static/partial/tag.html'
+  })
+  .when('/file/:id',
+  {
+    controller: 'FileController',
+    templateUrl: '/static/partial/file.html'
   })
   .otherwise({ redirectTo: '/home' });
 });
