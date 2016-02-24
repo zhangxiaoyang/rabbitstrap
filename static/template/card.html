@@ -1,0 +1,26 @@
+<div class="card rs-card">
+  <a href="#/user/{{ user.id }}" target="_blank" class="rs-float-left rs-margin-right-5 rs-dropdown-target"><img class="rs-logo-circle" ng-src="{{ user.logo }}"></a>
+  <span class="rs-font-size-sm">{{ user.name }}</span>
+  <span class="rs-lighten rs-font-size-sm">{{ user.desc | limitTo:20 }}{{ user.desc.length > 20 ? '...' : ''}}</span>
+  <a href="#/path/{{ path.id }}" target="_blank" class="rs-add-block rs-lighten rs-font-size-sm">{{ user.path.name.replaceAll(';', ' / ') }}</a>
+  <div class="rs-add-block">
+    <a href="#/user/{{ user.id }}" target="_blank"  class="rs-clickable">{{ user.achievement.like }}</a> <a class="rs-font-size-sm rs-lighten">赞</a>
+    <a class="rs-divider"></a>
+    <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.flower }}</a> <a class="rs-font-size-sm rs-lighten">粉</a>
+    <a class="rs-divider"></a>
+    <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+    <a class="rs-divider"></a>
+    <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+    <a class="rs-divider"></a>
+    <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.upload }}</a> <a class="rs-font-size-sm rs-lighten">传</a>
+  </div>
+  <hr>
+  <span class="rs-add-block rs-font-size-sm-all rs-lighten-all" ng-repeat="e in user.experiences">
+    <i class="typcn typcn-media-record-outline"></i> {{ e.time }} {{ e.place }} {{ e.desc }}
+  </span>
+  <hr>
+  <div class="rs-align-right">
+    <button class="rs-btn-sm">已关注</button>
+    <button class="rs-btn-sm">访问主页</button>
+  </div>
+</div>

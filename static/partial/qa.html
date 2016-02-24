@@ -6,7 +6,10 @@
     <div class="wrapper">
       <div class="qa rs-add-block rs-block10">
         <div class="rs-float-left rs-margin-right-10">
-          <a href="#/user/{{ question.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ question.author.logo }}"></a>
+          <a href="#/user/{{ question.author.id }}" target="_blank" class="rs-dropdown-target">
+            <img class="rs-logo-circle-sm" ng-src="{{ question.author.logo }}">
+            <div ng-include src="'/static/template/card.html'" class="rs-dropdown animated fadeIn" ng-controller="CardController"></div>
+          </a>
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
             title="有{{ question.achievement.like }}个同学{{ question.type | transToChs:'like' }}">
             {{ question.achievement.like }}
@@ -43,7 +46,10 @@
     <div class="wrapper item">
       <div class="qa rs-add-block rs-block10" ng-repeat="a in answers">
         <div class="rs-float-left rs-margin-right-10">
-          <a href="#/user/{{ a.author.id }}" target="_blank"><img class="rs-logo-circle-sm" ng-src="{{ a.author.logo }}"></a>
+          <a href="#/user/{{ a.author.id }}" target="_blank" class="rs-dropdown-target">
+            <img class="rs-logo-circle-sm" ng-src="{{ a.author.logo }}">
+            <div ng-include src="'/static/template/card.html'" class="rs-dropdown animated fadeIn" ng-controller="CardController"></div>
+          </a>
           <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
             title="有{{ a.achievement.like }}个同学{{ a.type | transToChs:'like' }}">
             {{ a.achievement.like }}
