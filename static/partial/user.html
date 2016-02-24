@@ -1,0 +1,79 @@
+<div class="user-view"><div class="rs-block10">
+  <!--
+  Left
+  ===============================================-->
+  <div class="rs-block10-7" ng-switch on="tab.getCurrentTab()">
+    <div class="wrapper">
+      <div class="user rs-add-block rs-block10">
+        <div class="rs-float-left rs-margin-right-10">
+          <img class="rs-logo-circle-lg" ng-src="{{ user.logo }}">
+        </div>
+        <div class="rs-add-table">
+          <span class="rs-active-all rs-clickable-all rs-font-size-lg-all rs-margin-bottom-5">
+            <span class="rs-margin-right-5">{{ user.name }}</span>
+          </span>
+          <a class="rs-margin-left-5 rs-clickable rs-lighten rs-font-size-sm">取消关注</a>
+          <span class="rs-add-block">{{ user.desc | limitTo:30 }}{{ user.desc.length > 30 ? '...' : ''}}</span>
+          <div class="rs-font-size-sm-all rs-margin-top-5">
+            <span class="rs-add-block" ng-repeat="e in user.experiences">
+              <i class="typcn typcn-media-record-outline rs-lighten"></i> {{ e.time }} {{ e.place }} {{ e.desc }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="tab">
+      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['我的动态', '我的关注']); tab.setCurrentTab('我的动态')">
+        <li class="rs-font-size-lg"
+          ng-click="tab.setCurrentTab(t)"
+          ng-class="{'rs-active': tab.isCurrentTab(t)}"
+          ng-repeat="t in tab.getTabs()"
+          title="{{ t }}">
+          {{ t }}
+        </li>
+      </ul>
+    </div>
+    <div class="wrapper" ng-switch-when="我的动态">
+      <div ng-include src="'/static/template/trends.html'" class="animated fadeIn" ng-controller="TrendsController"></div>
+    </div>
+    <div class="wrapper" ng-switch-when="我的关注">
+      <div ng-include src="'/static/template/attention.html'" class="animated fadeIn" ng-controller="AttentionController"></div>
+    </div>
+  </div>
+  <!--
+  Right
+  ===============================================-->
+  <div class="rs-block10-3">
+    <div class="rs-block10 rs-margin-left-20">
+      <div class="wrapper">
+        <div ng-include src="'/static/template/action.html'"></div>
+      </div>
+      <div class="rs-pack-height-10"></div>
+      <div class="wrapper">
+        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">我的成就</div>
+        <div class="rs-add-block">
+          <a href="#/user/{{ user.id }}" target="_blank"  class="rs-clickable">{{ user.achievement.like }}</a> <a class="rs-font-size-sm rs-lighten">赞</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.flower }}</a> <a class="rs-font-size-sm rs-lighten">粉</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+          <a class="rs-divider"></a>
+          <a href="#/user/{{ user.id }}" target="_blank" class="rs-clickable">{{ user.achievement.upload }}</a> <a class="rs-font-size-sm rs-lighten">传</a>
+        </div>
+      </div>
+      <div class="rs-pack-height-10"></div>
+      <div class="wrapper">
+        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">最近来访</div>
+        <div class="rs-add-block rs-add-pointer rs-margin-bottom-5">
+          <a href="#/user/{{ v.id }}" target="_blank" class="rs-font-size rs-clickable" title="{{ v.name }}" ng-repeat="v in visitors">
+            <img ng-src="{{ v.logo }}" class="rs-logo-circle-sm">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+

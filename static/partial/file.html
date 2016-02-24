@@ -15,7 +15,7 @@
         <div class="rs-add-table">
           <span class="rs-active rs-clickable rs-add-block rs-font-size-lg rs-margin-bottom-5">{{ file.name }}</span>
           <div style="background: #333; height: 800px; color: white;">预览区域</div>
-          <!-- 文件 -->
+          <!-- 资料 -->
           <span class="rs-add-table rs-margin-top-5">{{ file.desc }}</span>
           <div class="rs-add-block rs-font-size-sm-child rs-lighten-all rs-margin-top-5">
             <span><i class="typcn typcn-eye-outline"></i> {{ file.achievement.view }} 人浏览</span>
@@ -70,7 +70,7 @@
       </div>
       <div class="rs-pack-height-10"></div>
       <div class="wrapper">
-        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">相关文件</div>
+        <div class="title rs-font-size-lg rs-color-theme rs-add-bold">相关资料</div>
         <div class="rs-add-block rs-add-pointer rs-margin-bottom-5" ng-repeat="f in relatedFiles">
           <a href="#/file/{{ f.id }}" target="_blank" class="rs-font-size rs-clickable">{{ f.name }}</a>
         </div>

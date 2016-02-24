@@ -15,6 +15,9 @@
         <div class="rs-add-table">
           <div class="tags rs-margin-bottom-5">
             <a href="#/tag/{{ t.id }}" target="_blank" class="rs-badge-sm rs-badge-primary rs-margin-right-10" ng-repeat="t in question.tags">{{ t.name }}</a>
+            <a href="#/path/{{ question.path.id }}" target="_blank" class="rs-badge-sm rs-badge-primary" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+              {{ showFullPath ? question.path.name.replaceAll(';', ' / ') : question.path.name.split(';')[0] }}
+            </a>
           </div>
           <span class="rs-active rs-clickable rs-add-block rs-font-size-lg rs-margin-bottom-5">{{ question.name }}</span>
           <!-- 提问 -->
@@ -25,9 +28,6 @@
           <div class="rs-add-block rs-font-size-sm-child rs-lighten-all rs-margin-top-5">
             <span>
               <i class="typcn typcn-time"></i>发布于 {{ question.time }}
-              <a href="#/path/{{ question.path.id }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
-                {{ showFullPath ? question.path.name.replaceAll(';', ' / ') : question.path.name.split(';')[0] }}
-              </a>
             </span>
             <span class="rs-margin-left-10"><i class="typcn typcn-eye-outline"></i> {{ question.achievement.view }} 次浏览</span>
             <span class="rs-margin-left-10 rs-clickable"><i class="typcn typcn-export-outline"></i> 分享</span>

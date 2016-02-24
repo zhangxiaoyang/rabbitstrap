@@ -102,7 +102,10 @@ app.factory('User', function($http) {
     get: function(callback) {
       var result = {
         id: 'ad3dfad4',
+        name: '小明',
         logo: IMG_URL,
+        desc: LONG_TEXT,
+        path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
         achievement: {
           like: GET_RANDOM(),
           flower: GET_RANDOM(),
@@ -110,6 +113,11 @@ app.factory('User', function($http) {
           answer: GET_RANDOM(),
           upload: GET_RANDOM(),
         },
+        experiences: [
+          {time: '2015年1月', place: '网易', desc: '实习'},
+          {time: '2014年8月', place: '腾讯', desc: '实习'},
+          {time: '2013年12月', place: '中科院', desc: '三好学生'},
+        ],
       };
       callback(result);
     },
@@ -358,29 +366,6 @@ app.factory('File', function($http, TrendsType) {
           view: GET_RANDOM(),
           download: GET_RANDOM(),
           comment: GET_RANDOM(),
-        },
-      };
-      callback(result);
-    },
-  };
-});
-
-
-/*
- * 标签
- */
-app.factory('Tag', function($http) {
-  return {
-    get: function(callback, tagId) {
-      var result = {
-        id: 'ad3dfad4',
-        name: '编程',
-        desc: LONG_TEXT,
-        logo: IMG_URL,
-        achievement: {
-          attention: GET_RANDOM(),
-          question: GET_RANDOM(),
-          answer: GET_RANDOM(),
         },
       };
       callback(result);

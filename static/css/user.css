@@ -1,0 +1,13 @@
+.user-view .title {
+  margin: 10px 0;
+}
+.user-view .wrapper + .splitter {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid  #eee;
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+.user-view .wrapper .user {
+  margin: 10px 0;
+}
