@@ -20,7 +20,7 @@
   </span>
   <hr>
   <div class="rs-align-right">
-    <button class="rs-btn-sm">已关注</button>
-    <button class="rs-btn-sm">访问主页</button>
+    <a class="rs-btn-sm" ng-click="$event.stopPropagation();">已关注</a>
+    <a href="#/user/{{ user.id }}" target="_blank" class="rs-btn-sm">访问主页</a>
   </div>
 </div>

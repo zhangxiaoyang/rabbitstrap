@@ -68,8 +68,9 @@
       <div class="wrapper">
         <div class="title rs-font-size-lg rs-color-theme rs-add-bold">最近来访</div>
         <div class="rs-add-block rs-add-pointer rs-margin-bottom-5">
-          <a href="#/user/{{ v.id }}" target="_blank" class="rs-font-size rs-clickable" title="{{ v.name }}" ng-repeat="v in visitors">
+          <a href="#/user/{{ v.id }}" target="_blank" class="rs-add-inline-block rs-margin-right-5 rs-font-size rs-clickable rs-dropdown-target" title="{{ v.name }}" ng-repeat="v in visitors">
             <img ng-src="{{ v.logo }}" class="rs-logo-circle-sm">
+            <div ng-include src="'/static/template/card.html'" class="rs-dropdown animated fadeIn" ng-controller="CardController"></div>
           </a>
         </div>
       </div>
