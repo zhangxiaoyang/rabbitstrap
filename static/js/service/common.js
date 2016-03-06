@@ -414,6 +414,14 @@ app.factory('Path', function($http) {
           {id: 'ad3dfad4', name: '计算机专业'},
           {id: 'ad3dfad4', name: '数据结构'},
         ].slice(0, Math.round(Math.random() * 3) + 1),
+        subpaths: [
+          {id: 'ad3dfad4', name:'清华大学;信息学院;计算机专业'},
+          {id: 'ad3dfad4', name:'清华大学;信息学院;软件专业'},
+          {id: 'ad3dfad4', name:'清华大学;信息学院;信息专业'},
+          {id: 'ad3dfad4', name:'清华大学;信息学院;硬件专业'},
+          {id: 'ad3dfad4', name:'清华大学;信息学院;情报专业'},
+          {id: 'ad3dfad4', name:'清华大学;信息学院;密码专业'},
+        ],
         desc: LONG_TEXT,
         logo: IMG_URL,
         achievement: {
