@@ -4,7 +4,8 @@
   "description": "",
   "main": "serve.js",
   "dependencies": {
-    "connect": "^2.28.3"
+    "connect": "^2.28.3",
+    "less": "^2.6.1"
   },
   "devDependencies": {},
   "scripts": {

@@ -8,7 +8,7 @@ cd rabbitstrap && git checkout dev-rs2
 
 Step 2:
 ```
-npm install
+./preinstall.sh
 node serve.js
 ```
 
