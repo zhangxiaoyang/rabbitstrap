@@ -4,7 +4,7 @@
   ===============================================-->
   <div class="rs-block10-7" ng-switch on="tab.getCurrentTab()">
     <div class="tab">
-      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['动态', '我的关注']); tab.setCurrentTab('动态')">
+      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['动态', '广场', '我的关注']); tab.setCurrentTab('动态')">
         <li class="rs-font-size-lg"
           ng-click="tab.setCurrentTab(t)"
           ng-class="{'rs-active': tab.isCurrentTab(t)}"
@@ -16,6 +16,9 @@
     </div>
     <div class="wrapper" ng-switch-when="动态">
       <div ng-include src="'/static/template/trends.html'" class="animated fadeIn" ng-controller="TrendsController"></div>
+    </div>
+    <div class="wrapper" ng-switch-when="广场">
+      <div ng-include src="'/static/template/square.html'" class="animated fadeIn" ng-controller="SquareController"></div>
     </div>
     <div class="wrapper" ng-switch-when="我的关注">
       <div ng-include src="'/static/template/attention.html'" class="animated fadeIn" ng-controller="AttentionController"></div>

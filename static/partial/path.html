@@ -25,7 +25,7 @@
     <div class="splitter wrapper">
       <div class="rs-block10">
         <div class="rs-block10-5 rs-clickable" ng-repeat="p in path.subpaths">
-          <a href="#/path/{ {p.id }}" target="_blank" class="rs-clickable">
+          <a href="#/path/{{p.id }}" target="_blank" class="rs-clickable">
             {{ p.name.split(';')[p.name.split(';').length - 1] }}
           </a>
         </div>
