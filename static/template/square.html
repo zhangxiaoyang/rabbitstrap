@@ -1,0 +1,117 @@
+<div ng-switch on="tab.getCurrentTab()">
+  <div class="tab rs-align-center rs-font-size-all">
+    <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['问答', '服务', '同学']); tab.setCurrentTab('问答')">
+      <li class="rs-font-size-lg" ng-click="tab.setCurrentTab(t)" ng-class="{'rs-active': tab.isCurrentTab(t)}" ng-repeat="t in tab.getTabs()" title="{{ t }}">{{ t }}</li>
+    </ul>
+  </div>
+  <div ng-switch-when="问答" class="square" ng-repeat="q in square.qa">
+    <div class="rs-float-left rs-margin-right-10">
+      <a href="#/user/{{ q.author.id }}" target="_blank" class="rs-dropdown-target">
+        <img class="rs-logo-circle-sm" ng-src="{{ q.author.logo }}">
+        <div ng-include src="'/static/template/card.html'" class="rs-dropdown animated fadeIn" ng-controller="CardController"></div>
+      </a>
+      <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
+        title="有{{ q.achievement.like }}个同学{{ q.type | transToChs:'like' }}">
+        {{ q.achievement.like }}
+      </span>
+    </div>
+    <div class="rs-add-table">
+      <span class="rs-add-block">
+        <a href="#/user/{{ q.author.id }}" target="_blank" class="rs-font-size-sm">{{ q.author.name }}</a>
+        <span class="rs-font-size-sm rs-lighten">{{ q.type | transToChs:"trends" }}</span> 
+        <a href="#/q/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.question || q.type == TrendsType.answer">{{ q.name }}</a>
+        <a href="#/file/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.upload">{{ q.name }}</a>
+        <a href="#/serve/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.serve">{{ q.name }}</a>
+      </span>
+      <span class="rs-pack-height-5"></span>
+      <!-- 提问 -->
+      <span class="rs-add-table" ng-if="q.type == TrendsType.question && !q.image">
+        <span class="rs-lines-3 rs-add-pointer">{{ q.desc }}</span>
+      </span>
+      <span class="rs-add-table" ng-if="q.type == TrendsType.question && q.image">
+        <div class="rs-block10">
+          <img class="rs-block10-3" ng-src="{{ q.image }}">
+          <div class="rs-block10-7">
+            <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ q.desc }}</span>
+          </div>
+        </div>
+      </span>
+      <!-- 回答 -->
+      <span class="rs-add-table" ng-if="q.type == TrendsType.answer && !q.image">
+        <span class="rs-lines-3 rs-add-pointer">{{ q.desc }}</span>
+      </span>
+      <span class="rs-add-table" ng-if="q.type == TrendsType.answer && q.image">
+        <div class="rs-block10">
+          <img class="rs-block10-3" ng-src="{{ q.image }}">
+          <div class="rs-block10-7">
+            <span class="rs-lines-5 rs-margin-left-5 rs-add-pointer">{{ q.desc }}</span>
+          </div>
+        </div>
+      </span>
+      <!-- 时间 -->
+      <div class="rs-add-block rs-font-size-sm rs-lighten rs-margin-top-5">
+        <i class="typcn typcn-time"></i>发布于 {{ q.time }}
+      </div>
+    </div>
+  </div>
+  <div ng-switch-when="服务" class="square" ng-repeat="s in square.services">
+    <div class="rs-float-left rs-margin-right-10">
+      <a href="#/user/{{ s.author.id }}" target="_blank" class="rs-dropdown-target">
+        <img class="rs-logo-circle-sm" ng-src="{{ s.author.logo }}">
+        <div ng-include src="'/static/template/card.html'" class="rs-dropdown animated fadeIn" ng-controller="CardController"></div>
+      </a>
+      <span class="rs-badge-sm rs-badge-primary rs-add-block rs-clickable rs-align-center"
+        title="有{{ s.achievement.like }}个同学{{ s.type | transToChs:'like' }}">
+        {{ s.achievement.like }}
+      </span>
+    </div>
+    <div class="rs-add-table">
+      <span class="rs-add-block">
+        <a href="#/user/{{ s.author.id }}" target="_blank" class="rs-font-size-sm">{{ s.author.name }}</a>
+        <span class="rs-font-size-sm rs-lighten">{{ s.type | transToChs:"trends" }}</span> 
+        <a href="#/s/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.question || s.type == TrendsType.answer">{{ s.name }}</a>
+        <a href="#/file/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.upload">{{ s.name }}</a>
+        <a href="#/serve/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.serve">{{ s.name }}</a>
+      </span>
+      <span class="rs-pack-height-5"></span>
+      <!-- 服务 -->
+      <span class="rs-add-table" ng-if="s.type == TrendsType.serve">
+        <span class="rs-lines-3 rs-add-pointer rs-margin-bottom-5">{{ s.desc }}</span>
+        <button class="rs-btn rs-font-size-sm"><i class="typcn typcn-heart-outline"></i> 请求辅导</button>
+      </span>
+      <!-- 时间 -->
+      <div class="rs-add-block rs-font-size-sm rs-lighten rs-margin-top-5">
+        <i class="typcn typcn-time"></i>发布于 {{ s.time }}
+      </div>
+    </div>
+  </div>
+  <div ng-switch-when="同学" class="square" ng-repeat="u in square.users">
+    <a href="#/user/{{ u.id }}" target="_blank"><img class="rs-logo-circle rs-float-left rs-margin-right-10" ng-src="{{ u.logo }}"></a>
+    <div class="rs-add-table">
+      <div class="rs-add-block rs-margin-bottom-5">
+        <a href="#/user/{{ u.id }}" target="_blank" class="rs-active rs-clickable">{{ u.name }}</a>
+      </div>
+      <div class="rs-add-block">
+        <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.like }}</a> <a class="rs-font-size-sm rs-lighten">赞</a>
+        <a class="rs-divider"></a>
+        <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.flower }}</a> <a class="rs-font-size-sm rs-lighten">粉</a>
+        <a class="rs-divider"></a>
+        <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.question }}</a> <a class="rs-font-size-sm rs-lighten">问</a>
+        <a class="rs-divider"></a>
+        <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.answer }}</a> <a class="rs-font-size-sm rs-lighten">答</a>
+        <a class="rs-divider"></a>
+        <a href="#/user/{{ u.id }}" target="_blank" class="rs-clickable">{{ u.achievement.upload }}</a> <a class="rs-font-size-sm rs-lighten">传</a>
+      </div>
+      <span class="rs-add-table rs-margin-top-5">
+        <span class="rs-lines-2-sm rs-lighten">{{ u.desc }}</span>
+      </span>
+      <div class="rs-margin-top-5 rs-font-size-sm-all rs-lighten-all">
+        <a href="#/path/{{ u.path.id }}" target="_blank" class="rs-add-pointer rs-lighten rs-font-size-sm" ng-mouseenter="showFullPath = true" ng-mouseleave="showFullPath = false">
+          {{ showFullPath ? u.path.name.replaceAll(';', ' / ') : u.path.name.split(';')[0] }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">{{ loading }}</div>
+  <div class="rs-pack-height-10"></div>
+</div>

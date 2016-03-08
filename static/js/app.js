@@ -44,7 +44,7 @@ app.config(function($routeProvider) {
 /*
  * Constants
  */
-app.constant('TrendsType', {question: 0, answer: 1, upload: 2});
+app.constant('TrendsType', {question: 0, answer: 1, upload: 2, serve: 3});
 app.run(function ($rootScope, TrendsType) {
   $rootScope.TrendsType = TrendsType;
 });
@@ -57,15 +57,17 @@ app.filter('transToChs', function(TrendsType) {
   return function(input, type) {
     if(type == 'trends') {
       var dict = {};
-      dict[TrendsType.question] = '提问了';
-      dict[TrendsType.answer] = '回答了';
-      dict[TrendsType.upload] = '上传了';
+      dict[TrendsType.question] = '发起问题';
+      dict[TrendsType.answer] = '回答问题';
+      dict[TrendsType.upload] = '上传资料';
+      dict[TrendsType.serve] = '发布服务';
       return dict[input];
     } else if(type == 'like') {
       var dict = {};
       dict[TrendsType.question] = '想知道';
       dict[TrendsType.answer] = '觉得赞';
       dict[TrendsType.upload] = '觉得赞';
+      dict[TrendsType.serve] = '觉得赞';
       return dict[input];
     } else {
       console.log("transToChs Error!")

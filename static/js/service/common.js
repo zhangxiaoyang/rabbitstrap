@@ -87,6 +87,24 @@ app.factory('Trends', function($http, TrendsType) {
           image: null,
           time: '2014年11月12日 23:12',
         },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.serve,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '算法辅导',
+          desc: LONG_TEXT,
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+          },
+          image: null,
+          time: '2014年11月12日 23:12',
+        },
       ];
       callback(result);
     },
@@ -261,6 +279,128 @@ app.factory('Attention', function($http) {
 });
 
 
+/*
+ * 广场
+ */
+app.factory('Square', function($http, TrendsType) {
+  var thisService = {
+    getQA: function(callback) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.question,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          desc: LONG_TEXT,
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+          },
+          image: IMG_URL,
+          time: '今天 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.question,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          desc: LONG_TEXT,
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+          },
+          image: null,
+          time: '昨天 23:12',
+        },
+      ];
+      callback(result);
+      return thisService;
+    },
+    getServices: function(callback) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.serve,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '算法辅导',
+          desc: LONG_TEXT,
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+          },
+          image: null,
+          time: '2014年11月12日 23:12',
+        },
+      ]
+      callback(result);
+      return thisService;
+    },
+    getUsers: function(callback, userId) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+          logo: IMG_URL,
+          desc: LONG_TEXT,
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+            flower: GET_RANDOM(),
+            question: GET_RANDOM(),
+            answer: GET_RANDOM(),
+            upload: GET_RANDOM(),
+          },
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+          logo: IMG_URL,
+          desc: LONG_TEXT,
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+            flower: GET_RANDOM(),
+            question: GET_RANDOM(),
+            answer: GET_RANDOM(),
+            upload: GET_RANDOM(),
+          },
+        },
+        {
+          id: 'ad3dfad4',
+          name: '数据结构',
+          logo: IMG_URL,
+          desc: LONG_TEXT,
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+            flower: GET_RANDOM(),
+            question: GET_RANDOM(),
+            answer: GET_RANDOM(),
+            upload: GET_RANDOM(),
+          },
+        },
+      ];
+      callback(result);
+      return thisService;
+    },
+  };
+  return thisService;
+});
 /*
  * 问答
  */
