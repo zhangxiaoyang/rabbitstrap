@@ -21,7 +21,7 @@
         <span class="rs-font-size-sm rs-lighten">{{ q.type | transToChs:"trends" }}</span> 
         <a href="#/q/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.question || q.type == TrendsType.answer">{{ q.name }}</a>
         <a href="#/file/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.upload">{{ q.name }}</a>
-        <a href="#/serve/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.serve">{{ q.name }}</a>
+        <a href="#/service/{{ q.id }}" target="_blank" class="rs-active rs-clickable" ng-if="q.type == TrendsType.serve">{{ q.name }}</a>
       </span>
       <span class="rs-pack-height-5"></span>
       <!-- 提问 -->
@@ -71,7 +71,7 @@
         <span class="rs-font-size-sm rs-lighten">{{ s.type | transToChs:"trends" }}</span> 
         <a href="#/s/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.question || s.type == TrendsType.answer">{{ s.name }}</a>
         <a href="#/file/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.upload">{{ s.name }}</a>
-        <a href="#/serve/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.serve">{{ s.name }}</a>
+        <a href="#/service/{{ s.id }}" target="_blank" class="rs-active rs-clickable" ng-if="s.type == TrendsType.serve">{{ s.name }}</a>
       </span>
       <span class="rs-pack-height-5"></span>
       <!-- 服务 -->

@@ -25,7 +25,7 @@
         <span class="rs-font-size-sm rs-lighten">{{ t.type | transToChs:"trends" }}</span> 
         <a href="#/qa/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type == TrendsType.question || t.type == TrendsType.answer">{{ t.name }}</a>
         <a href="#/file/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type == TrendsType.upload">{{ t.name }}</a>
-        <a href="#/serve/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type == TrendsType.serve">{{ t.name }}</a>
+        <a href="#/service/{{ t.id }}" target="_blank" class="rs-active rs-clickable" ng-if="t.type == TrendsType.serve">{{ t.name }}</a>
       </span>
       <span class="rs-pack-height-5"></span>
       <!-- 提问 -->

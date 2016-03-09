@@ -342,6 +342,28 @@ app.factory('Square', function($http, TrendsType) {
           path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
           achievement: {
             like: GET_RANDOM(),
+            service: GET_RANDOM(),
+            comment: GET_RANDOM(),
+          },
+          image: null,
+          time: '2014年11月12日 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.serve,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '算法辅导',
+          desc: LONG_TEXT,
+          tags: [
+            {id: 'e20fea12', name: '编程'},
+            {id: 'e20fea12', name: '教程'},
+            {id: 'e20fea12', name: 'C++'},
+          ],
+          path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+          achievement: {
+            like: GET_RANDOM(),
+            service: GET_RANDOM(),
+            comment: GET_RANDOM(),
           },
           image: null,
           time: '2014年11月12日 23:12',
@@ -507,6 +529,38 @@ app.factory('File', function($http, TrendsType) {
           download: GET_RANDOM(),
           comment: GET_RANDOM(),
         },
+      };
+      callback(result);
+    },
+  };
+});
+
+
+/*
+ * 服务
+ */
+app.factory('Service', function($http, TrendsType) {
+  return {
+    get: function(callback, tagId) {
+      var result = {
+        id: 'ad3dfad4',
+        type: TrendsType.serve,
+        author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+        name: '算法辅导',
+        desc: LONG_TEXT,
+        tags: [
+          {id: 'e20fea12', name: '编程'},
+          {id: 'e20fea12', name: '教程'},
+          {id: 'e20fea12', name: 'C++'},
+        ],
+        path: { id: 'e20fea12', name: '清华大学;信息学院;计算机专业'},
+        achievement: {
+          like: GET_RANDOM(),
+          service: GET_RANDOM(),
+          comment: GET_RANDOM(),
+        },
+        image: null,
+        time: '2014年11月12日 23:12',
       };
       callback(result);
     },

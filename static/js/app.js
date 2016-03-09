@@ -37,6 +37,11 @@ app.config(function($routeProvider) {
     controller: 'PathController',
     templateUrl: '/static/partial/path.html'
   })
+  .when('/service/:id',
+  {
+    controller: 'ServiceController',
+    templateUrl: '/static/partial/service.html'
+  })
   .otherwise({ redirectTo: '/home' });
 });
 
