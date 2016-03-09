@@ -42,6 +42,9 @@ app.config(function($routeProvider) {
     controller: 'ServiceController',
     templateUrl: '/static/partial/service.html'
   })
+  .when('/login', {
+    controller: 'LoginController',
+  })
   .otherwise({ redirectTo: '/home' });
 });
 
@@ -50,8 +53,10 @@ app.config(function($routeProvider) {
  * Constants
  */
 app.constant('TrendsType', {question: 0, answer: 1, upload: 2, serve: 3});
-app.run(function ($rootScope, TrendsType) {
+app.run(function ($rootScope, TrendsType, $route, $location) {
+  $route.reload(); // ng-view in ng-include
   $rootScope.TrendsType = TrendsType;
+  $rootScope.curPath = $location.path();
 });
 
 

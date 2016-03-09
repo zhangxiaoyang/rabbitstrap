@@ -6,52 +6,52 @@
 /**
  * Navbar
  */
-body > .rs-navbar {
+body > div > .rs-navbar {
   height: 30px;
   background: #333;
 }
-body > .rs-navbar .rs-navbar-list {
+body > div > .rs-navbar .rs-navbar-list {
   margin: 0 5px;
 }
-body > .rs-navbar .rs-navbar-list:nth-child(2) {
+body > div > .rs-navbar .rs-navbar-list:nth-child(2) {
   float: right;
 }
-body > .rs-navbar .rs-navbar-list > li {
+body > div > .rs-navbar .rs-navbar-list > li {
   padding: 5px;
   margin: 0;
 }
-body > .rs-navbar .rs-navbar-list > li > a {
+body > div > .rs-navbar .rs-navbar-list > li > a {
   color: white;
 }
-body > .rs-navbar .rs-navbar-list > li:hover {
+body > div > .rs-navbar .rs-navbar-list > li:hover {
   background: #444;
 }
 
 /**
  * Banner
  */
-body > .banner {
+body > div > .banner {
   background: #f2f7f6; 
   padding: 20px 0;
 }
-body > .banner > .rs-container {
+body > div > .banner > .rs-container {
   text-align: center;
 }
-body > .banner > .rs-container > * {
+body > div > .banner > .rs-container > * {
   display: inline-block;
 }
-body > .banner > .rs-container > .logo {
+body > div > .banner > .rs-container > .logo {
   font-size: 24px;
   margin-right: 10px;
 }
-body > .banner > .rs-container > .logo > span {
+body > div > .banner > .rs-container > .logo > span {
   font-size: 18px;
 }
-body > .banner > .rs-container > .search > input {
+body > div > .banner > .rs-container > .search > input {
   padding-right: 28px;
   width: 380px;
 }
-body > .banner > .rs-container > .search > i {
+body > div > .banner > .rs-container > .search > i {
   position: absolute;
   right: 5px;
   bottom: 7px;
@@ -63,6 +63,6 @@ body > .banner > .rs-container > .search > i {
 /**
  * Skin
  */
-body > .rs-skin {
+body > div > .rs-skin {
   background-color: lightblue;
 }

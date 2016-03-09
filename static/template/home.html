@@ -1,0 +1,33 @@
+<!--
+Skin
+===============================================-->
+<!--<div class="rs-skin"></div>-->
+<!--
+Navbar
+===============================================-->
+<div class="rs-navbar">
+  <ul class="rs-navbar-list">
+    <li>
+      <a href="#" class="rs-font-size-sm">校园星空</a>
+    </li>
+  </ul>
+  <ul class="rs-navbar-list">
+    <li><a ng-click="goPage('/login')" class="rs-font-size-sm">登录</a></li>
+    <li><a ng-click="goPage('/register')" class="rs-font-size-sm">注册</a></li>
+  </ul>
+</div>
+<!--
+View
+===============================================-->
+<div class="banner">
+  <div class="rs-container">
+    <a href="/" class="logo rs-color-theme">校园星空</a>
+    <div class="search">
+      <input class="rs-input-text" type="text" placeholder="搜索 问题、回答、大学、专业、课程资料"><i class="fa fa-search"></i>
+    </div>
+  </div>
+</div>
+<div class="rs-container">
+  <div ng-view></div>
+</div>
+<div ng-include src="'/static/template/footer.html'" class="animated fadeIn"></div>

@@ -8,7 +8,6 @@
   Basic
   ===============================================-->
   <link rel="stylesheet" href="/static/css/rabbitstrap.css">
-  <script src="/static/vendor/less/less.min.js"></script>
   <!--1.5.0-beta.2-->
   <script src="/static/vendor/angular/angular.min.js"></script>
   <script src="/static/vendor/angular/angular-route.min.js"></script>
@@ -24,6 +23,7 @@
   <link rel="stylesheet" href="/static/css/attention.css">
   <link rel="stylesheet" href="/static/css/card.css">
   <link rel="stylesheet" href="/static/css/square.css">
+  <link rel="stylesheet" href="/static/css/login.css">
 
   <!-- partial -->
   <link rel="stylesheet" href="/static/css/home.css">
@@ -52,6 +52,7 @@
   <script src="/static/js/controller/path.js"></script>
   <script src="/static/js/controller/user.js"></script>
   <script src="/static/js/controller/square.js"></script>
+  <script src="/static/js/controller/login.js"></script>
 
   <!-- template -->
   <script src="/static/js/controller/trends.js"></script>
@@ -67,40 +68,11 @@
 
 </head>
 <body ng-controller="RootController">
-  <!--
-  Skin
-  ===============================================-->
-  <!--<div class="rs-skin"></div>-->
-  <!--
-  View
-  ===============================================-->
-  <div class="banner">
-    <div class="rs-container">
-      <a href="/" class="logo rs-color-theme">校园星空</a>
-      <div class="search">
-        <input class="rs-input-text" type="text" placeholder="搜索 问题、回答、大学、专业、课程资料"><i class="fa fa-search"></i>
-      </div>
-      <div class="rs-font-size-sm-all rs-lighten-all rs-margin-left-20">
-        <a class="rs-clickable">注册</a>
-        <a class="rs-divider"></a>
-        <a class="rs-clickable">登录</a>
-      </div>
-    </div>
-  </div>
-  <div class="rs-container">
-    <div ng-view></div>
-  </div>
-  <!--
-  Footer
-  ===============================================-->
-  <div class="rs-footer rs-margin-top-20">
-    <div>
-      <a class="rs-clickable" href="#">免责声明</a>
-      <div class="rs-divider"></div>
-      <a class="rs-clickable" href="#">意见反馈</a>
-    </div>
-    <div>京ICP备14044088号</div>
-    <div>&copy;2015-2016 www.校园星空.com all rights reserved</div>
-  </div>
+  <div ng-include src="'/static/template/login.html'" class="animated fadeIn"
+    ng-controller="LoginController" ng-if="curPath == '/login'"></div>
+
+  <div ng-include src="'/static/template/home.html'" class="animated fadeIn"
+    ng-controller="HomeController" ng-if="curPath != '/login'"></div>
+
 </body>
 </html>

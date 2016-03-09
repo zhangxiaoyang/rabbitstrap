@@ -1,0 +1,42 @@
+<div class="login">
+  <img src="http://static.friendsbt.com/statics/images/home/study-bg.png">
+  <div ng-if="isLogin">
+    <div class="rs-card">
+      <div>
+        <input type="text" class="rs-input-text" placeholder="邮箱 或 FBT账号">
+        <input type="text" class="rs-input-text" placeholder="密码">
+        <button class="rs-btn rs-active">登录</button>
+      </div>
+      <div class="rs-font-size-sm-all">
+        <span>先逛逛</span>
+        <span>
+          <span>忘记密码</span>
+          <span class="rs-divider rs-margin-left-10 rs-margin-right-10"></span>
+          <span ng-click="setLoginDialog(false)">注册</span>
+        </span>
+      </div>
+    </div>
+    <div class="welcome">欢迎来到校园星空</div>
+  </div>
+  <div ng-if="!isLogin">
+    <div class="rs-card">
+      <div>
+        <input type="text" class="rs-input-text" placeholder="输入 邮箱">
+        <input type="text" class="rs-input-text" placeholder="输入 密码">
+        <input type="text" class="rs-input-text" placeholder="再次输入密码">
+        <input type="text" class="rs-input-text" placeholder="输入 验证码">
+        <button class="rs-btn rs-active">注册</button>
+      </div>
+      <div class="rs-font-size-sm-all">
+        <span>先逛逛</span>
+        <span>
+          <span>忘记密码</span>
+          <span class="rs-divider rs-margin-left-10 rs-margin-right-10"></span>
+          <span ng-click="setLoginDialog(true)">去登录</span>
+        </span>
+      </div>
+    </div>
+    <div class="welcome">欢迎来到校园星空</div>
+  </div>
+</div>
+<div class="footer" ng-include src="'/static/template/footer.html'" class="animated fadeIn"></div>

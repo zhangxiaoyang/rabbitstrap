@@ -1,0 +1,59 @@
+.login {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #050101;
+}
+.login > img {
+  width: 100%;
+}
+.login > div {
+  position: fixed;
+  top: 80px;
+  margin: 30px;
+  left: 0;
+  right: 0;
+}
+.login .welcome {
+  float: left;
+  color: white;
+  font-size: 40px;
+}
+.login .rs-card {
+  float: right;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+}
+.login .rs-card > div:first-child > input,
+.login .rs-card > div:first-child > button
+{
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.login .rs-card > div > span,
+.login .rs-card > div > span > * {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.login .rs-card > div > span:nth-child(1) {
+  float: left;
+}
+.login .rs-card > div > span:nth-child(2) {
+  float: right;
+}
+.login + .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.login + .footer > div {
+  background: rgba(0, 0, 0, 0.3);
+}
+.login + .footer * {
+  color: #eee;
+}
