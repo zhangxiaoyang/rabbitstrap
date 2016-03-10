@@ -714,3 +714,81 @@ app.factory('HotQA', function($http) {
     },
   };
 });
+
+
+/*
+ * 消息中心
+ */
+app.factory('Message', function($http, TrendsType) {
+  return {
+    getNotifications: function(callback, userId) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.question,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          time: '今天 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.question,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          time: '昨天 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.answer,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++',
+          time: '11月12日 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.upload,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '如何快速复习C++.pdf',
+          time: '2014年11月12日 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          type: TrendsType.serve,
+          author: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          name: '算法辅导',
+          time: '2014年11月12日 23:12',
+        },
+      ];
+      callback(result);
+    },
+    getLetters: function(callback, userId) {
+      var result = [
+        {
+          id: 'ad3dfad4',
+          from: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          to: null,
+          content: '今天有空么？',
+          count: GET_RANDOM(),
+          time: '今天 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          from: null,
+          to: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          content: '今天有空么？',
+          count: GET_RANDOM(),
+          time: '今天 23:12',
+        },
+        {
+          id: 'ad3dfad4',
+          from: null,
+          to: {id: 'e20fea12', name: '小明', desc: LONG_TEXT, logo: IMG_URL, path: '清华大学;信息学院;计算机专业'},
+          content: '今天有空么？',
+          count: GET_RANDOM(),
+          time: '今天 23:12',
+        },
+      ];
+      callback(result);
+    }
+  };
+});

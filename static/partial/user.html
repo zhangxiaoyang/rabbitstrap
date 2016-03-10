@@ -24,7 +24,7 @@
     </div>
     <hr>
     <div class="tab">
-      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['我的动态', '我的关注']); tab.setCurrentTab('我的动态')">
+      <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['我的动态', '我的关注', '消息中心']); tab.setCurrentTab('我的动态')">
         <li class="rs-font-size-lg"
           ng-click="tab.setCurrentTab(t)"
           ng-class="{'rs-active': tab.isCurrentTab(t)}"
@@ -39,6 +39,9 @@
     </div>
     <div class="wrapper" ng-switch-when="我的关注">
       <div ng-include src="'/static/template/attention.html'" class="animated fadeIn" ng-controller="AttentionController"></div>
+    </div>
+    <div class="wrapper" ng-switch-when="消息中心">
+      <div ng-include src="'/static/template/message.html'" class="animated fadeIn" ng-controller="MessageController"></div>
     </div>
   </div>
   <!--

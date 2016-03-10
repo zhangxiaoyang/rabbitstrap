@@ -25,20 +25,18 @@
 .login .rs-card {
   margin: auto;
   width: 350px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   padding-bottom: 40px;
 }
-.login .rs-card > div:first-child > input,
-.login .rs-card > div:first-child > button
-{
+.login .rs-card > div:first-child > * {
   display: block;
   width: 100%;
   margin-bottom: 10px;
 }
 .login .rs-card > div > span,
 .login .rs-card > div > span > * {
-  color: gray;
+  color: #eee;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -58,4 +56,13 @@
 }
 .login + .footer * {
   color: #eee;
+}
+.login .code > input {
+  width: 240px;
+}
+.login .code > img {
+  height: 35px;
+  float: right;
+  width: 100px;
+  border-radius: 3px;
 }

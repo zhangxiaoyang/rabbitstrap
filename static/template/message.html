@@ -1,0 +1,50 @@
+<div class="message">
+  <div class="tab rs-align-center rs-font-size-all">
+    <ul class="rs-tabs rs-add-inline-block" ng-init="tab.resetTabs(['通知', '私信']); tab.setCurrentTab('通知')">
+      <li class="rs-font-size-lg" ng-click="tab.setCurrentTab(t)" ng-class="{'rs-active': tab.isCurrentTab(t)}" ng-repeat="t in tab.getTabs()" title="{{ t }}">{{ t }}</li>
+    </ul>
+  </div>
+  <!-- 通知 -->
+  <div class="rs-add-block rs-block10" ng-repeat="n in notifications" ng-if="tab.isCurrentTab('通知')">
+    <a href="#/user/{{ n.author.id }}" target="_blank" class="rs-font-size-sm rs-margin-right-5">{{ n.author.name }}</a>
+    <span class="rs-font-size-sm rs-lighten rs-margin-right-5">{{ n.type | transToChs:"trends" }}</span> 
+    <a href="#/qa/{{ n.id }}" target="_blank" class="rs-active rs-clickable" ng-if="n.type == TrendsType.question || n.type == TrendsType.answer">{{ n.name }}</a>
+    <a href="#/file/{{ n.id }}" target="_blank" class="rs-active rs-clickable" ng-if="n.type == TrendsType.upload">{{ n.name }}</a>
+    <a href="#/service/{{ n.id }}" target="_blank" class="rs-active rs-clickable" ng-if="n.type == TrendsType.serve">{{ n.name }}</a>
+    <div class="rs-add-block rs-font-size-sm rs-lighten rs-margin-top-5">
+      <i class="typcn typcn-time"></i> {{ n.time }}
+    </div>
+    <hr class="rs-dashed">
+  </div>
+  <!-- 私信 -->
+  <div class="rs-add-block rs-block10" ng-repeat="l in letters" ng-if="tab.isCurrentTab('私信')">
+    <div class="rs-float-left rs-margin-right-10">
+      <a href="#/user/{{ l.author.id }}" target="_blank" class="rs-dropdown-target">
+        <img class="rs-logo-circle-sm" ng-src="{{ l.from ? l.from.logo : l.to.logo }}">
+      </a>
+    </div>
+    <div class="rs-add-table">
+      <span class="rs-add-block">
+        <a href="#/user/{{ l.author.id }}" target="_blank" class="rs-font-size-sm">{{ l.from ? l.from.name : '我' }}</a>
+        <span class="rs-font-size-sm rs-lighten rs-margin-right-5">发送给</span> 
+        <a href="#/user/{{ l.author.id }}" target="_blank" class="rs-font-size-sm">{{ l.to ? l.to.name : '我' }}</a>
+        <a href="#/qa/{{ t.id }}" target="_blank" class="rs-active rs-clickable">{{ l.content }}</a>
+      </span>
+    </div>
+    <div class="rs-add-block rs-font-size-sm rs-lighten rs-margin-top-5">
+      <i class="typcn typcn-time"></i> {{ l.time }}
+      <span class="rs-font-size-sm-all rs-float-right">
+        <span class="rs-clickable">共 {{ l.count }}条对话</span>
+        <span class="rs-divider"></span>
+        <span class="rs-clickable">回复</span>
+        <span class="rs-divider"></span>
+        <span class="rs-clickable">删除</span>
+      </span>
+    </div>
+    <hr class="rs-dashed">
+  </div>
+  <div class="rs-align-center rs-font-size-sm rs-lighten rs-clickable" ng-init="loading = '加载更多'" ng-click="loading = '加载中...'">
+    {{ loading }}
+  </div>
+  <div class="rs-pack-height-10"></div>
+</div>
